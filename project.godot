@@ -19,6 +19,10 @@ boot_splash/show_image=false
 boot_splash/use_filter=false
 config/icon="res://assets/app_icon.png"
 
+[autoload]
+
+Events="*res://src/input_events.gd"
+
 [display]
 
 window/size/viewport_width=256
