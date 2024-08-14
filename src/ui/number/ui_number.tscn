@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://ugarwydgnx5v"]
+
+[ext_resource type="Script" path="res://src/ui/number/ui_number.gd" id="1_dy2gm"]
+
+[node name="Number" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_dy2gm")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2

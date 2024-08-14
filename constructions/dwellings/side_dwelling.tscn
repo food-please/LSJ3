@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfjr7jwej158i"]
+
+[ext_resource type="PackedScene" uid="uid://c7rbljhcb51ka" path="res://constructions/construction.tscn" id="1_jgnap"]
+[ext_resource type="Texture2D" uid="uid://uwa3vr46cxm" path="res://constructions/house2.atlastex" id="2_ws7h8"]
+
+[node name="SideDwelling" instance=ExtResource("1_jgnap")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_ws7h8")

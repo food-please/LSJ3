@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ConstructionData" load_steps=4 format=3 uid="uid://dradwxg6m6vq6"]
+
+[ext_resource type="Texture2D" uid="uid://cjs6lun0168if" path="res://constructions/house.atlastex" id="1_lwub6"]
+[ext_resource type="Script" path="res://constructions/construction_data.gd" id="2_qrc4v"]
+[ext_resource type="PackedScene" uid="uid://btknrhq6vq8jg" path="res://constructions/dwellings/brown_dwelling.tscn" id="4_nw0xb"]
+
+[resource]
+script = ExtResource("2_qrc4v")
+icon = ExtResource("1_lwub6")
+variations = Array[PackedScene]([ExtResource("4_nw0xb")])

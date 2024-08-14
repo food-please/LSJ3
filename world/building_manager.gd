@@ -70,6 +70,8 @@ func _place_construction_at_cell(construction: Construction) -> void:
 	var target: = grid.map_to_local(cell)
 	
 	construction.position = target
+	
+	Events.construction_placed.emit(construction)
 
 
 func _on_trash_can_gui_input(event: InputEvent) -> void:

@@ -9,7 +9,7 @@
 [ext_resource type="TileSet" uid="uid://dix67eq0pgx8p" path="res://world/tilesets/building_tileset.tres" id="4_ts88x"]
 [ext_resource type="Texture2D" uid="uid://cwpt6t88mbdqs" path="res://assets/eroge_48.png" id="5_nsjrr"]
 [ext_resource type="Script" path="res://world/building_manager.gd" id="6_a535o"]
-[ext_resource type="PackedScene" uid="uid://x00ggc2fmteu" path="res://src/ui/workers/worker_type.tscn" id="7_kkg66"]
+[ext_resource type="PackedScene" uid="uid://bojbjaa4wbvtc" path="res://citizens/citizen_bar.tscn" id="8_nkyc8"]
 [ext_resource type="PackedScene" uid="uid://dse1e7q3w1xcg" path="res://src/ui/constructions/constructions_bar.tscn" id="8_v5mau"]
 [ext_resource type="PackedScene" uid="uid://bdf37g5aeln1b" path="res://src/ui/constructions/trash_can.tscn" id="10_v5tt3"]
 
@@ -53,47 +53,7 @@ tile_set = ExtResource("4_oapi2")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="ResourceBar" type="CenterContainer" parent="UI"]
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -16.0
-offset_top = -48.0
-offset_bottom = 48.0
-grow_horizontal = 0
-grow_vertical = 2
-size_flags_horizontal = 8
-size_flags_vertical = 4
-mouse_filter = 0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/ResourceBar"]
-layout_mode = 2
-theme_override_constants/separation = 0
-
-[node name="BlueWorkers" parent="UI/ResourceBar/VBoxContainer" instance=ExtResource("7_kkg66")]
-layout_mode = 2
-
-[node name="GreenWorkers" parent="UI/ResourceBar/VBoxContainer" instance=ExtResource("7_kkg66")]
-layout_mode = 2
-portrait_colour = "Green"
-
-[node name="GreyWorkers" parent="UI/ResourceBar/VBoxContainer" instance=ExtResource("7_kkg66")]
-layout_mode = 2
-portrait_colour = "Grey"
-
-[node name="OrangeWorkers" parent="UI/ResourceBar/VBoxContainer" instance=ExtResource("7_kkg66")]
-layout_mode = 2
-portrait_colour = "Orange"
-
-[node name="RedWorkers" parent="UI/ResourceBar/VBoxContainer" instance=ExtResource("7_kkg66")]
-layout_mode = 2
-portrait_colour = "Red"
-
-[node name="YellowWorkers" parent="UI/ResourceBar/VBoxContainer" instance=ExtResource("7_kkg66")]
-layout_mode = 2
-portrait_colour = "Yellow"
+[node name="CitizenBar" parent="UI" instance=ExtResource("8_nkyc8")]
 
 [node name="ConstructionBar" type="CenterContainer" parent="UI"]
 anchors_preset = 4
