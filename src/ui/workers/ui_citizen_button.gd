@@ -1,8 +1,7 @@
 @tool
 class_name UIWorkerType extends CenterContainer
 
-signal citizen_settled
-#signal citizen_left
+const BUBBLE: = preload("res://src/ui/constructions/bubble/construction_bubble.tscn")
 
 const MOVE_TIME: = 0.3
 
@@ -17,6 +16,9 @@ const PORTRAITS: = {
 		preload("res://src/ui/workers/worker_portrait_yellow.atlastex"),
 }
 
+signal citizen_settled
+#signal citizen_left
+
 @export var dwelling_data: ConstructionData
 
 @export var portrait_colour: = Constants.CITIZEN_COLOURS.Blue:
@@ -28,9 +30,11 @@ const PORTRAITS: = {
 		
 		portrait.texture = PORTRAITS.get(portrait_colour, null)
 
+var _bubble: ConstructionBubble = null
+
 var _x_move_tween: Tween
 
-@onready var button: = $TextureButton as TextureButton
+@onready var button: = $MarginContainer/TextureButton as TextureButton
 @onready var portrait: = $MarginContainer/Portrait as TextureRect
 
 
@@ -41,7 +45,13 @@ func _ready() -> void:
 	Events.construction_data_selected.connect(
 		func(data: ConstructionData):
 			if dwelling_data == null or dwelling_data != data:
+				if Events.construction_placed.is_connected(_on_construction_placed):
+					Events.construction_placed.disconnect(_on_construction_placed)
+				
 				button.set_pressed_no_signal(false)
+				if _bubble:
+					_bubble.queue_free()
+					_bubble = null
 	)
 	
 	button.toggled.connect(_on_button_toggled)
@@ -68,17 +78,30 @@ func _on_button_toggled(value: bool) -> void:
 	assert(dwelling_data, "A citizen '%s' has no dwelling data!" % name)
 	if value == true:
 		Events.construction_data_selected.emit(dwelling_data)
+		if _bubble:
+			_bubble.queue_free()
+			_bubble = null
+		_bubble = BUBBLE.instantiate()
+		_bubble.orientation = _bubble.BubbleOrientation.TOP_LEFT
+		add_child(_bubble)
 		
 		Events.construction_placed.connect(_on_construction_placed)
 	
 	else:
-		Events.construction_data_selected.emit(null)
-		
 		if Events.construction_placed.is_connected(_on_construction_placed):
 			Events.construction_placed.disconnect(_on_construction_placed)
+			
+		Events.construction_data_selected.emit(null)
 		
+		if _bubble:
+			_bubble.queue_free()
+			_bubble = null
 
 func _on_construction_placed(_construction: Construction) -> void:
+	if _bubble:
+		_bubble.queue_free()
+		_bubble = null
+	
 	button.disabled = true
 	Events.construction_data_selected.emit(null)
 	citizen_settled.emit()

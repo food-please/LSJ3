@@ -1,19 +1,31 @@
-[gd_scene load_steps=2 format=3 uid="uid://0w7bjhs8khei"]
+[gd_scene load_steps=6 format=3 uid="uid://0w7bjhs8khei"]
 
 [ext_resource type="Script" path="res://src/ui/constructions/bubble/uiconstruction_bubble_requirement.gd" id="1_67v0o"]
+[ext_resource type="Script" path="res://src/ui/constructions/bubble/uimodifier.gd" id="2_ratr3"]
+[ext_resource type="Texture2D" uid="uid://b7r5l86qgsnlx" path="res://src/ui/constructions/bubble/quantity.atlastex" id="2_x4cig"]
+[ext_resource type="Texture2D" uid="uid://cjs6lun0168if" path="res://constructions/house.atlastex" id="2_yvxcc"]
+[ext_resource type="PackedScene" uid="uid://ugarwydgnx5v" path="res://src/ui/number/ui_number.tscn" id="3_2mdj6"]
 
-[node name="MarginContainer" type="MarginContainer"]
+[node name="UIConstructionRequirement" type="MarginContainer"]
+theme_override_constants/margin_left = 2
 script = ExtResource("1_67v0o")
 quantity = 10
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
+theme_override_constants/separation = -1
 
 [node name="Icon" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(8, 8)
 layout_mode = 2
+texture = ExtResource("2_yvxcc")
+stretch_mode = 2
 
 [node name="Modifier" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
+texture = ExtResource("2_x4cig")
+stretch_mode = 2
+script = ExtResource("2_ratr3")
 
-[node name="Number" type="TextureRect" parent="HBoxContainer"]
+[node name="Number" parent="HBoxContainer" instance=ExtResource("3_2mdj6")]
 layout_mode = 2

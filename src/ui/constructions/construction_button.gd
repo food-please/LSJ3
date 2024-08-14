@@ -1,6 +1,8 @@
 @tool
 extends CenterContainer
 
+const BUBBLE: = preload("res://src/ui/constructions/bubble/construction_bubble.tscn")
+
 @export var type: ConstructionData:
 	set(value):
 		type = value
@@ -13,7 +15,9 @@ extends CenterContainer
 		else:
 			_icon.texture = null
 
-@onready var _button: = $TextureButton as TextureButton
+var _bubble: ConstructionBubble = null
+
+@onready var _button: = $MarginContainer/TextureButton as TextureButton
 @onready var _icon: = $MarginContainer/Icon as TextureRect
 
 
@@ -21,11 +25,12 @@ func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
 	
-	$AnimationPlayer.play("default")
-	
 	Events.construction_data_selected.connect(
 		func(data: ConstructionData):
 			if type == null or type != data:
+				if _bubble:
+					_bubble.queue_free()
+					_bubble = null
 				_button.set_pressed_no_signal(false)
 	)
 	
@@ -33,8 +38,17 @@ func _ready() -> void:
 		func(value: bool):
 			if value == true:
 				Events.construction_data_selected.emit(type)
+				if _bubble:
+					_bubble.queue_free()
+					_bubble = null
+				_bubble = BUBBLE.instantiate()
+				_bubble.orientation = _bubble.BubbleOrientation.TOP_RIGHT
+				add_child(_bubble)
 			
 			else:
 				Events.construction_data_selected.emit(null)
+				if _bubble:
+					_bubble.queue_free()
+					_bubble = null
 	)
 	pass

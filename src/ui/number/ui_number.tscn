@@ -1,11 +1,37 @@
-[gd_scene load_steps=2 format=3 uid="uid://ugarwydgnx5v"]
+[gd_scene load_steps=4 format=3 uid="uid://ugarwydgnx5v"]
 
 [ext_resource type="Script" path="res://src/ui/number/ui_number.gd" id="1_dy2gm"]
+[ext_resource type="Texture2D" uid="uid://7u56ti4ueanb" path="res://src/ui/number/number_1.atlastex" id="2_ynsjo"]
+[ext_resource type="Texture2D" uid="uid://dhuvkocd4bfti" path="res://src/ui/number/number_0.atlastex" id="3_jwwe3"]
 
-[node name="Number" type="HBoxContainer"]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Number" type="CenterContainer"]
+offset_right = 8.0
+offset_bottom = 8.0
 script = ExtResource("1_dy2gm")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Items" type="HBoxContainer" parent="."]
 layout_mode = 2
+theme_override_constants/separation = -3
+
+[node name="Mils" type="TextureRect" parent="Items"]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_ynsjo")
+stretch_mode = 2
+
+[node name="Cents" type="TextureRect" parent="Items"]
+visible = false
+layout_mode = 2
+texture = ExtResource("3_jwwe3")
+stretch_mode = 2
+
+[node name="Decs" type="TextureRect" parent="Items"]
+visible = false
+layout_mode = 2
+texture = ExtResource("3_jwwe3")
+stretch_mode = 2
+
+[node name="Ones" type="TextureRect" parent="Items"]
+layout_mode = 2
+texture = ExtResource("3_jwwe3")
+stretch_mode = 2
