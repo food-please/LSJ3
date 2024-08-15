@@ -34,6 +34,7 @@ var _bubble: ConstructionBubble = null
 
 var _x_move_tween: Tween
 
+@onready var bubble_anchor: = $MarginContainer/Control/BubbleAnchor as Control
 @onready var button: = $MarginContainer/TextureButton as TextureButton
 @onready var portrait: = $MarginContainer/Portrait as TextureRect
 
@@ -83,7 +84,7 @@ func _on_button_toggled(value: bool) -> void:
 			_bubble = null
 		_bubble = BUBBLE.instantiate()
 		_bubble.orientation = _bubble.BubbleOrientation.TOP_LEFT
-		add_child(_bubble)
+		bubble_anchor.add_child(_bubble)
 		
 		Events.construction_placed.connect(_on_construction_placed)
 	

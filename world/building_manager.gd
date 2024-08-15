@@ -2,6 +2,8 @@ extends Node2D
 
 const CONSTRUCTION: = preload("res://constructions/construction.tscn")
 
+const COLOR: = [ Color.WHITE, Color(1.0, 0.0, 0.0, 0.7), Color(0.0, 1.0, 0.0, 0.7)]
+
 @export var grid: TileMapLayer
 
 @export var trash_can: TrashCan
@@ -18,7 +20,7 @@ func _ready() -> void:
 	assert(_tileset, "The grid must have a tileset for buildings to be placed!")
 	
 	assert(trash_can, "The building manager neesd an available trash can!")
-	trash_can.gui_input.connect(_on_trash_can_gui_input)
+	#trash_can.gui_input.connect(_on_trash_can_gui_input)
 	trash_can.mouse_entered.connect(_on_trash_can_mouse_entered)
 	trash_can.mouse_exited.connect(_on_trash_can_mouse_exited)
 	
@@ -39,17 +41,27 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action_pressed("touch"):
 		_setup_new_blueprint_from_data()
 		_place_construction_at_cell(_construction_blueprint)
+		_construction_blueprint.modulate = COLOR[2]
 		
 		trash_can.show()
 		
 		get_viewport().set_input_as_handled()
 		
 	elif event.is_action_released("touch"):
-		_place_construction_at_cell(_construction_blueprint)
-		_construction_blueprint = null
+		if _construction_blueprint.visible:
+			_place_construction_at_cell(_construction_blueprint)
+			_construction_blueprint.modulate = COLOR[0]
+			
+			Events.construction_placed.emit(_construction_blueprint)
+			_construction_blueprint = null
+			
+			trash_can.hide()
 		
-		trash_can.hide()
-		
+		else:
+			_construction_blueprint.queue_free()
+			_construction_blueprint = null
+			
+			trash_can.hide()
 		get_viewport().set_input_as_handled()
 
 
@@ -70,16 +82,17 @@ func _place_construction_at_cell(construction: Construction) -> void:
 	var target: = grid.map_to_local(cell)
 	
 	construction.position = target
-	
-	Events.construction_placed.emit(construction)
 
 
-func _on_trash_can_gui_input(event: InputEvent) -> void:
-	if event.is_action_released("touch") and _construction_blueprint:
-		_construction_blueprint.queue_free()
-		_construction_blueprint = null
-		
-		trash_can.hide()
+#func _on_trash_can_gui_input(event: InputEvent) -> void:
+	#print("Placed here?")
+	#if event.is_action_released("touch"):
+		#_construction_blueprint.queue_free()
+		#_construction_blueprint = null
+		#
+		#trash_can.hide()
+		#print("Placed here?")
+		#get_viewport().set_input_as_handled()
 
 
 func _on_trash_can_mouse_entered() -> void:

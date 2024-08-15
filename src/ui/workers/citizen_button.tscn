@@ -27,3 +27,15 @@ texture = ExtResource("3_ayec1")
 [node name="TextureButton" type="TextureButton" parent="MarginContainer"]
 layout_mode = 2
 toggle_mode = true
+
+[node name="Control" type="Control" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="BubbleAnchor" type="Control" parent="MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+grow_vertical = 2
+mouse_filter = 2

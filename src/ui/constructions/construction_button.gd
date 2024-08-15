@@ -17,6 +17,7 @@ const BUBBLE: = preload("res://src/ui/constructions/bubble/construction_bubble.t
 
 var _bubble: ConstructionBubble = null
 
+@onready var _bubble_anchor: = $MarginContainer/Control/BubbleAnchor as Control
 @onready var _button: = $MarginContainer/TextureButton as TextureButton
 @onready var _icon: = $MarginContainer/Icon as TextureRect
 
@@ -43,7 +44,7 @@ func _ready() -> void:
 					_bubble = null
 				_bubble = BUBBLE.instantiate()
 				_bubble.orientation = _bubble.BubbleOrientation.TOP_RIGHT
-				add_child(_bubble)
+				_bubble_anchor.add_child(_bubble)
 			
 			else:
 				Events.construction_data_selected.emit(null)
