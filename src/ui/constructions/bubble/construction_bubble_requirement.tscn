@@ -9,7 +9,6 @@
 [node name="UIConstructionRequirement" type="MarginContainer"]
 theme_override_constants/margin_left = 2
 script = ExtResource("1_67v0o")
-quantity = 10
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2

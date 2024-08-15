@@ -1,5 +1,5 @@
 @tool
-class_name RequirementType extends TextureRect
+class_name UIRequirementType extends TextureRect
 
 const TEXTURES: = {
 	Modifier.Quantity: preload("res://src/ui/constructions/bubble/quantity.atlastex"),

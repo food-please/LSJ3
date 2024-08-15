@@ -1,5 +1,5 @@
 @tool
-extends CenterContainer
+class_name UINumber extends CenterContainer
 
 const DIGITS: = [
 	preload("res://src/ui/number/number_0.atlastex"),

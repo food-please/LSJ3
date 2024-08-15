@@ -257,11 +257,11 @@ texture_region_size = Vector2i(8, 8)
 [resource]
 tile_size = Vector2i(8, 8)
 terrain_set_0/mode = 2
-terrain_set_0/terrain_0/name = "Road - Dirt"
+terrain_set_0/terrain_0/name = "RoadDirt"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 terrain_set_0/terrain_1/name = "River"
 terrain_set_0/terrain_1/color = Color(0, 0.445542, 0.797122, 1)
-terrain_set_0/terrain_2/name = "Cliffs"
+terrain_set_0/terrain_2/name = "Cliff"
 terrain_set_0/terrain_2/color = Color(0.212583, 0.22892, 0.095575, 1)
 terrain_set_0/terrain_3/name = "Grass"
 terrain_set_0/terrain_3/color = Color(0.375, 0.5, 0.25, 1)
