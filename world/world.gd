@@ -13,11 +13,13 @@ class_name World extends Node2D
 func get_terrain_at_cell(cell: Vector2i) -> void:
 	var cell_data: = features.get_cell_tile_data(cell)
 	if cell_data:
-		print(_features_tileset.get_terrain_name(cell_data.terrain_set, cell_data.terrain))
+		pass
+		#print(_features_tileset.get_terrain_name(cell_data.terrain_set, cell_data.terrain))
 	if not cell_data:
 		cell_data = terrain.get_cell_tile_data(cell)
 		if cell_data:
-			print(_terrain_tileset.get_terrain_name(cell_data.terrain_set, cell_data.terrain))
+			pass
+			#print(_terrain_tileset.get_terrain_name(cell_data.terrain_set, cell_data.terrain))
 	if not cell_data:
 		return
 	

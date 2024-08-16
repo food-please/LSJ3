@@ -13,11 +13,8 @@ func are_cells_occupied(cells: Array[Vector2i]) -> bool:
 
 func set_cell_occupancy(cells: Array[Vector2i], is_occupied: bool) -> void:
 	for cell in cells:
-		print("Check cell: ", cell)
 		if is_occupied:
-			print("Set cell ", cell, " as occupied.")
 			set_cell(cell, 0, CELL_COORDS)
 		
 		else:
-			print("Erase cell.")
 			erase_cell(cell)

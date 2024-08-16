@@ -4,12 +4,13 @@
 [ext_resource type="TileSet" uid="uid://d34lmt0p41ffk" path="res://world/tilesets/passability_tileset.tres" id="2_6ls7g"]
 
 [node name="Construction" type="Node2D"]
+show_behind_parent = true
 script = ExtResource("1_85sx5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="OccupiedCells" type="TileMapLayer" parent="."]
 modulate = Color(1, 1, 1, 0.501961)
 position = Vector2(-4, -4)
 tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 17, 0, 7, 0, 0, 0)
 tile_set = ExtResource("2_6ls7g")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]

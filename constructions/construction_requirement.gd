@@ -1,1 +1,0 @@
-class_name ConstructionRequirement extends Resource

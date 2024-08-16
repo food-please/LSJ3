@@ -86,6 +86,15 @@ func _on_button_toggled(value: bool) -> void:
 		_bubble.orientation = _bubble.BubbleOrientation.TOP_LEFT
 		bubble_anchor.add_child(_bubble)
 		
+		for requirement in dwelling_data.requirements:
+			var new_scene: = requirement.instantiate()
+			var new_requirement: = new_scene as UIConstructionRequirement
+			if not new_requirement:
+				new_scene.free()
+			
+			else:
+				_bubble.add_requirement(new_requirement)
+		
 		Events.construction_placed.connect(_on_construction_placed)
 	
 	else:

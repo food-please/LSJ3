@@ -25,7 +25,10 @@ const DIGITS: = [
 
 func set_quantity(value: int) -> void:
 	quantity = value
-
+	
+	if not is_inside_tree():
+		await ready
+	
 	_ones.texture = DIGITS[value % 10]
 	
 	if value > 9:

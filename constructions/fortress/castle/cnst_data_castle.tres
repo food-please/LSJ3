@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ConstructionData" load_steps=5 format=3 uid="uid://diqsa5s4ym1ak"]
+
+[ext_resource type="Texture2D" uid="uid://cvdehpdtnw6lb" path="res://constructions/fortress/castle/cnst_icon_castle.atlastex" id="1_0ffd6"]
+[ext_resource type="Script" path="res://constructions/construction_data.gd" id="1_cj8q7"]
+[ext_resource type="PackedScene" uid="uid://siov0jwdw0n2" path="res://constructions/fortress/castle/cnst_rqmt_castle.tscn" id="2_h0o3x"]
+[ext_resource type="PackedScene" uid="uid://hh55pdbgwwgr" path="res://constructions/fortress/castle/cnst_castle.tscn" id="3_d3jf2"]
+
+[resource]
+script = ExtResource("1_cj8q7")
+icon = ExtResource("1_0ffd6")
+variations = Array[PackedScene]([ExtResource("3_d3jf2")])
+requirements = Array[PackedScene]([ExtResource("2_h0o3x")])

@@ -45,6 +45,15 @@ func _ready() -> void:
 				_bubble = BUBBLE.instantiate()
 				_bubble.orientation = _bubble.BubbleOrientation.TOP_RIGHT
 				_bubble_anchor.add_child(_bubble)
+				
+				for requirement in type.requirements:
+					var new_scene: = requirement.instantiate()
+					var new_requirement: = new_scene as UIConstructionRequirement
+					if not new_requirement:
+						new_scene.free()
+					
+					else:
+						_bubble.add_requirement(new_requirement)
 			
 			else:
 				Events.construction_data_selected.emit(null)

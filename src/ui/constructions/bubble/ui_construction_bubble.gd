@@ -6,8 +6,11 @@ enum BubbleOrientation { TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT }
 @export var orientation: BubbleOrientation:
 	set(value):
 		orientation = value
+		
 		if not is_inside_tree():
 			await ready
+		
+		await get_tree().process_frame
 		
 		match orientation:
 			BubbleOrientation.TOP_LEFT:
@@ -37,3 +40,9 @@ enum BubbleOrientation { TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT }
 
 @onready var bubble: = $Bubble
 @onready var tail: = $Tail
+
+@onready var _requirements: = $Bubble/Requirements/CenterContainer/HBoxContainer as HBoxContainer
+
+
+func add_requirement(requirement: UIConstructionRequirement) -> void:
+	_requirements.add_child(requirement)

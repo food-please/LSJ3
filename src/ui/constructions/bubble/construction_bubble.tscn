@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://btp6rpsson4se"]
+[gd_scene load_steps=4 format=3 uid="uid://btp6rpsson4se"]
 
 [ext_resource type="Texture2D" uid="uid://cnvnuu48rr8jx" path="res://src/ui/constructions/bubble/requirements_bubble.atlastex" id="1_oyuum"]
 [ext_resource type="Script" path="res://src/ui/constructions/bubble/ui_construction_bubble.gd" id="1_shspb"]
-[ext_resource type="PackedScene" uid="uid://0w7bjhs8khei" path="res://src/ui/constructions/bubble/construction_bubble_requirement.tscn" id="2_w2miv"]
 [ext_resource type="Texture2D" uid="uid://criotj0t8hc3s" path="res://src/ui/constructions/bubble/requirements_bubble_tail.atlastex" id="4_pgnlc"]
 
 [node name="ConstructionRequirementsBubble" type="Control"]
@@ -16,8 +15,8 @@ orientation = 3
 layout_mode = 1
 offset_left = -1.0
 offset_top = 5.0
-offset_right = 23.0
-offset_bottom = 17.0
+offset_right = 7.0
+offset_bottom = 13.0
 
 [node name="Background" type="NinePatchRect" parent="Bubble"]
 layout_mode = 2
@@ -28,6 +27,7 @@ patch_margin_right = 2
 patch_margin_bottom = 2
 
 [node name="Requirements" type="MarginContainer" parent="Bubble"]
+custom_minimum_size = Vector2(12, 8)
 layout_mode = 2
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_top = 2
@@ -40,9 +40,6 @@ layout_mode = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="Bubble/Requirements/CenterContainer"]
 layout_mode = 2
 theme_override_constants/separation = 0
-
-[node name="Requirement" parent="Bubble/Requirements/CenterContainer/HBoxContainer" instance=ExtResource("2_w2miv")]
-layout_mode = 2
 
 [node name="Tail" type="TextureRect" parent="."]
 layout_mode = 2

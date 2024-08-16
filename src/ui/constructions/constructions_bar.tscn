@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://64osm8pikkir" path="res://world/tch_world_tiles.png" id="1_o7jl0"]
 [ext_resource type="PackedScene" uid="uid://caecvfqyl8nwl" path="res://src/ui/constructions/construction_button.tscn" id="2_mr2bv"]
-[ext_resource type="Resource" uid="uid://df6up1e73akpj" path="res://constructions/dwellings/dwelling_data.tres" id="3_wondv"]
+[ext_resource type="Resource" uid="uid://diqsa5s4ym1ak" path="res://constructions/fortress/castle/cnst_data_castle.tres" id="3_mgwyu"]
 [ext_resource type="Resource" uid="uid://b0o5gixkv65us" path="res://constructions/dwellings/tower_data.tres" id="4_3cr55"]
 
 [node name="ConstructionsBar" type="MarginContainer"]
@@ -34,7 +34,7 @@ alignment = 1
 
 [node name="ConstructionButton" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_mr2bv")]
 layout_mode = 2
-type = ExtResource("3_wondv")
+type = ExtResource("3_mgwyu")
 
 [node name="ConstructionButton2" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_mr2bv")]
 layout_mode = 2

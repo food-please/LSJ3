@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=4 uid="uid://hh55pdbgwwgr"]
+
+[ext_resource type="PackedScene" uid="uid://c7rbljhcb51ka" path="res://constructions/construction.tscn" id="1_d8m36"]
+[ext_resource type="Texture2D" uid="uid://dtn7mf58tyatg" path="res://constructions/fortress/castle/castle.atlastex" id="2_hrs1w"]
+
+[node name="Castle" instance=ExtResource("1_d8m36")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_hrs1w")
+
+[node name="OccupiedCells" parent="." index="1"]
+tile_map_data = PackedByteArray("AAAAAAAAAAARAAcAAAD//wAAAAARAAcAAAAAAP//AAARAAcAAAD/////AAARAAcAAAABAP//AAARAAcAAAABAAAAAAARAAcAAAABAAEAAAARAAcAAAAAAAEAAAARAAcAAAD//wEAAAARAAcAAAA=")
