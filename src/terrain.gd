@@ -1,5 +1,6 @@
 class_name Terrain extends RefCounted
 
+# See construction_requirements.gd and update terrain_tileset to match any changes.
 enum Types {
 	Grass,
 	RoadDirt,

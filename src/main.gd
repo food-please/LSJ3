@@ -14,13 +14,16 @@ func _ready() -> void:
 		map_dimensions.size * terrain.tile_set.tile_size - Vector2i(viewport_dimensions)
 	)
 	
-	var random_key = Constants.CITIZEN_COLOURS.values()[randi() % Constants.CITIZEN_COLOURS.keys().size()]
+	var random_key = \
+		Constants.CITIZEN_COLOURS.values()[randi() % Constants.CITIZEN_COLOURS.keys().size()]
 	$UI/CitizenBar.add_citizen(random_key, load("res://constructions/dwellings/dwelling_data.tres"))
 	
-	random_key = Constants.CITIZEN_COLOURS.values()[randi() % Constants.CITIZEN_COLOURS.keys().size()]
+	random_key = \
+		Constants.CITIZEN_COLOURS.values()[randi() % Constants.CITIZEN_COLOURS.keys().size()]
 	$UI/CitizenBar.add_citizen(random_key, load("res://constructions/dwellings/dwelling_data2.tres"))
 	
-	random_key = Constants.CITIZEN_COLOURS.values()[randi() % Constants.CITIZEN_COLOURS.keys().size()]
+	random_key = \
+		Constants.CITIZEN_COLOURS.values()[randi() % Constants.CITIZEN_COLOURS.keys().size()]
 	$UI/CitizenBar.add_citizen(random_key, load("res://constructions/dwellings/dwelling_data3.tres"))
 	
 	

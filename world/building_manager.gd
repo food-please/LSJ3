@@ -85,6 +85,11 @@ func _move_construction_to_cell(construction: Construction, cell: Vector2i,
 	construction.position = target
 	
 	world.get_terrain_at_cell(cell)
+	if not construction.evaluate_requirements(cell, passable_cells.get_occupants):
+		construction.flag_as_invalid()
+	
+	else:
+		construction.flag_as_valid()
 
 
 func _place_construction() -> bool:
@@ -93,10 +98,11 @@ func _place_construction() -> bool:
 	var changed_cells: = _construction_blueprint.place(target, cell)
 	
 	trash_can.hide()
-	if passable_cells.are_cells_occupied(changed_cells):
+	if not _construction_blueprint.is_valid:
+	#if passable_cells.get_occupants(changed_cells):
 		_free_blueprint()
 		return false
-	passable_cells.set_cell_occupancy(changed_cells, true)
+	passable_cells.set_cell_occupancy(changed_cells, true, _active_data)
 	
 	Events.construction_placed.emit(_construction_blueprint)
 	_construction_blueprint = null

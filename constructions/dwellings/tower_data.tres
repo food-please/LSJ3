@@ -8,3 +8,4 @@
 script = ExtResource("1_i6m18")
 icon = ExtResource("2_bbhrf")
 variations = Array[PackedScene]([ExtResource("3_labms")])
+requirements = Array[PackedScene]([])

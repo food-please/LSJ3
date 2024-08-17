@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=4 uid="uid://hh55pdbgwwgr"]
+[gd_scene load_steps=5 format=4 uid="uid://hh55pdbgwwgr"]
 
 [ext_resource type="PackedScene" uid="uid://c7rbljhcb51ka" path="res://constructions/construction.tscn" id="1_d8m36"]
 [ext_resource type="Texture2D" uid="uid://dtn7mf58tyatg" path="res://constructions/fortress/castle/castle.atlastex" id="2_hrs1w"]
+[ext_resource type="Script" path="res://constructions/construction_requirement.gd" id="3_0epwb"]
+[ext_resource type="TileSet" uid="uid://d34lmt0p41ffk" path="res://world/tilesets/passability_tileset.tres" id="3_xu42b"]
 
 [node name="Castle" instance=ExtResource("1_d8m36")]
 
@@ -9,4 +11,11 @@
 texture = ExtResource("2_hrs1w")
 
 [node name="OccupiedCells" parent="." index="1"]
-tile_map_data = PackedByteArray("AAAAAAAAAAARAAcAAAD//wAAAAARAAcAAAAAAP//AAARAAcAAAD/////AAARAAcAAAABAP//AAARAAcAAAABAAAAAAARAAcAAAABAAEAAAARAAcAAAAAAAEAAAARAAcAAAD//wEAAAARAAcAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAAAQAAAAAAAAD//wAAAQAAAAAAAAAAAP//AQAAAAAAAAD/////AQAAAAAAAAABAP//AQAAAAAAAAABAAAAAQAAAAAAAAABAAEAAQAAAAAAAAAAAAEAAQAAAAAAAAD//wEAAQAAAAAAAAA=")
+
+[node name="Requirement" type="TileMapLayer" parent="." index="2"]
+modulate = Color(1, 1, 1, 0.301961)
+position = Vector2(-4, -4)
+tile_map_data = PackedByteArray("AAABAAEAAQAAAAAAAAAAAAEAAQAAAAAAAAD//wEAAQAAAAAAAAD//wAAAQAAAAAAAAAAAAAAAQAAAAAAAAABAAAAAQAAAAAAAAABAP//AQAAAAAAAAAAAP//AQAAAAAAAAD/////AQAAAAAAAAA=")
+tile_set = ExtResource("3_xu42b")
+script = ExtResource("3_0epwb")
