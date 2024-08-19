@@ -35,7 +35,7 @@ func _ready() -> void:
 	#trash_can.gui_input.connect(_on_trash_can_gui_input)
 	
 	Events.construction_data_selected.connect(
-		func(data: ConstructionData):
+		func(data: ConstructionData, _anchor: RemoteTransform2D):
 			_active_data = data
 			if _active_data:
 				assert(_active_data.variations.size(), "Construction blueprint has no variations!")

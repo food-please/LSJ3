@@ -20,7 +20,7 @@ func get_occupants(cells: Array[Vector2i]) -> Dictionary:
 func set_cell_occupancy(cells: Array[Vector2i], is_occupied: bool, data: ConstructionData) -> void:
 	for cell in cells:
 		if is_occupied:
-			set_cell(cell, 0, CELL_COORDS)
+			set_cell(cell, 1, CELL_COORDS)
 			_construction_data[cell] = data
 		
 		else:

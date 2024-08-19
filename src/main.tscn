@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://d3103sit7p6q2"]
+[gd_scene load_steps=18 format=4 uid="uid://d3103sit7p6q2"]
 
 [ext_resource type="Script" path="res://src/main.gd" id="1_gnvqc"]
 [ext_resource type="Script" path="res://src/player/touch_camera.gd" id="2_kxulf"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://world/occupancy_grid.gd" id="8_rjhgp"]
 [ext_resource type="PackedScene" uid="uid://dse1e7q3w1xcg" path="res://src/ui/constructions/constructions_bar.tscn" id="8_v5mau"]
 [ext_resource type="PackedScene" uid="uid://bdf37g5aeln1b" path="res://src/ui/constructions/trash_can.tscn" id="10_v5tt3"]
+[ext_resource type="Script" path="res://src/ui/constructions/ui_construction_requirements.gd" id="14_ilt6t"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5iwj5"]
 shader = ExtResource("2_mqpfw")
@@ -84,6 +85,14 @@ layout_mode = 2
 
 [node name="TrashCan" parent="UI/ConstructionBar/VBoxContainer" instance=ExtResource("10_v5tt3")]
 layout_mode = 2
+
+[node name="ConstructionRequirements" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+script = ExtResource("14_ilt6t")
 
 [node name="PaletteClamp" type="CanvasLayer" parent="."]
 

@@ -30,11 +30,11 @@ signal citizen_settled
 		
 		portrait.texture = PORTRAITS.get(portrait_colour, null)
 
-var _bubble: ConstructionBubble = null
+#var _bubble: ConstructionBubble = null
 
 var _x_move_tween: Tween
 
-@onready var bubble_anchor: = $MarginContainer/Control/BubbleAnchor as Control
+@onready var bubble_anchor: = $MarginContainer/Control/BubbleAnchor/Anchor as RemoteTransform2D
 @onready var button: = $MarginContainer/TextureButton as TextureButton
 @onready var portrait: = $MarginContainer/Portrait as TextureRect
 
@@ -44,15 +44,15 @@ func _ready() -> void:
 		return
 	
 	Events.construction_data_selected.connect(
-		func(data: ConstructionData):
+		func(data: ConstructionData, _anchor: RemoteTransform2D):
 			if dwelling_data == null or dwelling_data != data:
 				if Events.construction_placed.is_connected(_on_construction_placed):
 					Events.construction_placed.disconnect(_on_construction_placed)
 				
 				button.set_pressed_no_signal(false)
-				if _bubble:
-					_bubble.queue_free()
-					_bubble = null
+				#if _bubble:
+					#_bubble.queue_free()
+					#_bubble = null
 	)
 	
 	button.toggled.connect(_on_button_toggled)
@@ -78,22 +78,22 @@ func move_out() -> void:
 func _on_button_toggled(value: bool) -> void:
 	assert(dwelling_data, "A citizen '%s' has no dwelling data!" % name)
 	if value == true:
-		Events.construction_data_selected.emit(dwelling_data)
-		if _bubble:
-			_bubble.queue_free()
-			_bubble = null
-		_bubble = BUBBLE.instantiate()
-		_bubble.orientation = _bubble.BubbleOrientation.TOP_LEFT
-		bubble_anchor.add_child(_bubble)
-		
-		for requirement in dwelling_data.requirements:
-			var new_scene: = requirement.instantiate()
-			var new_requirement: = new_scene as UIConstructionRequirement
-			if not new_requirement:
-				new_scene.free()
-			
-			else:
-				_bubble.add_requirement(new_requirement)
+		Events.construction_data_selected.emit(dwelling_data, bubble_anchor)
+		#if _bubble:
+			#_bubble.queue_free()
+			#_bubble = null
+		#_bubble = BUBBLE.instantiate()
+		#_bubble.orientation = _bubble.BubbleOrientation.TOP_LEFT
+		##bubble_anchor.add_child(_bubble)
+		#
+		#for requirement in dwelling_data.requirements:
+			#var new_scene: = requirement.instantiate()
+			#var new_requirement: = new_scene as UIConstructionRequirement
+			#if not new_requirement:
+				#new_scene.free()
+			#
+			#else:
+				#_bubble.add_requirement(new_requirement)
 		
 		Events.construction_placed.connect(_on_construction_placed)
 	
@@ -101,17 +101,17 @@ func _on_button_toggled(value: bool) -> void:
 		if Events.construction_placed.is_connected(_on_construction_placed):
 			Events.construction_placed.disconnect(_on_construction_placed)
 			
-		Events.construction_data_selected.emit(null)
+		Events.construction_data_selected.emit(null, null)
 		
-		if _bubble:
-			_bubble.queue_free()
-			_bubble = null
+		#if _bubble:
+			#_bubble.queue_free()
+			#_bubble = null
 
 func _on_construction_placed(_construction: Construction) -> void:
-	if _bubble:
-		_bubble.queue_free()
-		_bubble = null
+	#if _bubble:
+		#_bubble.queue_free()
+		#_bubble = null
 	
 	button.disabled = true
-	Events.construction_data_selected.emit(null)
+	Events.construction_data_selected.emit(null, null)
 	citizen_settled.emit()

@@ -44,9 +44,9 @@ func validate_requirement(target_cell:Vector2i, get_occupants: Callable,
 func _check_occupants(target_cells: Array[Vector2i], get_occupants: Callable) -> bool:
 	var occupants: Dictionary = get_occupants.call(target_cells)
 	var occupant_values: = occupants.values()
-	if occupants:
-		return false
-	return true
+	#if occupants:
+		#return false
+	#return true
 	
 	match operation:
 		Operations.ALL:
