@@ -84,8 +84,8 @@ func _move_construction_to_cell(construction: Construction, cell: Vector2i,
 		target: Vector2i) -> void:
 	construction.position = target
 	
-	world.get_terrain_at_cell(cell)
-	if not construction.evaluate_requirements(cell, passable_cells.get_occupants):
+	if not construction.evaluate_requirements(cell, passable_cells.get_occupants, 
+			world.get_terrain_at_cells):
 		construction.flag_as_invalid()
 	
 	else:
@@ -111,6 +111,8 @@ func _place_construction() -> bool:
 
 
 func _free_blueprint() -> void:
+	
+	print("Free blueprint")
 	if _construction_blueprint:
 		_construction_blueprint.queue_free()
 	_construction_blueprint = null

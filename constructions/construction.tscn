@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c7rbljhcb51ka"]
+[gd_scene load_steps=4 format=3 uid="uid://c7rbljhcb51ka"]
 
 [ext_resource type="Script" path="res://constructions/construction.gd" id="1_85sx5"]
 [ext_resource type="TileSet" uid="uid://d34lmt0p41ffk" path="res://world/tilesets/passability_tileset.tres" id="2_6ls7g"]
+[ext_resource type="Script" path="res://constructions/construction_requirement.gd" id="3_2a7uv"]
 
 [node name="Construction" type="Node2D"]
 show_behind_parent = true
@@ -12,5 +13,5 @@ script = ExtResource("1_85sx5")
 [node name="OccupiedCells" type="TileMapLayer" parent="."]
 modulate = Color(1, 1, 1, 0.501961)
 position = Vector2(-4, -4)
-tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 17, 0, 7, 0, 0, 0)
 tile_set = ExtResource("2_6ls7g")
+script = ExtResource("3_2a7uv")

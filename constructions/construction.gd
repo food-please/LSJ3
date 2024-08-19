@@ -14,17 +14,18 @@ var _requirements: Array[Node] = []
 func _ready() -> void:
 	var cell_layer: = $OccupiedCells as TileMapLayer
 	_offset_cells = cell_layer.get_used_cells()
-	cell_layer.queue_free()
+	#cell_layer.queue_free()
 	
 	_requirements = find_children("*", "ConstructionRequirement")
 	for requirement in _requirements:
 		requirement.hide()
 
 
-func evaluate_requirements(target_cell: Vector2i, get_occupants: Callable) -> bool:
+func evaluate_requirements(target_cell: Vector2i, get_occupants: Callable, 
+		get_terrain: Callable) -> bool:
 	is_valid = true
 	for requirement: ConstructionRequirement in _requirements:
-		if not requirement.validate_requirement(target_cell, get_occupants):
+		if not requirement.validate_requirement(target_cell, get_occupants, get_terrain):
 			is_valid = false
 	
 	return is_valid
@@ -37,7 +38,7 @@ func place(destination: Vector2i, destination_cell: Vector2i) -> Array[Vector2i]
 	modulate = COLOUR_PLACED
 	
 	for requirement in _requirements:
-		queue_free()
+		requirement.queue_free()
 	
 	return get_occupied_cells(cell)
 
