@@ -1,0 +1,19 @@
+[gd_scene load_steps=6 format=3 uid="uid://bhbw4khwrjo0g"]
+
+[ext_resource type="PackedScene" uid="uid://c7rbljhcb51ka" path="res://constructions/construction.tscn" id="1_cwq6v"]
+[ext_resource type="Script" path="res://constructions/construction_varied_textures.gd" id="2_7dcfy"]
+[ext_resource type="Texture2D" uid="uid://yd5i13nwk5xc" path="res://constructions/landscape/flower_pot/flower_pot.atlastex" id="3_582xs"]
+[ext_resource type="Texture2D" uid="uid://dymwaoam8667x" path="res://constructions/landscape/flower_pot/flower_pot3.atlastex" id="4_xuyym"]
+[ext_resource type="Texture2D" uid="uid://bomsbx88pxc2m" path="res://constructions/landscape/flower_pot/flower_pot2.atlastex" id="5_bw313"]
+
+[node name="Garden" instance=ExtResource("1_cwq6v")]
+script = ExtResource("2_7dcfy")
+variations = Array[Texture]([ExtResource("3_582xs"), ExtResource("4_xuyym"), ExtResource("5_bw313")])
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("3_582xs")
+
+[node name="OccupiedCells" parent="." index="1"]
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0)
+operation = 1
+terrain = Array[String](["Cliff", "Trees", "River", "RoadDirt"])

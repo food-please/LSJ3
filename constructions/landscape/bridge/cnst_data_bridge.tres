@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ConstructionData" load_steps=5 format=3 uid="uid://do8y0c0cuee5x"]
+
+[ext_resource type="Texture2D" uid="uid://cucrdpxy0xfyo" path="res://constructions/landscape/bridge/bridge.atlastex" id="1_redm5"]
+[ext_resource type="PackedScene" uid="uid://drux5lqc7p0js" path="res://constructions/requirements/cnst_rqmt_river.tscn" id="2_e8rri"]
+[ext_resource type="Script" path="res://constructions/construction_data.gd" id="4_k6vv4"]
+[ext_resource type="PackedScene" uid="uid://b806nvdpuusgq" path="res://constructions/landscape/bridge/cnst_bridge.tscn" id="4_lkma0"]
+
+[resource]
+script = ExtResource("4_k6vv4")
+icon = ExtResource("1_redm5")
+variations = Array[PackedScene]([ExtResource("4_lkma0")])
+requirements = Array[PackedScene]([ExtResource("2_e8rri")])

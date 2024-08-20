@@ -1,9 +1,15 @@
 class_name Dwellings extends RefCounted
 
 const DWELLINGS: = {
+	# Generic dwellings
 	preload("res://constructions/dwellings/dwelling_data.tres"):0,
 	preload("res://constructions/dwellings/dwelling_data2.tres"):0,
 	preload("res://constructions/dwellings/dwelling_data3.tres"):0,
+	
+	# Farm dwellings
+	preload("res://constructions/dwellings/farm/farm_dwelling1.tres"):0,
+	preload("res://constructions/dwellings/farm/farm_dwelling2.tres"):0,
+	preload("res://constructions/dwellings/farm/mill_dwelling.tres"):0,
 	
 	# River dwellings
 	preload("res://constructions/dwellings/river/river_dwelling1.tres"):0,
@@ -22,4 +28,4 @@ const DWELLINGS: = {
 
 static func get_random_dwelling() -> ConstructionData:
 	var index: = randi() % DWELLINGS.size()
-	return DWELLINGS.keys()[index]
+	return DWELLINGS.keys()[index].duplicate()

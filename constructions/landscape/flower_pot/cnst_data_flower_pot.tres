@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ConstructionData" load_steps=5 format=3 uid="uid://cxk7mv4q6cwym"]
+
+[ext_resource type="Script" path="res://constructions/construction_data.gd" id="1_4n5x7"]
+[ext_resource type="Texture2D" uid="uid://yd5i13nwk5xc" path="res://constructions/landscape/flower_pot/flower_pot.atlastex" id="1_6g353"]
+[ext_resource type="PackedScene" uid="uid://6tdvgv7tjpeb" path="res://constructions/requirements/cnst_rqmt_plains.tscn" id="1_obsnl"]
+[ext_resource type="PackedScene" uid="uid://bhbw4khwrjo0g" path="res://constructions/landscape/flower_pot/flower_pot.tscn" id="3_xw34r"]
+
+[resource]
+script = ExtResource("1_4n5x7")
+icon = ExtResource("1_6g353")
+variations = Array[PackedScene]([ExtResource("3_xw34r")])
+requirements = Array[PackedScene]([ExtResource("1_obsnl")])

@@ -1,10 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dse1e7q3w1xcg"]
+[gd_scene load_steps=3 format=3 uid="uid://dse1e7q3w1xcg"]
 
 [ext_resource type="Texture2D" uid="uid://64osm8pikkir" path="res://world/tch_world_tiles.png" id="1_o7jl0"]
-[ext_resource type="PackedScene" uid="uid://caecvfqyl8nwl" path="res://src/ui/constructions/construction_button.tscn" id="2_mr2bv"]
-[ext_resource type="Resource" uid="uid://diqsa5s4ym1ak" path="res://constructions/fortress/castle/cnst_data_castle.tres" id="3_mgwyu"]
-[ext_resource type="Resource" uid="uid://b0o5gixkv65us" path="res://constructions/fortress/tower/tower_data.tres" id="4_3cr55"]
-[ext_resource type="Resource" uid="uid://dk3jtfo8l8raq" path="res://constructions/farm/fields/field_data.tres" id="5_b0jut"]
+[ext_resource type="Script" path="res://src/ui/constructions/ui_constructions_bar.gd" id="1_rnl0f"]
 
 [node name="ConstructionsBar" type="MarginContainer"]
 anchors_preset = 4
@@ -17,6 +14,7 @@ grow_vertical = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 theme_override_constants/margin_left = 0
+script = ExtResource("1_rnl0f")
 
 [node name="Background" type="NinePatchRect" parent="."]
 layout_mode = 2
@@ -35,7 +33,7 @@ theme_override_constants/margin_right = 2
 theme_override_constants/margin_bottom = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
-custom_minimum_size = Vector2(0, 108)
+custom_minimum_size = Vector2(12, 108)
 layout_mode = 2
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
@@ -44,15 +42,3 @@ scroll_deadzone = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer"]
 layout_mode = 2
 alignment = 1
-
-[node name="ConstructionButton" parent="MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_mr2bv")]
-layout_mode = 2
-type = ExtResource("3_mgwyu")
-
-[node name="ConstructionButton2" parent="MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_mr2bv")]
-layout_mode = 2
-type = ExtResource("4_3cr55")
-
-[node name="ConstructionButton3" parent="MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_mr2bv")]
-layout_mode = 2
-type = ExtResource("5_b0jut")

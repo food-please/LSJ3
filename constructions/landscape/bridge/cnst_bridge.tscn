@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b806nvdpuusgq"]
+
+[ext_resource type="PackedScene" uid="uid://c7rbljhcb51ka" path="res://constructions/construction.tscn" id="1_wwcih"]
+[ext_resource type="Texture2D" uid="uid://cucrdpxy0xfyo" path="res://constructions/landscape/bridge/bridge.atlastex" id="2_v0fvv"]
+
+[node name="Castle" instance=ExtResource("1_wwcih")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_v0fvv")
+
+[node name="OccupiedCells" parent="." index="1"]
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0)
+terrain = Array[String](["River"])

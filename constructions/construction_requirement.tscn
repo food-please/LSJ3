@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://ct7e5kegsjm84"]
+
+[ext_resource type="TileSet" uid="uid://d34lmt0p41ffk" path="res://world/tilesets/passability_tileset.tres" id="1_it0mo"]
+[ext_resource type="Script" path="res://constructions/construction_requirement.gd" id="1_u61s6"]
+
+[node name="ConstructionRequirement" type="TileMapLayer"]
+position = Vector2(-4, -4)
+tile_set = ExtResource("1_it0mo")
+script = ExtResource("1_u61s6")

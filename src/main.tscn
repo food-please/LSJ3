@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://d3103sit7p6q2"]
+[gd_scene load_steps=18 format=4 uid="uid://d3103sit7p6q2"]
 
 [ext_resource type="Script" path="res://src/main.gd" id="1_gnvqc"]
 [ext_resource type="Script" path="res://src/player/touch_camera.gd" id="2_kxulf"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://world/occupancy_grid.gd" id="8_rjhgp"]
 [ext_resource type="PackedScene" uid="uid://dse1e7q3w1xcg" path="res://src/ui/constructions/constructions_bar.tscn" id="8_v5mau"]
 [ext_resource type="PackedScene" uid="uid://bdf37g5aeln1b" path="res://src/ui/constructions/trash_can.tscn" id="10_v5tt3"]
+[ext_resource type="Resource" uid="uid://bbv2rejjgear0" path="res://constructions/construction_category_all.tres" id="12_1galp"]
 [ext_resource type="Script" path="res://src/ui/constructions/ui_construction_requirements.gd" id="14_ilt6t"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5iwj5"]
@@ -82,6 +83,7 @@ layout_mode = 2
 
 [node name="ConstructionsBar" parent="UI/ConstructionBar/VBoxContainer" instance=ExtResource("8_v5mau")]
 layout_mode = 2
+category = ExtResource("12_1galp")
 
 [node name="TrashCan" parent="UI/ConstructionBar/VBoxContainer" instance=ExtResource("10_v5tt3")]
 layout_mode = 2

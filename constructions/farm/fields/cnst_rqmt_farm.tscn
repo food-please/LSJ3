@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0qannpltlkfv"]
+
+[ext_resource type="PackedScene" uid="uid://0w7bjhs8khei" path="res://src/ui/constructions/bubble/construction_bubble_requirement.tscn" id="1_sfo33"]
+[ext_resource type="FontFile" uid="uid://gnc21pc3uknl" path="res://assets/font/uni05_63.ttf" id="2_m5mhr"]
+[ext_resource type="Texture2D" uid="uid://b3ammqtlkbj65" path="res://world/tilesets/terrains/terrain_icon_river.atlastex" id="3_jobb8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jhlr8"]
+font = ExtResource("2_m5mhr")
+font_size = 8
+font_color = Color(0, 0, 0, 1)
+
+[node name="FarmRequirement" instance=ExtResource("1_sfo33")]
+
+[node name="Label" type="Label" parent="HBoxContainer" index="0"]
+layout_mode = 2
+text = "Range 3: "
+label_settings = SubResource("LabelSettings_jhlr8")
+
+[node name="Icon" parent="HBoxContainer" index="1"]
+texture = ExtResource("3_jobb8")
+
+[node name="Number" parent="HBoxContainer" index="3"]
+quantity = 1

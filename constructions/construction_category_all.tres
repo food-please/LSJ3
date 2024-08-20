@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ConstructionsCategory" load_steps=10 format=3 uid="uid://bbv2rejjgear0"]
+
+[ext_resource type="Script" path="res://constructions/construction_data.gd" id="1_rnp2p"]
+[ext_resource type="Resource" uid="uid://cxk7mv4q6cwym" path="res://constructions/landscape/flower_pot/cnst_data_flower_pot.tres" id="2_bvs1m"]
+[ext_resource type="Script" path="res://src/ui/constructions/constructions_category.gd" id="2_sw2lo"]
+[ext_resource type="Resource" uid="uid://cqhsgkpbehpe3" path="res://constructions/marine/well/cnst_data_well.tres" id="3_a2xtw"]
+[ext_resource type="Resource" uid="uid://do8y0c0cuee5x" path="res://constructions/landscape/bridge/cnst_data_bridge.tres" id="3_jfbpu"]
+[ext_resource type="Resource" uid="uid://dk3jtfo8l8raq" path="res://constructions/farm/fields/field_data.tres" id="4_qty27"]
+[ext_resource type="Resource" uid="uid://bvgj0a5xr7rgk" path="res://constructions/farm/mill/cnst_data_mill.tres" id="5_d16ag"]
+[ext_resource type="Resource" uid="uid://b0o5gixkv65us" path="res://constructions/fortress/tower/tower_data.tres" id="5_jndfn"]
+[ext_resource type="Resource" uid="uid://diqsa5s4ym1ak" path="res://constructions/fortress/castle/cnst_data_castle.tres" id="6_3a3lt"]
+
+[resource]
+script = ExtResource("2_sw2lo")
+constructions = Array[ExtResource("1_rnp2p")]([ExtResource("2_bvs1m"), ExtResource("3_jfbpu"), ExtResource("3_a2xtw"), ExtResource("4_qty27"), ExtResource("5_d16ag"), ExtResource("5_jndfn"), ExtResource("6_3a3lt")])

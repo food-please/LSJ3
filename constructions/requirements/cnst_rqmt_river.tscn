@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://drux5lqc7p0js"]
+
+[ext_resource type="PackedScene" uid="uid://0w7bjhs8khei" path="res://src/ui/constructions/bubble/construction_bubble_requirement.tscn" id="1_tcx0l"]
+[ext_resource type="Texture2D" uid="uid://b3ammqtlkbj65" path="res://world/tilesets/terrains/terrain_icon_river.atlastex" id="2_8hscb"]
+
+[node name="RiverRequirement" instance=ExtResource("1_tcx0l")]
+theme_override_constants/margin_right = 2
+
+[node name="Icon" parent="HBoxContainer" index="0"]
+texture = ExtResource("2_8hscb")
+
+[node name="Modifier" parent="HBoxContainer" index="1"]
+visible = false
+
+[node name="Number" parent="HBoxContainer" index="2"]
+visible = false
+quantity = 1
