@@ -8,6 +8,12 @@ const COLOR: = [ Color.WHITE, Color(1.0, 0.0, 0.0, 0.7), Color(0.0, 1.0, 0.0, 0.
 
 @export var trash_can: TrashCan
 
+@export_category("Camera")
+@export var camera: TouchCamera
+
+@export var cursor_scroll_limits: = Rect2i(20, 20, 216, 104)
+@export var cursor_scroll_speed: = 64.0
+
 var _grid: TileMapLayer
 var _tileset: TileSet
 
@@ -34,6 +40,8 @@ func _ready() -> void:
 	assert(trash_can, "The building manager needs an available trash can!")
 	#trash_can.gui_input.connect(_on_trash_can_gui_input)
 	
+	assert(camera, "The building manager needs a camera!")
+	
 	Events.construction_data_selected.connect(
 		func(data: ConstructionData, _anchor: RemoteTransform2D):
 			_active_data = data
@@ -41,6 +49,28 @@ func _ready() -> void:
 				assert(_active_data.variations.size(), "Construction blueprint has no variations!")
 			set_process_unhandled_input(data != null)
 	)
+	
+	set_process(false)
+
+
+func _process(delta: float) -> void:
+	if not _construction_blueprint:
+		set_process(false)
+		return
+	
+	var scroll: = Vector2.ZERO
+	var mouse_pos: = get_viewport().get_mouse_position()
+	if mouse_pos.x < cursor_scroll_limits.position.x:
+		scroll.x = -1
+	elif mouse_pos.x > cursor_scroll_limits.end.x:
+		scroll.x = 1
+	
+	if mouse_pos.y < cursor_scroll_limits.position.y:
+		scroll.y = -1
+	elif mouse_pos.y > cursor_scroll_limits.end.y:
+		scroll.y = 1
+	
+	camera.scroll(scroll.normalized() * cursor_scroll_speed * delta)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -78,6 +108,7 @@ func _setup_new_blueprint_from_data() -> void:
 	_move_construction_to_cell(_construction_blueprint, cell, target)
 	
 	trash_can.show()
+	set_process(true)
 
 
 func _move_construction_to_cell(construction: Construction, cell: Vector2i, 

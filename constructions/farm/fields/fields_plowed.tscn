@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhf3vuixlf4rc"]
+
+[ext_resource type="PackedScene" uid="uid://c7rbljhcb51ka" path="res://constructions/construction.tscn" id="1_qb0n1"]
+[ext_resource type="Texture2D" uid="uid://cqu3nunm7osea" path="res://constructions/farm/fields/plowed_field.atlastex" id="2_rtw0m"]
+
+[node name="PlowedFields" instance=ExtResource("1_qb0n1")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_rtw0m")
+
+[node name="OccupiedCells" parent="." index="1"]
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0)
+operation = 1
+terrain = Array[String](["Trees", "Cliff", "River"])

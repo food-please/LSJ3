@@ -37,6 +37,11 @@ func _unhandled_input(event: InputEvent) -> void:
 			get_viewport().set_input_as_handled()
 
 
+func scroll(offset: Vector2) -> void:
+	position += offset
+	clamp_to_boundary()
+
+
 func clamp_to_boundary() -> void:
 	if not boundary.has_point(global_position):
 		global_position.x = clampf(global_position.x, boundary.position.x, boundary.end.x)
