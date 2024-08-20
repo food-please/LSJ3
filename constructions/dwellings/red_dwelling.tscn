@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://j4e0hv3ljrie"]
-
-[ext_resource type="PackedScene" uid="uid://c7rbljhcb51ka" path="res://constructions/construction.tscn" id="1_q6e04"]
-[ext_resource type="Texture2D" uid="uid://cjs6lun0168if" path="res://constructions/house.atlastex" id="2_kqpwu"]
-
-[node name="RedDwelling" instance=ExtResource("1_q6e04")]
-
-[node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("2_kqpwu")

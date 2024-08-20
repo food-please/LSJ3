@@ -2,10 +2,36 @@ extends CenterContainer
 
 const CITIZEN: = preload("res://src/ui/workers/citizen_button.tscn")
 
+@export var max_concurrent_citizens: = 7
+
 var _y_move_tween: Tween
 
 @onready var _citizens: = $VBoxContainer as Control
 @onready var _disposal: = $OldWorkers as Control
+
+
+func _ready() -> void:
+	$Timer.start()
+	$Timer.timeout.connect(
+		func():
+			#print(Dwellings.DWELLINGS.size(), " Timeout ", Dwellings.DWELLINGS.size() > _citizens.get_child_count(), 
+				#" ", _citizens.get_child_count() <= 7)
+			add_random_citizen()
+	)
+
+
+func add_random_citizen() -> void:
+	if Dwellings.DWELLINGS.size() > _citizens.get_child_count() \
+			and _citizens.get_child_count() < max_concurrent_citizens:
+		var new_data: ConstructionData = null
+		while(true):
+			new_data = Dwellings.get_random_dwelling()
+			if _citizen_has_data(new_data):
+				continue
+			
+			break
+		
+		add_citizen(Constants.get_random_citizen_colour(), new_data)
 
 
 func add_citizen(colour: Constants.CITIZEN_COLOURS, dwelling_data: ConstructionData) -> String:
@@ -65,3 +91,10 @@ func _move_citizens_to_new_positions(static_controls: Array[Control] = []) -> vo
 	for citizen: Control in moved_citizens:
 		_y_move_tween.parallel().tween_property(citizen, "global_position:y", 
 			citizen.global_position.y, 0.2).from(old_positions[citizen])
+
+
+func _citizen_has_data(data: ConstructionData) -> bool:
+	for child: UIWorkerType in _citizens.get_children():
+		if child.dwelling_data == data:
+			return true
+	return false

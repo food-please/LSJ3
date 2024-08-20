@@ -1,10 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://dnrd5oqspprpr"]
 
 [ext_resource type="PackedScene" uid="uid://c7rbljhcb51ka" path="res://constructions/construction.tscn" id="1_7plji"]
-[ext_resource type="Texture2D" uid="uid://c0ht0kni1inpf" path="res://constructions/tower.atlastex" id="2_2x5fh"]
+[ext_resource type="Texture2D" uid="uid://c0ht0kni1inpf" path="res://constructions/fortress/tower/tower.atlastex" id="2_2x5fh"]
 
 [node name="RedDwelling" instance=ExtResource("1_7plji")]
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_2x5fh")
 offset = Vector2(0, -2)
+
+[node name="OccupiedCells" parent="." index="1"]
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0)
+operation = 1
+terrain = Array[String](["RoadDirt", "Cliff", "River", "Trees"])

@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=4 uid="uid://hh55pdbgwwgr"]
+[gd_scene load_steps=7 format=4 uid="uid://hh55pdbgwwgr"]
 
 [ext_resource type="PackedScene" uid="uid://c7rbljhcb51ka" path="res://constructions/construction.tscn" id="1_d8m36"]
 [ext_resource type="Texture2D" uid="uid://dtn7mf58tyatg" path="res://constructions/fortress/castle/castle.atlastex" id="2_hrs1w"]
+[ext_resource type="TileSet" uid="uid://d34lmt0p41ffk" path="res://world/tilesets/passability_tileset.tres" id="3_hbine"]
+[ext_resource type="Script" path="res://constructions/construction_requirement.gd" id="4_23n00"]
+[ext_resource type="Script" path="res://constructions/construction_data.gd" id="5_mmkl7"]
+[ext_resource type="Resource" uid="uid://b0o5gixkv65us" path="res://constructions/fortress/tower/tower_data.tres" id="6_pygtc"]
 
 [node name="Castle" instance=ExtResource("1_d8m36")]
 
@@ -12,3 +16,13 @@ texture = ExtResource("2_hrs1w")
 tile_map_data = PackedByteArray("AAAAAAAAAQAAAAAAAAD//wAAAQAAAAAAAAAAAP//AQAAAAAAAAD/////AQAAAAAAAAABAP//AQAAAAAAAAABAAAAAQAAAAAAAAABAAEAAQAAAAAAAAAAAAEAAQAAAAAAAAD//wEAAQAAAAAAAAA=")
 operation = 1
 terrain = Array[String](["River", "Cliff", "Trees"])
+
+[node name="TowerRequirement" type="TileMapLayer" parent="." index="2"]
+modulate = Color(0.10748, 0.10748, 0.10748, 0.368627)
+position = Vector2(-4, -4)
+tile_map_data = PackedByteArray("AAD+/wIAAQAAAAAAAAD//wIAAQAAAAAAAAAAAAIAAQAAAAAAAAABAAIAAQAAAAAAAAACAAIAAQAAAAAAAAACAAEAAQAAAAAAAAACAAAAAQAAAAAAAAACAP//AQAAAAAAAAACAP7/AQAAAAAAAAABAP7/AQAAAAAAAAAAAP7/AQAAAAAAAAD///7/AQAAAAAAAAD+//7/AQAAAAAAAAD+////AQAAAAAAAAD+/wAAAQAAAAAAAAD+/wEAAQAAAAAAAAA=")
+tile_set = ExtResource("3_hbine")
+script = ExtResource("4_23n00")
+operation = 2
+construction_types = Array[ExtResource("5_mmkl7")]([ExtResource("6_pygtc")])
+construction_quantity = 1

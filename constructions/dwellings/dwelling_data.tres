@@ -1,11 +1,12 @@
 [gd_resource type="Resource" script_class="ConstructionData" load_steps=5 format=3 uid="uid://df6up1e73akpj"]
 
 [ext_resource type="Script" path="res://constructions/construction_data.gd" id="1_mb38k"]
-[ext_resource type="Texture2D" uid="uid://cjs6lun0168if" path="res://constructions/house.atlastex" id="2_sugtd"]
-[ext_resource type="PackedScene" uid="uid://j4e0hv3ljrie" path="res://constructions/dwellings/red_dwelling.tscn" id="3_j4qvc"]
-[ext_resource type="PackedScene" uid="uid://btknrhq6vq8jg" path="res://constructions/dwellings/brown_dwelling.tscn" id="4_2iynu"]
+[ext_resource type="Texture2D" uid="uid://chlu37ylncxt1" path="res://constructions/dwellings/variations/dwelling_darkred1.atlastex" id="1_onxqt"]
+[ext_resource type="PackedScene" uid="uid://6tdvgv7tjpeb" path="res://constructions/requirements/cnst_rqmt_plains.tscn" id="2_ttioc"]
+[ext_resource type="PackedScene" uid="uid://ddv6g348u0qmv" path="res://constructions/dwellings/dwelling_house.tscn" id="4_2ae4c"]
 
 [resource]
 script = ExtResource("1_mb38k")
-icon = ExtResource("2_sugtd")
-variations = Array[PackedScene]([ExtResource("3_j4qvc"), ExtResource("4_2iynu")])
+icon = ExtResource("1_onxqt")
+variations = Array[PackedScene]([ExtResource("4_2ae4c")])
+requirements = Array[PackedScene]([ExtResource("2_ttioc")])

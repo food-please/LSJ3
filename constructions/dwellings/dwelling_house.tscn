@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddv6g348u0qmv"]
+
+[ext_resource type="PackedScene" uid="uid://c7rbljhcb51ka" path="res://constructions/construction.tscn" id="1_yskmy"]
+[ext_resource type="Script" path="res://constructions/dwellings/dwelling_house.gd" id="2_042id"]
+[ext_resource type="Texture2D" uid="uid://chlu37ylncxt1" path="res://constructions/dwellings/variations/dwelling_darkred1.atlastex" id="3_66e6g"]
+
+[node name="DwellingHouse" instance=ExtResource("1_yskmy")]
+script = ExtResource("2_042id")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("3_66e6g")
+
+[node name="OccupiedCells" parent="." index="1"]
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0)
+operation = 1
+terrain = Array[String](["RoadDirt", "Cliff", "Trees", "River"])

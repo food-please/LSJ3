@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://6tdvgv7tjpeb"]
+
+[ext_resource type="PackedScene" uid="uid://0w7bjhs8khei" path="res://src/ui/constructions/bubble/construction_bubble_requirement.tscn" id="1_bmfjo"]
+[ext_resource type="Texture2D" uid="uid://c8gagg6dgw7nn" path="res://world/tilesets/terrains/terrain_icon_grass.atlastex" id="2_17oya"]
+
+[node name="PlainsRequirement" instance=ExtResource("1_bmfjo")]
+theme_override_constants/margin_right = 2
+
+[node name="Icon" parent="HBoxContainer" index="0"]
+texture = ExtResource("2_17oya")
+
+[node name="Modifier" parent="HBoxContainer" index="1"]
+visible = false
+
+[node name="Number" parent="HBoxContainer" index="2"]
+visible = false
+quantity = 1

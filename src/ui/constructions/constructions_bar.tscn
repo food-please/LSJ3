@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://64osm8pikkir" path="res://world/tch_world_tiles.png" id="1_o7jl0"]
 [ext_resource type="PackedScene" uid="uid://caecvfqyl8nwl" path="res://src/ui/constructions/construction_button.tscn" id="2_mr2bv"]
 [ext_resource type="Resource" uid="uid://diqsa5s4ym1ak" path="res://constructions/fortress/castle/cnst_data_castle.tres" id="3_mgwyu"]
-[ext_resource type="Resource" uid="uid://b0o5gixkv65us" path="res://constructions/dwellings/tower_data.tres" id="4_3cr55"]
+[ext_resource type="Resource" uid="uid://b0o5gixkv65us" path="res://constructions/fortress/tower/tower_data.tres" id="4_3cr55"]
 [ext_resource type="Resource" uid="uid://dk3jtfo8l8raq" path="res://constructions/farm/fields/field_data.tres" id="5_b0jut"]
 
 [node name="ConstructionsBar" type="MarginContainer"]

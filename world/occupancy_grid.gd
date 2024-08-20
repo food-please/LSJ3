@@ -6,6 +6,10 @@ const CELL_COORDS: = Vector2i(0, 0)
 var _construction_data: = {}
 
 
+func _ready() -> void:
+	hide()
+
+
 # Returns a dictionary with keys = cell coords and values = construction data (note: multiple
 # constructions can share the same data, and multi-cell constructions count for each cell they
 # occupy. That is, a 3x3 construction shows up 9 times.)

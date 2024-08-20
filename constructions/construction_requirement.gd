@@ -66,6 +66,9 @@ func _check_occupants(target_cells: Array[Vector2i], get_occupants: Callable) ->
 					return false
 		
 		Operations.LESS_THAN:
+			if construction_types.is_empty():
+				return true
+			
 			var occurrences: = 0
 			for cnst_data in construction_types:
 				occurrences += occupant_values.count(cnst_data)
@@ -73,6 +76,9 @@ func _check_occupants(target_cells: Array[Vector2i], get_occupants: Callable) ->
 				return false
 		
 		Operations.MORE_THAN:
+			if construction_types.is_empty():
+				return true
+			
 			var occurrences: = 0
 			for cnst_data in construction_types:
 				occurrences += occupant_values.count(cnst_data)
@@ -80,6 +86,9 @@ func _check_occupants(target_cells: Array[Vector2i], get_occupants: Callable) ->
 				return false
 		
 		Operations.EXACTLY:
+			if construction_types.is_empty():
+				return true
+			
 			var occurrences: = 0
 			for cnst_data in construction_types:
 				occurrences += occupant_values.count(cnst_data)

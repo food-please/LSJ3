@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ConstructionData" load_steps=5 format=3 uid="uid://b0o5gixkv65us"]
+
+[ext_resource type="Texture2D" uid="uid://c0ht0kni1inpf" path="res://constructions/fortress/tower/tower.atlastex" id="1_e4og4"]
+[ext_resource type="PackedScene" uid="uid://6tdvgv7tjpeb" path="res://constructions/requirements/cnst_rqmt_plains.tscn" id="2_xmf0t"]
+[ext_resource type="Script" path="res://constructions/construction_data.gd" id="3_7oiic"]
+[ext_resource type="PackedScene" uid="uid://dnrd5oqspprpr" path="res://constructions/fortress/tower/tower_construction.tscn" id="4_7qmq6"]
+
+[resource]
+script = ExtResource("3_7oiic")
+icon = ExtResource("1_e4og4")
+variations = Array[PackedScene]([ExtResource("4_7qmq6")])
+requirements = Array[PackedScene]([ExtResource("2_xmf0t")])
