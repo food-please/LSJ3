@@ -14,5 +14,7 @@ func _ready() -> void:
 		map_dimensions.size * terrain.tile_set.tile_size - Vector2i(viewport_dimensions)
 	)
 	
-	for i in range(0, 7):
+	for i in range(0, 4):
 		$UI/CitizenBar.add_random_citizen()
+	
+	Music.start()

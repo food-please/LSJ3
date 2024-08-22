@@ -1,7 +1,8 @@
 class_name World extends Node2D
 
-# Store features/terrain types according to name.
-
+# Key = cell, value = terrain type name
+var _features: = {}
+var _terrain: = {}
 
 # Note that the terrain layer acts as the world's grid/playable area.
 @onready var terrain: = $Terrain as TileMapLayer
@@ -9,9 +10,7 @@ class_name World extends Node2D
 @onready var features: = $Features as TileMapLayer
 @onready var _features_tileset: = features.tile_set
 
-# Key = cell, value = terrain type name
-var _features: = {}
-var _terrain: = {}
+@onready var buildings: = $Buildings as BuildingManager
 
 
 func _ready() -> void:
@@ -26,6 +25,8 @@ func _ready() -> void:
 		cell_data = terrain.get_cell_tile_data(cell)
 		var ground = _terrain_tileset.get_terrain_name(cell_data.terrain_set, cell_data.terrain)
 		_terrain[cell] = ground
+	
+	Events.construction_placed.connect(_on_construction_placed)
 
 
 # Returns a dictionary with key = cell coords and value = terrain name (String)
@@ -57,3 +58,14 @@ func get_terrain_at_cell(cell: Vector2i) -> String:
 		#return
 	
 	#print(cell_data.terrain_set, " ", cell_data.terrain)
+
+
+func _on_construction_placed(construction: Construction) -> void:
+	var terrain_construction: = construction as TerrainConstruction
+	if terrain_construction:
+		var changes: = terrain_construction.get_cells()
+		for cell in changes:
+			terrain.set_cells_terrain_connect([cell], 0, changes[cell])
+		
+		buildings.clear_passability(terrain_construction.cell)
+		terrain_construction.queue_free()

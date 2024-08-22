@@ -1,0 +1,23 @@
+[gd_scene load_steps=8 format=3 uid="uid://clh4w5oom7v5w"]
+
+[ext_resource type="Script" path="res://music/music_player.gd" id="1_nutcs"]
+[ext_resource type="AudioStream" uid="uid://c6cdj7uhrwsnb" path="res://music/Chill-dren.ogg" id="2_dugdj"]
+[ext_resource type="AudioStream" uid="uid://clpubyjlnun23" path="res://music/Factory.ogg" id="3_hqymf"]
+[ext_resource type="AudioStream" uid="uid://2ay07fds10mf" path="res://music/Float.ogg" id="4_tcccm"]
+[ext_resource type="AudioStream" uid="uid://di086eq572jda" path="res://music/Happy Deuce.ogg" id="5_0c7o6"]
+[ext_resource type="AudioStream" uid="uid://bimcf752yvqs" path="res://music/Sad Deuce.ogg" id="6_2m5lm"]
+[ext_resource type="AudioStream" uid="uid://d26lsc77t6ffk" path="res://music/TCH.ogg" id="7_p636u"]
+
+[node name="MusicPlayer" type="Node"]
+script = ExtResource("1_nutcs")
+tracks = Array[AudioStream]([ExtResource("2_dugdj"), ExtResource("3_hqymf"), ExtResource("4_tcccm"), ExtResource("5_0c7o6"), ExtResource("6_2m5lm"), ExtResource("7_p636u")])
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+bus = &"Music"
+
+[node name="PlayTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="SilenceTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true

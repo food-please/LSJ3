@@ -1,4 +1,4 @@
-extends Node2D
+class_name BuildingManager extends Node2D
 
 const CONSTRUCTION: = preload("res://constructions/construction.tscn")
 
@@ -92,6 +92,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 
 
+func clear_passability(cell: Vector2i) -> void:
+	passable_cells.erase_cell(cell)
+
+
 func _setup_new_blueprint_from_data() -> void:
 	assert(_active_data, "Trying to setup a construction blueprint, but there's no data!")
 	
@@ -105,6 +109,9 @@ func _setup_new_blueprint_from_data() -> void:
 	
 	var cell: = _grid.local_to_map(get_global_mouse_position())
 	var target: = _grid.map_to_local(cell)
+	if _construction_blueprint.has_method("setup_preview"):
+		_construction_blueprint.setup_preview(cell, target)
+	
 	_move_construction_to_cell(_construction_blueprint, cell, target)
 	
 	trash_can.show()
@@ -113,7 +120,7 @@ func _setup_new_blueprint_from_data() -> void:
 
 func _move_construction_to_cell(construction: Construction, cell: Vector2i, 
 		target: Vector2i) -> void:
-	construction.position = target
+	construction.preview_at_position(target)
 	
 	if not construction.evaluate_requirements(cell, passable_cells.get_occupants, 
 			world.get_terrain_at_cells):
@@ -133,7 +140,9 @@ func _place_construction() -> bool:
 	#if passable_cells.get_occupants(changed_cells):
 		_free_blueprint()
 		return false
-	passable_cells.set_cell_occupancy(changed_cells, true, _active_data)
+	
+	if not _construction_blueprint is TerrainConstruction:
+		passable_cells.set_cell_occupancy(changed_cells, true, _active_data)
 	
 	Events.construction_placed.emit(_construction_blueprint)
 	_construction_blueprint = null

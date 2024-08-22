@@ -17,8 +17,8 @@ func _ready() -> void:
 	#cell_layer.queue_free()
 	
 	_requirements = find_children("*", "ConstructionRequirement")
-	for requirement in _requirements:
-		requirement.hide()
+	#for requirement in _requirements:
+		#requirement.hide()
 
 
 func evaluate_requirements(target_cell: Vector2i, get_occupants: Callable, 
@@ -41,6 +41,10 @@ func place(destination: Vector2i, destination_cell: Vector2i) -> Array[Vector2i]
 		requirement.queue_free()
 	
 	return get_occupied_cells(cell)
+
+
+func preview_at_position(target: Vector2) -> void:
+	position = target
 
 
 func get_occupied_cells(origin_cell: Vector2i) -> Array[Vector2i]:
