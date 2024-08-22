@@ -10,12 +10,7 @@ terrain_type = "path"
 terrain_id = 0
 
 [node name="OccupiedCells" parent="." index="1"]
-visible = false
-tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0)
-operation = 1
-terrain = Array[String](["River"])
-
-[node name="Preview" type="TileMapLayer" parent="." index="2"]
-position = Vector2(-4, -4)
 tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0)
 tile_set = ExtResource("3_cuh4r")
+operation = 1
+terrain = Array[String](["River"])

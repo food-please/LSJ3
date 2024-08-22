@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ConstructionData" load_steps=4 format=3 uid="uid://dd02msnxr78ac"]
+
+[ext_resource type="Texture2D" uid="uid://b3ammqtlkbj65" path="res://world/tilesets/terrains/terrain_icon_river.atlastex" id="1_uovth"]
+[ext_resource type="Script" path="res://constructions/construction_data.gd" id="3_fia8p"]
+[ext_resource type="PackedScene" uid="uid://m6uh6pkobcvc" path="res://constructions/landscape/river/cnst_river.tscn" id="3_mbytj"]
+
+[resource]
+script = ExtResource("3_fia8p")
+icon = ExtResource("1_uovth")
+variations = Array[PackedScene]([ExtResource("3_mbytj")])
+requirements = Array[PackedScene]([])

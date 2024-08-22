@@ -27,7 +27,7 @@ func validate_requirement(target_cell:Vector2i, get_occupants: Callable,
 	var checked_cells: Array[Vector2i] = []	
 	for cell in get_used_cells():
 		checked_cells.append(target_cell + cell)
-	
+		
 	# First of all, check terrains, as long as a terrain requirement is specified.
 	if not terrain.is_empty():
 		if not _check_terrain(checked_cells, get_terrain_at_cells):

@@ -14,7 +14,7 @@ class_name TerrainConstruction extends Construction
 		terrain_id = clampi(value, 0, _preview.tile_set.get_terrains_count(0))
 		_preview.set_cells_terrain_connect([Vector2i.ZERO], 0, terrain_id)
 
-@onready var _preview: = $Preview as TileMapLayer
+@onready var _preview: = $OccupiedCells as TileMapLayer
 
 var origin: = Vector2i.ZERO
 
@@ -40,16 +40,14 @@ func preview_at_position(target: Vector2) -> void:
 	else:
 		path_cells = _get_area_cells(target)
 	
-	_preview.set_cells_terrain_connect(path_cells, 0, 0)
-	
-	print(path_cells)
+	_preview.set_cells_terrain_connect(path_cells, 0, terrain_id)
 
 
-func evaluate_requirements(target_cell: Vector2i, get_occupants: Callable, 
+func evaluate_requirements(_target_cell: Vector2i, get_occupants: Callable, 
 		get_terrain: Callable) -> bool:
 	is_valid = true
 	for requirement: ConstructionRequirement in _requirements:
-		if not requirement.validate_requirement(target_cell, get_occupants, get_terrain):
+		if not requirement.validate_requirement(origin, get_occupants, get_terrain):
 			is_valid = false
 	
 	return is_valid

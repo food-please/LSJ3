@@ -28,6 +28,11 @@ func _ready() -> void:
 			set_process(data and anchor)
 	)
 	
+	Events.erase_selected.connect(
+		func(_toggled: bool):
+			_clear_bubble()
+	)
+	
 	set_process(false)
 
 
@@ -61,3 +66,5 @@ func _clear_bubble() -> void:
 	if _bubble:
 		_bubble.queue_free()
 		_bubble = null
+	
+	set_process(false)

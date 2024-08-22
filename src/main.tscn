@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://d3103sit7p6q2"]
+[gd_scene load_steps=20 format=4 uid="uid://d3103sit7p6q2"]
 
 [ext_resource type="Script" path="res://src/main.gd" id="1_gnvqc"]
 [ext_resource type="Script" path="res://src/player/touch_camera.gd" id="2_kxulf"]
@@ -14,7 +14,9 @@
 [ext_resource type="Script" path="res://world/occupancy_grid.gd" id="8_rjhgp"]
 [ext_resource type="PackedScene" uid="uid://dse1e7q3w1xcg" path="res://src/ui/constructions/constructions_bar.tscn" id="8_v5mau"]
 [ext_resource type="PackedScene" uid="uid://bdf37g5aeln1b" path="res://src/ui/constructions/trash_can.tscn" id="10_v5tt3"]
+[ext_resource type="Texture2D" uid="uid://c52ahyllb7xmo" path="res://src/ui/constructions/erase/erase_button.atlastex" id="11_0d2dl"]
 [ext_resource type="Resource" uid="uid://bbv2rejjgear0" path="res://constructions/construction_category_all.tres" id="12_1galp"]
+[ext_resource type="Script" path="res://src/ui/constructions/erase/erase_button.gd" id="12_7s2lt"]
 [ext_resource type="Script" path="res://src/ui/constructions/ui_construction_requirements.gd" id="14_ilt6t"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5iwj5"]
@@ -80,6 +82,13 @@ mouse_filter = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/ConstructionBar"]
 layout_mode = 2
+
+[node name="EraseButton" type="TextureButton" parent="UI/ConstructionBar/VBoxContainer"]
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("11_0d2dl")
+stretch_mode = 3
+script = ExtResource("12_7s2lt")
 
 [node name="ConstructionsBar" parent="UI/ConstructionBar/VBoxContainer" instance=ExtResource("8_v5mau")]
 layout_mode = 2

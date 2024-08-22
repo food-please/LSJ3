@@ -5,3 +5,9 @@ signal construction_data_selected(data: ConstructionData, anchor: RemoteTransfor
 
 @warning_ignore("unused_signal")
 signal construction_placed(construction: Construction)
+
+@warning_ignore("unused_signal")
+signal erase_selected(toggled: bool)
+
+@warning_ignore("unused_signal")
+signal cell_erased(cell: Vector2i)

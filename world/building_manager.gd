@@ -17,8 +17,20 @@ const COLOR: = [ Color.WHITE, Color(1.0, 0.0, 0.0, 0.7), Color(0.0, 1.0, 0.0, 0.
 var _grid: TileMapLayer
 var _tileset: TileSet
 
+var is_erase_mode: bool = false:
+	set(value):
+		is_erase_mode = value
+		
+		if is_erase_mode:
+			_free_blueprint()
+			_active_data = null
+		
+		set_process_unhandled_input(is_erase_mode)
+
 var _active_data: ConstructionData = null
 var _construction_blueprint: Construction = null
+
+var _drag_distance: = 0.0
 
 @onready var passable_cells: = $PassabilityGrid as OccupancyGrid
 
@@ -44,11 +56,15 @@ func _ready() -> void:
 	
 	Events.construction_data_selected.connect(
 		func(data: ConstructionData, _anchor: RemoteTransform2D):
+			is_erase_mode = false
+			
 			_active_data = data
 			if _active_data:
 				assert(_active_data.variations.size(), "Construction blueprint has no variations!")
 			set_process_unhandled_input(data != null)
 	)
+	
+	Events.erase_selected.connect(func(toggled: bool): is_erase_mode = toggled)
 	
 	set_process(false)
 
@@ -74,26 +90,53 @@ func _process(delta: float) -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventScreenDrag and _construction_blueprint != null:
-		var cell: = _grid.local_to_map(get_global_mouse_position())
-		var target: = _grid.map_to_local(cell)
-		_move_construction_to_cell(_construction_blueprint, cell, target)
+	if is_erase_mode:
+		if event.is_action_pressed("touch"):
+			_drag_distance = 0.0
+			get_viewport().set_input_as_handled()
+			
+		elif event.is_action_released("touch"):
+			if _drag_distance <= 10.0:
+				var cell: = _grid.local_to_map(get_global_mouse_position())
+				
+				Events.cell_erased.emit(cell)
+				get_viewport().set_input_as_handled()
+		
+		elif event is InputEventMouseMotion and Input.is_action_pressed("touch"):
+			_drag_distance += event.relative.length()
+			camera.scroll(-event.relative)
 	
-	elif event.is_action_pressed("touch"):
-		_setup_new_blueprint_from_data()
-		get_viewport().set_input_as_handled()
+	else:
+		if event is InputEventScreenDrag and _construction_blueprint != null:
+			var cell: = _grid.local_to_map(get_global_mouse_position())
+			var target: = _grid.map_to_local(cell)
+			_move_construction_to_cell(_construction_blueprint, cell, target)
 		
-	elif event.is_action_released("touch"):
-		if _construction_blueprint.visible:
-			_place_construction()
-		
-		else:
-			_free_blueprint()
-		get_viewport().set_input_as_handled()
+		elif event.is_action_pressed("touch"):
+			_setup_new_blueprint_from_data()
+			get_viewport().set_input_as_handled()
+			
+		elif event.is_action_released("touch"):
+			if _construction_blueprint.visible:
+				_place_construction()
+			
+			else:
+				_free_blueprint()
+			get_viewport().set_input_as_handled()
 
 
-func clear_passability(cell: Vector2i) -> void:
-	passable_cells.erase_cell(cell)
+func erase_cell(cell: Vector2i) -> bool:
+	var construction: = passable_cells.get_construction_at_cell(cell)
+	if construction:
+		passable_cells.set_cell_occupancy(
+			construction.get_occupied_cells(construction.cell),
+			false,
+			null,
+			null
+		)
+		construction.queue_free()
+		return true
+	return false
 
 
 func _setup_new_blueprint_from_data() -> void:
@@ -122,7 +165,7 @@ func _move_construction_to_cell(construction: Construction, cell: Vector2i,
 		target: Vector2i) -> void:
 	construction.preview_at_position(target)
 	
-	if not construction.evaluate_requirements(cell, passable_cells.get_occupants, 
+	if not construction.evaluate_requirements(cell, passable_cells.get_occupant_data, 
 			world.get_terrain_at_cells):
 		construction.flag_as_invalid()
 	
@@ -142,7 +185,8 @@ func _place_construction() -> bool:
 		return false
 	
 	if not _construction_blueprint is TerrainConstruction:
-		passable_cells.set_cell_occupancy(changed_cells, true, _active_data)
+		passable_cells.set_cell_occupancy(changed_cells, true, _construction_blueprint, 
+			_active_data)
 	
 	Events.construction_placed.emit(_construction_blueprint)
 	_construction_blueprint = null
@@ -151,8 +195,6 @@ func _place_construction() -> bool:
 
 
 func _free_blueprint() -> void:
-	
-	print("Free blueprint")
 	if _construction_blueprint:
 		_construction_blueprint.queue_free()
 	_construction_blueprint = null
