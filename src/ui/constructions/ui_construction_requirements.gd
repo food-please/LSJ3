@@ -10,7 +10,7 @@ func _ready() -> void:
 	Events.construction_data_selected.connect(
 		func(data: ConstructionData, anchor: RemoteTransform2D):
 			_clear_bubble()
-			if data and anchor :
+			if data and anchor and data.requirements.size() > 0:
 				_bubble = BUBBLE.instantiate()
 				add_child(_bubble)
 				
@@ -25,7 +25,7 @@ func _ready() -> void:
 					else:
 						_bubble.add_requirement(new_requirement)
 				
-			set_process(data and anchor)
+			set_process(data and anchor and _bubble)
 	)
 	
 	Events.erase_selected.connect(

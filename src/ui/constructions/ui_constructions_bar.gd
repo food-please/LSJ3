@@ -1,7 +1,7 @@
 @tool
 extends MarginContainer
 
-const BUTTON: = preload("res://src/ui/constructions/construction_button.tscn")
+const BUTTON: = preload("res://src/ui/constructions/button/construction_button.tscn")
 
 @export var category: ConstructionsCategory:
 	set(value):

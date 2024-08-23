@@ -17,6 +17,7 @@ const BUBBLE: = preload("res://src/ui/constructions/bubble/construction_bubble.t
 
 #var _bubble: ConstructionBubble = null
 
+@onready var _anim: = $AnimationPlayer as AnimationPlayer
 @onready var _bubble_anchor: = $MarginContainer/Control/BubbleAnchor/Anchor as RemoteTransform2D
 @onready var _button: = $MarginContainer/TextureButton as TextureButton
 @onready var _icon: = $MarginContainer/Icon as TextureRect
@@ -37,8 +38,10 @@ func _ready() -> void:
 		func(value: bool):
 			if value == true:
 				Events.construction_data_selected.emit(type, _bubble_anchor)
+				_anim.play("default")
 			
 			else:
 				Events.construction_data_selected.emit(null, null)
+				_anim.stop()
 	)
 	pass

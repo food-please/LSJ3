@@ -34,6 +34,7 @@ signal citizen_settled
 
 var _x_move_tween: Tween
 
+@onready var _anim: = $AnimationPlayer as AnimationPlayer
 @onready var bubble_anchor: = $MarginContainer/Control/BubbleAnchor/Anchor as RemoteTransform2D
 @onready var button: = $MarginContainer/TextureButton as TextureButton
 @onready var portrait: = $MarginContainer/Portrait as TextureRect
@@ -83,12 +84,14 @@ func _on_button_toggled(value: bool) -> void:
 		Events.construction_data_selected.emit(dwelling_data, bubble_anchor)
 		
 		Events.construction_placed.connect(_on_construction_placed)
+		_anim.play("default")
 	
 	else:
 		if Events.construction_placed.is_connected(_on_construction_placed):
 			Events.construction_placed.disconnect(_on_construction_placed)
 			
 		Events.construction_data_selected.emit(null, null)
+		_anim.stop()
 
 func _on_construction_placed(_construction: Construction) -> void:
 	button.disabled = true

@@ -72,10 +72,14 @@ func _on_construction_placed(construction: Construction) -> void:
 	var terrain_construction: = construction as TerrainConstruction
 	if terrain_construction:
 		var changes: = terrain_construction.get_cells()
-		for cell in changes:
+		var updated_cells: Array[Vector2i] = []
+		for cell: Vector2i in changes:
+			updated_cells.append(cell)
 			terrain.set_cells_terrain_connect([cell], 0, changes[cell])
 		
 		terrain_construction.queue_free()
+		
+		_update_terrain(updated_cells)
 
 
 func _update_terrain(updated_cells: Array[Vector2i]) -> void:

@@ -1,12 +1,11 @@
-[gd_resource type="Resource" script_class="ConstructionData" load_steps=5 format=3 uid="uid://bvgj0a5xr7rgk"]
+[gd_resource type="Resource" script_class="ConstructionData" load_steps=4 format=3 uid="uid://bvgj0a5xr7rgk"]
 
 [ext_resource type="Texture2D" uid="uid://drogh3jgkiffa" path="res://constructions/farm/mill/mill_icon.atlastex" id="1_ocj06"]
 [ext_resource type="Script" path="res://constructions/construction_data.gd" id="1_wqc1c"]
-[ext_resource type="PackedScene" uid="uid://5r074hdy2xvr" path="res://constructions/farm/mill/cnst_rqmt_farms.tscn" id="2_f1b80"]
 [ext_resource type="PackedScene" uid="uid://pmhmr5bjm40l" path="res://constructions/farm/mill/mill.tscn" id="4_q0byw"]
 
 [resource]
 script = ExtResource("1_wqc1c")
 icon = ExtResource("1_ocj06")
 variations = Array[PackedScene]([ExtResource("4_q0byw")])
-requirements = Array[PackedScene]([ExtResource("2_f1b80")])
+requirements = Array[PackedScene]([])
