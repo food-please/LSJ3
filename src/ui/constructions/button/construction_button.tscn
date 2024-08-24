@@ -4,6 +4,21 @@
 [ext_resource type="Texture2D" uid="uid://djege0fqplx56" path="res://src/ui/constructions/button/construction_highlight2.atlastex" id="2_21cj6"]
 [ext_resource type="Texture2D" uid="uid://d3h1itqbp2wpf" path="res://src/ui/constructions/button/construction_highlight1.atlastex" id="3_5q030"]
 
+[sub_resource type="Animation" id="Animation_ijo7w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/TextureButton:texture_pressed")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_21cj6")]
+}
+
 [sub_resource type="Animation" id="Animation_2fnyl"]
 resource_name = "default"
 loop_mode = 1
@@ -18,21 +33,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [ExtResource("2_21cj6"), ExtResource("3_5q030")]
-}
-
-[sub_resource type="Animation" id="Animation_ijo7w"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MarginContainer/TextureButton:texture_pressed")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_21cj6")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nebu4"]

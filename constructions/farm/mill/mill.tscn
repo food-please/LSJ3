@@ -1,11 +1,8 @@
-[gd_scene load_steps=10 format=4 uid="uid://pmhmr5bjm40l"]
+[gd_scene load_steps=7 format=3 uid="uid://pmhmr5bjm40l"]
 
 [ext_resource type="PackedScene" uid="uid://c7rbljhcb51ka" path="res://constructions/construction.tscn" id="1_jeg3o"]
 [ext_resource type="Texture2D" uid="uid://d16j4621q8xg8" path="res://constructions/farm/mill/mill1.atlastex" id="2_6wwk0"]
 [ext_resource type="Texture2D" uid="uid://dgsk84dwyjhxb" path="res://constructions/farm/mill/mill2.atlastex" id="3_q6xok"]
-[ext_resource type="PackedScene" uid="uid://ct7e5kegsjm84" path="res://constructions/construction_requirement.tscn" id="4_elbmv"]
-[ext_resource type="Script" path="res://constructions/construction_data.gd" id="5_8kp1e"]
-[ext_resource type="Resource" uid="uid://dk3jtfo8l8raq" path="res://constructions/farm/fields/field_data.tres" id="6_nnxfq"]
 
 [sub_resource type="Animation" id="Animation_in61e"]
 length = 0.001
@@ -53,7 +50,7 @@ texture = ExtResource("2_6wwk0")
 offset = Vector2(-4, -4)
 
 [node name="OccupiedCells" parent="." index="1"]
-tile_map_data = PackedByteArray("AAAAAAAAAQAAAAAAAAD//wAAAQAAAAAAAAA=")
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0)
 operation = 1
 terrain = Array[String](["Cliff", "Trees", "River", "RoadDirt"])
 
@@ -62,10 +59,3 @@ libraries = {
 "": SubResource("AnimationLibrary_x82hu")
 }
 autoplay = "default"
-
-[node name="FarmRequirement" parent="." index="3" instance=ExtResource("4_elbmv")]
-modulate = Color(1, 1, 0.545098, 0.352941)
-tile_map_data = PackedByteArray("AAD+/wEAAQAAAAAAAAD//wEAAQAAAAAAAAAAAAEAAQAAAAAAAAABAAEAAQAAAAAAAAABAAAAAQAAAAAAAAD+/wAAAQAAAAAAAAABAP//AQAAAAAAAAAAAP//AQAAAAAAAAD/////AQAAAAAAAAD+////AQAAAAAAAAA=")
-operation = 2
-construction_types = Array[ExtResource("5_8kp1e")]([ExtResource("6_nnxfq")])
-construction_quantity = 4

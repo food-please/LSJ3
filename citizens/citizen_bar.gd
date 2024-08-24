@@ -1,12 +1,12 @@
-extends CenterContainer
+extends Control
 
 const CITIZEN: = preload("res://src/ui/workers/citizen_button.tscn")
 
-@export var max_concurrent_citizens: = 7
+@export var max_concurrent_citizens: = 3
 
 var _y_move_tween: Tween
 
-@onready var _citizens: = $VBoxContainer as Control
+@onready var _citizens: = $Citizens as Control
 @onready var _disposal: = $OldWorkers as Control
 
 
@@ -70,27 +70,44 @@ func remove_citizen(uid: String) -> void:
 
 
 func _move_citizens_to_new_positions(static_controls: Array[Control] = []) -> void:
-	var moved_citizens: Array[Node] = []
+	if _citizens.get_child_count() == 0:
+		return
+	
+	var item_size: float = _citizens.get_child(0).size.y
+	
+	var moved_citizens: Array[Control] = []
 	for child in _citizens.get_children():
 		if child is UIWorkerType and not child in static_controls:
 			moved_citizens.append(child)
 	
-	if moved_citizens.size() == 0:
-		return
+	#if moved_citizens.size() == 0:
+		#return
+	
+	_citizens.custom_minimum_size.y = item_size * _citizens.get_children().size()
+	var bar_half_height: = _citizens.custom_minimum_size.y/2
 	
 	var old_positions: = {}
+	#for child: Control in moved_citizens:
+		#old_positions[child] = child.global_position.y
+		#print(child, " ", old_positions[child])
 	for child: Control in moved_citizens:
-		old_positions[child] = child.global_position.y
+		old_positions[child] = child.position.y
 		
-	await  get_tree().process_frame
+	#await get_tree().process_frame
 	
 	if _y_move_tween:
 		_y_move_tween.kill()
 	_y_move_tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_LINEAR)
 	
-	for citizen: Control in moved_citizens:
-		_y_move_tween.parallel().tween_property(citizen, "global_position:y", 
-			citizen.global_position.y, 0.2).from(old_positions[citizen])
+	for citizen: Control in _citizens.get_children():
+		var new_pos: float = citizen.get_index()*item_size - bar_half_height
+		if citizen in static_controls:
+			citizen.position.y = new_pos
+			
+		else:
+			citizen.position.y = old_positions[citizen]
+			_y_move_tween.parallel().tween_property(citizen, "position:y", 
+				new_pos, 0.2).from(old_positions[citizen])
 
 
 func _citizen_has_data(data: ConstructionData) -> bool:

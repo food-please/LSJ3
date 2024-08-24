@@ -13,4 +13,4 @@ terrain_id = 1
 tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 0, 0)
 tile_set = ExtResource("3_onxql")
 operation = 1
-terrain = Array[String](["River"])
+terrain = Array[String](["Cliff"])
