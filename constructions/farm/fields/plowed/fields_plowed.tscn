@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhf3vuixlf4rc"]
+
+[ext_resource type="PackedScene" uid="uid://c7rbljhcb51ka" path="res://constructions/construction.tscn" id="1_qb0n1"]
+[ext_resource type="Script" path="res://constructions/construction_tileset.gd" id="2_5bprg"]
+[ext_resource type="TileSet" uid="uid://3kydmfu1eseo" path="res://world/tilesets/terrain_tileset.tres" id="4_lelry"]
+
+[node name="PlowedFields" instance=ExtResource("1_qb0n1")]
+script = ExtResource("2_5bprg")
+terrain_type = "area"
+terrain_id = 4
+
+[node name="OccupiedCells" parent="." index="1"]
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 15, 0, 12, 0, 0, 0)
+tile_set = ExtResource("4_lelry")
+operation = 1
+terrain = Array[String](["Trees", "Cliff", "River", "RoadDirt"])

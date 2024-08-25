@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://d3103sit7p6q2"]
+[gd_scene load_steps=21 format=4 uid="uid://d3103sit7p6q2"]
 
 [ext_resource type="Script" path="res://src/main.gd" id="1_gnvqc"]
 [ext_resource type="Script" path="res://src/player/touch_camera.gd" id="2_kxulf"]
@@ -18,6 +18,7 @@
 [ext_resource type="Resource" uid="uid://bbv2rejjgear0" path="res://constructions/construction_category_all.tres" id="12_1galp"]
 [ext_resource type="Script" path="res://src/ui/constructions/erase/erase_button.gd" id="12_7s2lt"]
 [ext_resource type="Script" path="res://src/ui/constructions/ui_construction_requirements.gd" id="14_ilt6t"]
+[ext_resource type="Script" path="res://sfx/sfx.gd" id="19_7xmgd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5iwj5"]
 shader = ExtResource("2_mqpfw")
@@ -111,3 +112,8 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 metadata/_edit_lock_ = true
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+max_polyphony = 4
+bus = &"SFX"
+script = ExtResource("19_7xmgd")

@@ -182,6 +182,7 @@ func _place_construction() -> bool:
 	if not _construction_blueprint.is_valid:
 	#if passable_cells.get_occupants(changed_cells):
 		_free_blueprint()
+		Events.invalid_construction_placed.emit()
 		return false
 	
 	if not _construction_blueprint is TerrainConstruction:

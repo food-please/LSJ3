@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="ConstructionData" load_steps=4 format=3 uid="uid://dk3jtfo8l8raq"]
 
 [ext_resource type="Script" path="res://constructions/construction_data.gd" id="1_a3ju5"]
-[ext_resource type="Texture2D" uid="uid://cqu3nunm7osea" path="res://constructions/farm/fields/plowed_field.atlastex" id="1_g0j1n"]
-[ext_resource type="PackedScene" uid="uid://bhf3vuixlf4rc" path="res://constructions/farm/fields/fields_plowed.tscn" id="3_3uynn"]
+[ext_resource type="Texture2D" uid="uid://cqu3nunm7osea" path="res://constructions/farm/fields/plowed/plowed_field.atlastex" id="1_g0j1n"]
+[ext_resource type="PackedScene" uid="uid://bhf3vuixlf4rc" path="res://constructions/farm/fields/plowed/fields_plowed.tscn" id="3_3uynn"]
 
 [resource]
 script = ExtResource("1_a3ju5")

@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://d34lmt0p41ffk" path="res://world/tilesets/passability_tileset.tres" id="2_b227d"]
 [ext_resource type="Script" path="res://constructions/construction_requirement.gd" id="3_6jmhf"]
 [ext_resource type="Script" path="res://constructions/construction_data.gd" id="4_dh0n4"]
-[ext_resource type="Resource" uid="uid://dk3jtfo8l8raq" path="res://constructions/farm/fields/field_data.tres" id="5_sk8p1"]
+[ext_resource type="Resource" uid="uid://dk3jtfo8l8raq" path="res://constructions/farm/fields/plowed/field_data.tres" id="5_sk8p1"]
 
 [node name="FarmDwelling1" instance=ExtResource("1_5y0p6")]
 

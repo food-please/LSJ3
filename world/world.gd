@@ -32,7 +32,14 @@ func erase_cell(cell: Vector2i) -> void:
 			if tile_data:
 				features.set_cells_terrain_connect([updated_cell], tile_data.terrain_set, 
 					tile_data.terrain)
+		
 		terrain.set_cells_terrain_connect([cell], 0, DEFAULT_TERRAIN)
+		var updated_rect: = Rect2i(cell, Vector2i(1, 1))
+		updated_rect = updated_rect.grow(1)
+		
+		#for cell in cells_to_update:
+			#updated_rect.expand(cell)
+		_update_autotiles(updated_rect)
 		
 		_update_terrain([cell])
 
@@ -73,13 +80,66 @@ func _on_construction_placed(construction: Construction) -> void:
 	if terrain_construction:
 		var changes: = terrain_construction.get_cells()
 		var updated_cells: Array[Vector2i] = []
+		
+			#terrain.set_cells_terrain_connect([cell], 0, changes[cell])
+		
 		for cell: Vector2i in changes:
 			updated_cells.append(cell)
-			terrain.set_cells_terrain_connect([cell], 0, changes[cell])
+		terrain.set_cells_terrain_connect(updated_cells, 0, terrain_construction.terrain_id)
+		
+		if terrain_construction.terrain_type == "area":
+			terrain.set_cells_terrain_connect(updated_cells, 0, terrain_construction.terrain_id)
+			
+			var affected_cells: = terrain_construction.get_affected_cells()
+			_update_autotiles(affected_cells)
+			
+			#var terrains: = {}
+			#var affected_cells: = terrain_construction.get_affected_cells()
+			#for x in range(0, affected_cells.size.x):
+				#for y in range(0, affected_cells.size.y):
+					#var cell: = Vector2i(x, y)
+					#var terrain_id: = terrain.get_cell_tile_data(cell).terrain
+					#if terrain_id in terrains:
+						#terrains.get(terrain_id, []).append(cell)
+					#else:
+						#terrains[terrain_id] = [cell]
+			
+			#for terrain_id in terrains:
+				#terrain.set_cells_terrain_connect(terrains[terrain_id], 0, terrain_id)
+		
+		#
+		#
+		#terrain.set_cells_terrain_connect(updated_cells, 0, terrain_construction.terrain_id)
 		
 		terrain_construction.queue_free()
 		
 		_update_terrain(updated_cells)
+
+
+func _update_autotiles(cells_to_update: Rect2i) -> void:
+	#if cells_to_update.is_empty():
+		#return
+	#
+	#var updated_rect: = Rect2i(cells_to_update[0], Vector2i(1, 1))
+	#for cell in cells_to_update:
+		#updated_rect.expand(cell)
+	
+	# Key is terrain id, value is an array of all cells in the source rect that match this terrain.
+	var terrains: = {}
+	
+	# Find all terrains that are contained by the source rect.
+	for x in range(0, cells_to_update.size.x):
+		for y in range(0, cells_to_update.size.y):
+			var cell: = Vector2i(x, y)
+			var terrain_id: = terrain.get_cell_tile_data(cell).terrain
+			if terrain_id in terrains:
+				terrains.get(terrain_id, []).append(cell)
+			else:
+				terrains[terrain_id] = [cell]
+	
+	# Loop through all terrains, updating all cells matching this terrain type at once.
+	for terrain_id in terrains:
+		terrain.set_cells_terrain_connect(terrains[terrain_id], 0, terrain_id)
 
 
 func _update_terrain(updated_cells: Array[Vector2i]) -> void:

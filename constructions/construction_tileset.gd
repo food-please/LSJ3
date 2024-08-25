@@ -61,6 +61,10 @@ func get_cells() -> Dictionary:
 	return terrains
 
 
+func get_affected_cells() -> Rect2i:
+	return _preview.get_used_rect().grow(1)
+
+
 func _get_path_cells(target: Vector2) -> Array[Vector2i]:
 	var path_cells: Array[Vector2i] = []
 	

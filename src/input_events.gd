@@ -7,6 +7,9 @@ signal construction_data_selected(data: ConstructionData, anchor: RemoteTransfor
 signal construction_placed(construction: Construction)
 
 @warning_ignore("unused_signal")
+signal invalid_construction_placed
+
+@warning_ignore("unused_signal")
 signal erase_selected(toggled: bool)
 
 @warning_ignore("unused_signal")

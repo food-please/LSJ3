@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://5r074hdy2xvr"]
 
 [ext_resource type="PackedScene" uid="uid://0w7bjhs8khei" path="res://src/ui/constructions/bubble/construction_bubble_requirement.tscn" id="1_qgksi"]
-[ext_resource type="Texture2D" uid="uid://cqu3nunm7osea" path="res://constructions/farm/fields/plowed_field.atlastex" id="2_7iuwk"]
+[ext_resource type="Texture2D" uid="uid://cqu3nunm7osea" path="res://constructions/farm/fields/plowed/plowed_field.atlastex" id="2_7iuwk"]
 
 [node name="CastleTerrainRequirement" instance=ExtResource("1_qgksi")]
 
