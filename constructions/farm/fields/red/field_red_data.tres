@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ConstructionData" load_steps=4 format=3 uid="uid://d3oi07ikf6om7"]
+
+[ext_resource type="Texture2D" uid="uid://cl0wywbfeqqck" path="res://constructions/farm/fields/red/red_field.atlastex" id="1_rouaw"]
+[ext_resource type="Script" path="res://constructions/construction_data.gd" id="2_q6exl"]
+[ext_resource type="PackedScene" uid="uid://cc06ioa0ab1i4" path="res://constructions/farm/fields/red/fields_red.tscn" id="3_6us6h"]
+
+[resource]
+script = ExtResource("2_q6exl")
+icon = ExtResource("1_rouaw")
+variations = Array[PackedScene]([ExtResource("3_6us6h")])
+requirements = Array[PackedScene]([])

@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bitbmdxbawqpo"]
+
+[ext_resource type="PackedScene" uid="uid://c7rbljhcb51ka" path="res://constructions/construction.tscn" id="1_gk7uk"]
+[ext_resource type="Script" path="res://constructions/construction_tileset.gd" id="2_q4ukd"]
+[ext_resource type="TileSet" uid="uid://3kydmfu1eseo" path="res://world/tilesets/terrain_tileset.tres" id="3_k64a6"]
+
+[node name="YellowFields" instance=ExtResource("1_gk7uk")]
+script = ExtResource("2_q4ukd")
+terrain_type = "area"
+terrain_id = 6
+
+[node name="OccupiedCells" parent="." index="1"]
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 21, 0, 12, 0, 0, 0)
+tile_set = ExtResource("3_k64a6")
+operation = 1
+terrain = Array[String](["Trees", "Cliff", "River", "RoadDirt"])
