@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ConstructionData" load_steps=5 format=3 uid="uid://c13vnx1eumlb8"]
+
+[ext_resource type="Texture2D" uid="uid://cxugr2bst46q7" path="res://constructions/dwellings/unique/garganoth/garg_icon.atlastex" id="1_6fbo7"]
+[ext_resource type="PackedScene" uid="uid://dupsicyoxlthv" path="res://constructions/dwellings/unique/garganoth/cnst_rqmt_garg_dwelling.tscn" id="2_v7c1w"]
+[ext_resource type="Script" path="res://constructions/construction_data.gd" id="3_wnrsk"]
+[ext_resource type="PackedScene" uid="uid://r3uj52gvjgl5" path="res://constructions/dwellings/unique/garganoth/garg_dwelling.tscn" id="4_h26a1"]
+
+[resource]
+script = ExtResource("3_wnrsk")
+icon = ExtResource("1_6fbo7")
+variations = Array[PackedScene]([ExtResource("4_h26a1")])
+requirements = Array[PackedScene]([ExtResource("2_v7c1w")])

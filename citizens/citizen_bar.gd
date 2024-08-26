@@ -1,22 +1,40 @@
-extends Control
+class_name CitizenBar extends Control
 
 const CITIZEN: = preload("res://src/ui/workers/citizen_button.tscn")
 
 @export var max_concurrent_citizens: = 3
+
+@export var citizen_timer: = 20.0
+@export var unique_citizen_timer: = 120.0
 
 var _y_move_tween: Tween
 
 @onready var _citizens: = $Citizens as Control
 @onready var _disposal: = $OldWorkers as Control
 
+@onready var _unique_timer: = $UniqueCitizenTimer as Timer
+
 
 func _ready() -> void:
-	$Timer.start()
+	$Timer.start(citizen_timer)
 	$Timer.timeout.connect(
 		func():
 			#print(Dwellings.DWELLINGS.size(), " Timeout ", Dwellings.DWELLINGS.size() > _citizens.get_child_count(), 
 				#" ", _citizens.get_child_count() <= 7)
 			add_random_citizen()
+	)
+	
+	_unique_timer.start(unique_citizen_timer)
+	_unique_timer.timeout.connect(
+		func():
+			if _citizens.get_child_count() < max_concurrent_citizens:
+				var new_data: = Dwellings.get_unique_dwelling()
+				if new_data:
+					var id: = add_citizen(Constants.CITIZEN_COLOURS.Blue, new_data)
+					_citizens.get_node(id).portrait_override = new_data.icon
+				
+				else:
+					Events.unique_citizens_finished.emit()
 	)
 
 
@@ -60,6 +78,13 @@ func remove_citizen(uid: String) -> void:
 			citizen.move_out()
 			_move_citizens_to_new_positions()
 
+
+func has_unique_citizens() -> bool:
+	var unique_dwellings: = Dwellings.UNIQUE_DWELLINGS.values()
+	for child: UIWorkerType in _citizens.get_children():
+		if child.dwelling_data in unique_dwellings:
+			return true
+	return false
 
 #func _unhandled_input(event: InputEvent) -> void:
 	#if event.is_action_released("touch"):

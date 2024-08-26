@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://dupsicyoxlthv"]
+
+[ext_resource type="PackedScene" uid="uid://0w7bjhs8khei" path="res://src/ui/constructions/bubble/construction_bubble_requirement.tscn" id="1_uvbmo"]
+[ext_resource type="Texture2D" uid="uid://cjdok3ipocvga" path="res://constructions/requirements/inhabitant_icon.atlastex" id="2_jsu2n"]
+[ext_resource type="Texture2D" uid="uid://dwb2vpqraokyt" path="res://constructions/requirements/equals.atlastex" id="3_ptvct"]
+[ext_resource type="Texture2D" uid="uid://cvdehpdtnw6lb" path="res://constructions/fortress/castle/cnst_icon_castle.atlastex" id="4_3udti"]
+[ext_resource type="Texture2D" uid="uid://buogh45mjogc0" path="res://constructions/town/monument/monument_icon.atlastex" id="5_nthyu"]
+
+[node name="GargRequirements" instance=ExtResource("1_uvbmo")]
+
+[node name="HBoxContainer" parent="." index="0"]
+theme_override_constants/separation = -2
+
+[node name="DwellingType" type="MarginContainer" parent="HBoxContainer" index="0"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/DwellingType" index="0"]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/DwellingType/HBoxContainer" index="0"]
+layout_mode = 2
+texture = ExtResource("2_jsu2n")
+stretch_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer/DwellingType/HBoxContainer" index="1"]
+layout_mode = 2
+texture = ExtResource("3_ptvct")
+stretch_mode = 3
+
+[node name="DwellingIcon" type="TextureRect" parent="HBoxContainer/DwellingType/HBoxContainer" index="2"]
+layout_mode = 2
+texture = ExtResource("4_3udti")
+stretch_mode = 3
+
+[node name="Spacer" type="Control" parent="HBoxContainer" index="1"]
+custom_minimum_size = Vector2(6, 0)
+layout_mode = 2
+
+[node name="Icon" parent="HBoxContainer" index="2"]
+texture = ExtResource("5_nthyu")
+
+[node name="Number" parent="HBoxContainer" index="4"]
+quantity = 2

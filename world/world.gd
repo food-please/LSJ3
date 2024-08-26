@@ -4,14 +4,14 @@ class_name World extends Node2D
 const DEFAULT_TERRAIN: = 3
 
 # Key = cell, value = terrain type name
-var _features: = {}
+#var _features: = {}
 var _terrain: = {}
 
 # Note that the terrain layer acts as the world's grid/playable area.
 @onready var terrain: = $Terrain as TileMapLayer
 @onready var _terrain_tileset: = terrain.tile_set
-@onready var features: = $Features as TileMapLayer
-@onready var _features_tileset: = features.tile_set
+#@onready var features: = $Features as TileMapLayer
+#@onready var _features_tileset: = features.tile_set
 
 @onready var buildings: = $Buildings as BuildingManager
 
@@ -25,13 +25,13 @@ func _ready() -> void:
 
 func erase_cell(cell: Vector2i) -> void:
 	if not buildings.erase_cell(cell):
-		var surrounding_cells: = features.get_surrounding_cells(cell)
-		features.erase_cell(cell)
-		for updated_cell in surrounding_cells:
-			var tile_data: = features.get_cell_tile_data(updated_cell)
-			if tile_data:
-				features.set_cells_terrain_connect([updated_cell], tile_data.terrain_set, 
-					tile_data.terrain)
+		#var surrounding_cells: = features.get_surrounding_cells(cell)
+		#features.erase_cell(cell)
+		#for updated_cell in surrounding_cells:
+			#var tile_data: = features.get_cell_tile_data(updated_cell)
+			#if tile_data:
+				#features.set_cells_terrain_connect([updated_cell], tile_data.terrain_set, 
+					#tile_data.terrain)
 		
 		terrain.set_cells_terrain_connect([cell], 0, DEFAULT_TERRAIN)
 		var updated_rect: = Rect2i(cell, Vector2i(1, 1))
@@ -53,11 +53,12 @@ func get_terrain_at_cells(cells: Array[Vector2i]) -> Dictionary:
 
 
 func get_terrain_at_cell(cell: Vector2i) -> String:
-	var terrain_name: = ""
-	terrain_name = _features.get(cell, "")
-	if terrain_name.is_empty():
-		terrain_name = _terrain.get(cell, "")
-	return terrain_name
+	#var terrain_name: = ""
+	#terrain_name = _features.get(cell, "")
+	#if terrain_name.is_empty():
+		#terrain_name = _terrain.get(cell, "")
+	#return terrain_name
+	return _terrain.get(cell, "")
 	#if _features.has(cell):
 		#return _features
 	#var cell_data: = features.get_cell_tile_data(cell)
@@ -78,6 +79,7 @@ func get_terrain_at_cell(cell: Vector2i) -> String:
 func _on_construction_placed(construction: Construction) -> void:
 	var terrain_construction: = construction as TerrainConstruction
 	if terrain_construction:
+		
 		var changes: = terrain_construction.get_cells()
 		var updated_cells: Array[Vector2i] = []
 		
@@ -92,28 +94,13 @@ func _on_construction_placed(construction: Construction) -> void:
 			
 			var affected_cells: = terrain_construction.get_affected_cells()
 			_update_autotiles(affected_cells)
-			
-			#var terrains: = {}
-			#var affected_cells: = terrain_construction.get_affected_cells()
-			#for x in range(0, affected_cells.size.x):
-				#for y in range(0, affected_cells.size.y):
-					#var cell: = Vector2i(x, y)
-					#var terrain_id: = terrain.get_cell_tile_data(cell).terrain
-					#if terrain_id in terrains:
-						#terrains.get(terrain_id, []).append(cell)
-					#else:
-						#terrains[terrain_id] = [cell]
-			
-			#for terrain_id in terrains:
-				#terrain.set_cells_terrain_connect(terrains[terrain_id], 0, terrain_id)
-		
-		#
-		#
-		#terrain.set_cells_terrain_connect(updated_cells, 0, terrain_construction.terrain_id)
 		
 		terrain_construction.queue_free()
 		
 		_update_terrain(updated_cells)
+	
+	elif construction is ConstructionDwelling:
+		print("Is dwelling!")
 
 
 func _update_autotiles(cells_to_update: Rect2i) -> void:
@@ -144,13 +131,13 @@ func _update_autotiles(cells_to_update: Rect2i) -> void:
 
 func _update_terrain(updated_cells: Array[Vector2i]) -> void:
 	for cell in updated_cells:
-		var cell_data: = features.get_cell_tile_data(cell)
-		if cell_data:
-			var feature: = \
-				_features_tileset.get_terrain_name(cell_data.terrain_set, cell_data.terrain)
-			_features[cell] = feature
+		#var cell_data: = features.get_cell_tile_data(cell)
+		#if cell_data:
+			#var feature: = \
+				#_features_tileset.get_terrain_name(cell_data.terrain_set, cell_data.terrain)
+			#_features[cell] = feature
 		
 		# No terrain features, so look for terrain instead.
-		cell_data = terrain.get_cell_tile_data(cell)
+		var cell_data: = terrain.get_cell_tile_data(cell)
 		var ground = _terrain_tileset.get_terrain_name(cell_data.terrain_set, cell_data.terrain)
 		_terrain[cell] = ground

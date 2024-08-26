@@ -14,3 +14,6 @@ signal erase_selected(toggled: bool)
 
 @warning_ignore("unused_signal")
 signal cell_erased(cell: Vector2i)
+
+@warning_ignore("unused_signal")
+signal unique_citizens_finished()

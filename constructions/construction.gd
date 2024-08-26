@@ -4,6 +4,8 @@ const COLOUR_PLACED: = Color.WHITE
 const COLOUR_INVALID: = Color(1.0, 0.0, 0.0, 0.7)
 const COLOUR_VALID: = Color(0.0, 1.0, 0.0, 0.7)
 
+@export var value: = 100
+
 var cell: Vector2i
 var is_valid: bool = false
 var _offset_cells: Array[Vector2i] = []

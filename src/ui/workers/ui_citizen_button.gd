@@ -30,6 +30,15 @@ signal citizen_settled
 		
 		portrait.texture = PORTRAITS.get(portrait_colour, null)
 
+@export var portrait_override: Texture:
+	set(value):
+		portrait_override = value
+		
+		if not is_inside_tree():
+			await ready
+		
+		portrait.texture = portrait_override
+
 #var _bubble: ConstructionBubble = null
 
 var _x_move_tween: Tween

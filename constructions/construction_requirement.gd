@@ -52,6 +52,8 @@ func _check_occupants(target_cells: Array[Vector2i], get_occupants: Callable) ->
 		Operations.ALL:
 			if construction_types.is_empty():
 				return true
+			if occupant_values.is_empty():
+				return false
 			
 			for cnst_data in occupant_values:
 				if cnst_data not in construction_types:

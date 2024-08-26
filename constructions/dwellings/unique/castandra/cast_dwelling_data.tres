@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ConstructionData" load_steps=5 format=3 uid="uid://b2xujqtt562ho"]
+
+[ext_resource type="Texture2D" uid="uid://c71ig7ua3k06r" path="res://constructions/dwellings/unique/castandra/cast_icon.atlastex" id="1_25dut"]
+[ext_resource type="PackedScene" uid="uid://dn4ehy2b7t6vy" path="res://constructions/dwellings/unique/castandra/cnst_rqmt_cast_dwelling.tscn" id="2_bc0wp"]
+[ext_resource type="Script" path="res://constructions/construction_data.gd" id="3_cnfbv"]
+[ext_resource type="PackedScene" uid="uid://cblphkqnjthv3" path="res://constructions/dwellings/unique/castandra/cast_dwelling.tscn" id="4_owooi"]
+
+[resource]
+script = ExtResource("3_cnfbv")
+icon = ExtResource("1_25dut")
+variations = Array[PackedScene]([ExtResource("4_owooi")])
+requirements = Array[PackedScene]([ExtResource("2_bc0wp")])

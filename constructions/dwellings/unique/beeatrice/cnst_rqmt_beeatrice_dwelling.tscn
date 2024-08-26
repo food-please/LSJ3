@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://bc47xj2eciqlt"]
+
+[ext_resource type="PackedScene" uid="uid://0w7bjhs8khei" path="res://src/ui/constructions/bubble/construction_bubble_requirement.tscn" id="1_xa6gd"]
+[ext_resource type="Texture2D" uid="uid://dymwaoam8667x" path="res://constructions/landscape/flower_pot/flower_pot3.atlastex" id="2_aphra"]
+[ext_resource type="Texture2D" uid="uid://cjdok3ipocvga" path="res://constructions/requirements/inhabitant_icon.atlastex" id="2_tbndk"]
+[ext_resource type="Texture2D" uid="uid://dwb2vpqraokyt" path="res://constructions/requirements/equals.atlastex" id="3_43xn6"]
+[ext_resource type="Texture2D" uid="uid://dct3rye4r4484" path="res://constructions/landscape/trees/trees.atlastex" id="4_gje4n"]
+
+[node name="BeatriceRequirements" instance=ExtResource("1_xa6gd")]
+
+[node name="HBoxContainer" parent="." index="0"]
+theme_override_constants/separation = -2
+
+[node name="DwellingType" type="MarginContainer" parent="HBoxContainer" index="0"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/DwellingType" index="0"]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/DwellingType/HBoxContainer" index="0"]
+layout_mode = 2
+texture = ExtResource("2_tbndk")
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer/DwellingType/HBoxContainer" index="1"]
+layout_mode = 2
+texture = ExtResource("3_43xn6")
+
+[node name="DwellingIcon" type="TextureRect" parent="HBoxContainer/DwellingType/HBoxContainer" index="2"]
+layout_mode = 2
+texture = ExtResource("4_gje4n")
+
+[node name="Spacer" type="Control" parent="HBoxContainer" index="1"]
+custom_minimum_size = Vector2(6, 0)
+layout_mode = 2
+
+[node name="Icon" parent="HBoxContainer" index="2"]
+texture = ExtResource("2_aphra")
+
+[node name="Number" parent="HBoxContainer" index="4"]
+quantity = 7

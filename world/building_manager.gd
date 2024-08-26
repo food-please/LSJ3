@@ -180,12 +180,12 @@ func _place_construction() -> bool:
 	
 	trash_can.hide()
 	if not _construction_blueprint.is_valid:
-	#if passable_cells.get_occupants(changed_cells):
 		_free_blueprint()
 		Events.invalid_construction_placed.emit()
 		return false
 	
-	if not _construction_blueprint is TerrainConstruction:
+	if _construction_blueprint is not TerrainConstruction \
+			and _construction_blueprint is not ConstructionDwelling:
 		passable_cells.set_cell_occupancy(changed_cells, true, _construction_blueprint, 
 			_active_data)
 	

@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=4 uid="uid://b2v14jfxqrmq6"]
+
+[ext_resource type="PackedScene" uid="uid://ddv6g348u0qmv" path="res://constructions/dwellings/dwelling_house.tscn" id="1_pgwjs"]
+[ext_resource type="Script" path="res://constructions/dwellings/construction_dwelling.gd" id="2_k6n0t"]
+[ext_resource type="Script" path="res://constructions/construction_data.gd" id="3_fp0rg"]
+[ext_resource type="PackedScene" uid="uid://ct7e5kegsjm84" path="res://constructions/construction_requirement.tscn" id="5_77am5"]
+[ext_resource type="Resource" uid="uid://df6up1e73akpj" path="res://constructions/dwellings/house_data.tres" id="6_dw4bi"]
+[ext_resource type="Resource" uid="uid://dds1sat2cp47n" path="res://constructions/landscape/road_dirt/cnst_data_dirt_road.tres" id="7_66qvn"]
+
+[node name="BennyDwelling" instance=ExtResource("1_pgwjs")]
+script = ExtResource("2_k6n0t")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = null
+
+[node name="OccupiedCells" parent="." index="1"]
+modulate = Color(1, 0, 0, 0.501961)
+operation = 0
+terrain = Array[String]([])
+construction_types = Array[ExtResource("3_fp0rg")]([ExtResource("6_dw4bi")])
+
+[node name="HousesRequirement" parent="." index="2" instance=ExtResource("5_77am5")]
+tile_map_data = PackedByteArray("AAD//wEAAQAAAAAAAAAAAAEAAQAAAAAAAAABAAEAAQAAAAAAAAABAAAAAQAAAAAAAAABAP//AQAAAAAAAAAAAP//AQAAAAAAAAD/////AQAAAAAAAAD//wAAAQAAAAAAAAD+////AQAAAAAAAAD+/wAAAQAAAAAAAAD+/wEAAQAAAAAAAAD///7/AQAAAAAAAAAAAP7/AQAAAAAAAAABAP7/AQAAAAAAAAACAP//AQAAAAAAAAACAAAAAQAAAAAAAAACAAEAAQAAAAAAAAADAAAAAQAAAAAAAAAAAP3/AQAAAAAAAAABAAIAAQAAAAAAAAAAAAIAAQAAAAAAAAD//wIAAQAAAAAAAAAAAAMAAQAAAAAAAAD9/wAAAQAAAAAAAAA=")
+operation = 2
+construction_types = Array[ExtResource("3_fp0rg")]([ExtResource("6_dw4bi"), ExtResource("7_66qvn")])
+construction_quantity = 14

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ConstructionData" load_steps=5 format=3 uid="uid://blalp5g48ta11"]
+
+[ext_resource type="Texture2D" uid="uid://glbvvcaajsao" path="res://constructions/dwellings/unique/wolflor/wolflor_icon.atlastex" id="1_x1f0o"]
+[ext_resource type="PackedScene" uid="uid://cwemkpuywtbho" path="res://constructions/dwellings/unique/wolflor/cnst_rqmt_wolflor_dwelling.tscn" id="2_utaeq"]
+[ext_resource type="Script" path="res://constructions/construction_data.gd" id="3_4hwto"]
+[ext_resource type="PackedScene" uid="uid://c8s7a6kaygaq3" path="res://constructions/dwellings/unique/wolflor/wolflor_dwelling.tscn" id="4_fyvgd"]
+
+[resource]
+script = ExtResource("3_4hwto")
+icon = ExtResource("1_x1f0o")
+variations = Array[PackedScene]([ExtResource("4_fyvgd")])
+requirements = Array[PackedScene]([ExtResource("2_utaeq")])

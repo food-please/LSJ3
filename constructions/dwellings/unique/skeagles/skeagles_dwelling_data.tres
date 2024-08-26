@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ConstructionData" load_steps=5 format=3 uid="uid://dhs7nmawoopuy"]
+
+[ext_resource type="Texture2D" uid="uid://dph7itgdgme7o" path="res://constructions/dwellings/unique/skeagles/skeagles_icon.atlastex" id="1_muh13"]
+[ext_resource type="PackedScene" uid="uid://c8ppo4lr3jnwv" path="res://constructions/dwellings/unique/skeagles/cnst_rqmt_skeagles_dwelling.tscn" id="2_6gqvu"]
+[ext_resource type="Script" path="res://constructions/construction_data.gd" id="3_ki3ag"]
+[ext_resource type="PackedScene" uid="uid://c2g017jya4tqm" path="res://constructions/dwellings/unique/skeagles/skeagles_dwelling.tscn" id="4_7m2an"]
+
+[resource]
+script = ExtResource("3_ki3ag")
+icon = ExtResource("1_muh13")
+variations = Array[PackedScene]([ExtResource("4_7m2an")])
+requirements = Array[PackedScene]([ExtResource("2_6gqvu")])

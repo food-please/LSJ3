@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=4 uid="uid://cblphkqnjthv3"]
+
+[ext_resource type="PackedScene" uid="uid://ddv6g348u0qmv" path="res://constructions/dwellings/dwelling_house.tscn" id="1_bpxek"]
+[ext_resource type="Script" path="res://constructions/dwellings/construction_dwelling.gd" id="2_uecdc"]
+[ext_resource type="Script" path="res://constructions/construction_data.gd" id="3_e5edl"]
+[ext_resource type="Resource" uid="uid://df6up1e73akpj" path="res://constructions/dwellings/house_data.tres" id="4_shtrx"]
+[ext_resource type="PackedScene" uid="uid://ct7e5kegsjm84" path="res://constructions/construction_requirement.tscn" id="5_uwsir"]
+
+[node name="CastandraDwelling" instance=ExtResource("1_bpxek")]
+script = ExtResource("2_uecdc")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = null
+
+[node name="OccupiedCells" parent="." index="1"]
+modulate = Color(1, 0, 0, 0.501961)
+operation = 0
+terrain = Array[String]([])
+construction_types = Array[ExtResource("3_e5edl")]([ExtResource("4_shtrx")])
+
+[node name="RiverRequirement" parent="." index="2" instance=ExtResource("5_uwsir")]
+modulate = Color(1, 1, 1, 0.470588)
+tile_map_data = PackedByteArray("AAABAAEAAQAAAAAAAAABAAAAAQAAAAAAAAABAP//AQAAAAAAAAAAAP//AQAAAAAAAAD/////AQAAAAAAAAD//wAAAQAAAAAAAAD//wEAAQAAAAAAAAAAAAEAAQAAAAAAAAA=")
+operation = 2
+terrain = Array[String](["River"])
+terrain_quantity = 2
+
+[node name="TreesRequirement" parent="." index="3" instance=ExtResource("5_uwsir")]
+modulate = Color(1, 1, 1, 0.470588)
+tile_map_data = PackedByteArray("AAABAAEAAQAAAAAAAAABAAAAAQAAAAAAAAABAP//AQAAAAAAAAAAAP//AQAAAAAAAAD/////AQAAAAAAAAD//wAAAQAAAAAAAAD//wEAAQAAAAAAAAAAAAEAAQAAAAAAAAA=")
+operation = 2
+terrain = Array[String](["Trees"])
+terrain_quantity = 2

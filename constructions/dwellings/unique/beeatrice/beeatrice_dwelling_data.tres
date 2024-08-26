@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ConstructionData" load_steps=5 format=3 uid="uid://we6w0elinf8y"]
+
+[ext_resource type="Texture2D" uid="uid://bna8dtps0fvus" path="res://constructions/dwellings/unique/beeatrice/beeatric_icon.atlastex" id="1_oc73w"]
+[ext_resource type="PackedScene" uid="uid://bc47xj2eciqlt" path="res://constructions/dwellings/unique/beeatrice/cnst_rqmt_beeatrice_dwelling.tscn" id="1_rknk1"]
+[ext_resource type="Script" path="res://constructions/construction_data.gd" id="2_xl05q"]
+[ext_resource type="PackedScene" uid="uid://bf7ai8kjw5mf2" path="res://constructions/dwellings/unique/beeatrice/beeatrice_dwelling.tscn" id="3_orh28"]
+
+[resource]
+script = ExtResource("2_xl05q")
+icon = ExtResource("1_oc73w")
+variations = Array[PackedScene]([ExtResource("3_orh28")])
+requirements = Array[PackedScene]([ExtResource("1_rknk1")])

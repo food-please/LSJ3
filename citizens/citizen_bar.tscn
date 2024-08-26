@@ -33,3 +33,5 @@ offset_right = 8.0
 offset_bottom = 56.0
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="UniqueCitizenTimer" type="Timer" parent="."]

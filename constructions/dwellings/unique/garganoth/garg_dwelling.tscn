@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=4 uid="uid://r3uj52gvjgl5"]
+
+[ext_resource type="PackedScene" uid="uid://ddv6g348u0qmv" path="res://constructions/dwellings/dwelling_house.tscn" id="1_yqc86"]
+[ext_resource type="Script" path="res://constructions/dwellings/construction_dwelling.gd" id="2_cokq7"]
+[ext_resource type="Script" path="res://constructions/construction_data.gd" id="3_8xx2p"]
+[ext_resource type="Resource" uid="uid://diqsa5s4ym1ak" path="res://constructions/fortress/castle/cnst_data_castle.tres" id="4_xdkxa"]
+[ext_resource type="PackedScene" uid="uid://ct7e5kegsjm84" path="res://constructions/construction_requirement.tscn" id="5_1yt4f"]
+[ext_resource type="Resource" uid="uid://ybg0q7w6ku7h" path="res://constructions/town/monument/cnst_data_monument.tres" id="6_aqjrw"]
+
+[node name="GargDwelling" instance=ExtResource("1_yqc86")]
+script = ExtResource("2_cokq7")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = null
+
+[node name="OccupiedCells" parent="." index="1"]
+modulate = Color(1, 0, 0, 0.501961)
+tile_map_data = PackedByteArray("AAAAAAAAAQAAAAAAAAD//wEAAQAAAAAAAAAAAAEAAQAAAAAAAAABAAEAAQAAAAAAAAABAAAAAQAAAAAAAAABAP//AQAAAAAAAAAAAP//AQAAAAAAAAD/////AQAAAAAAAAD//wAAAQAAAAAAAAA=")
+operation = 4
+terrain = Array[String]([])
+construction_types = Array[ExtResource("3_8xx2p")]([ExtResource("4_xdkxa")])
+construction_quantity = 9
+
+[node name="MonumentRequirement" parent="." index="2" instance=ExtResource("5_1yt4f")]
+tile_map_data = PackedByteArray("AAD+////AQAAAAAAAAD+/wAAAQAAAAAAAAD+/wEAAQAAAAAAAAD///7/AQAAAAAAAAAAAP7/AQAAAAAAAAABAP7/AQAAAAAAAAACAP//AQAAAAAAAAACAAAAAQAAAAAAAAACAAEAAQAAAAAAAAADAAAAAQAAAAAAAAAAAP3/AQAAAAAAAAABAAIAAQAAAAAAAAAAAAIAAQAAAAAAAAD//wIAAQAAAAAAAAAAAAMAAQAAAAAAAAD9/wAAAQAAAAAAAAD9////AQAAAAAAAAD8/wAAAQAAAAAAAAD9/wEAAQAAAAAAAAD+/wIAAQAAAAAAAAD//wMAAQAAAAAAAAAAAAQAAQAAAAAAAAABAAMAAQAAAAAAAAACAAIAAQAAAAAAAAADAAEAAQAAAAAAAAAEAAAAAQAAAAAAAAADAP//AQAAAAAAAAACAP7/AQAAAAAAAAABAP3/AQAAAAAAAAAAAPz/AQAAAAAAAAD///3/AQAAAAAAAAD+//7/AQAAAAAAAAA=")
+operation = 2
+construction_types = Array[ExtResource("3_8xx2p")]([ExtResource("6_aqjrw")])
+construction_quantity = 1

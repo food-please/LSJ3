@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=4 uid="uid://bf7ai8kjw5mf2"]
+
+[ext_resource type="PackedScene" uid="uid://ddv6g348u0qmv" path="res://constructions/dwellings/dwelling_house.tscn" id="1_xvjma"]
+[ext_resource type="Script" path="res://constructions/dwellings/construction_dwelling.gd" id="2_qg44e"]
+[ext_resource type="Resource" uid="uid://cxk7mv4q6cwym" path="res://constructions/landscape/flower_pot/cnst_data_flower_pot.tres" id="3_rqu8g"]
+[ext_resource type="Script" path="res://constructions/construction_data.gd" id="4_xy6r2"]
+[ext_resource type="PackedScene" uid="uid://ct7e5kegsjm84" path="res://constructions/construction_requirement.tscn" id="5_0a0mt"]
+
+[node name="BeeatriceDwelling" instance=ExtResource("1_xvjma")]
+script = ExtResource("2_qg44e")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = null
+
+[node name="OccupiedCells" parent="." index="1"]
+modulate = Color(1, 0, 0, 0.501961)
+operation = 0
+terrain = Array[String](["Trees"])
+
+[node name="FlowersRequirement" parent="." index="2" instance=ExtResource("5_0a0mt")]
+tile_map_data = PackedByteArray("AAD//wEAAQAAAAAAAAAAAAEAAQAAAAAAAAABAAEAAQAAAAAAAAABAAAAAQAAAAAAAAABAP//AQAAAAAAAAAAAP//AQAAAAAAAAD/////AQAAAAAAAAD//wAAAQAAAAAAAAA=")
+operation = 2
+construction_types = Array[ExtResource("4_xy6r2")]([ExtResource("3_rqu8g")])
+construction_quantity = 6

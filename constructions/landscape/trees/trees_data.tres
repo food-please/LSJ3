@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ConstructionData" load_steps=4 format=3 uid="uid://bhhvuqqg448ll"]
+
+[ext_resource type="Texture2D" uid="uid://dct3rye4r4484" path="res://constructions/landscape/trees/trees.atlastex" id="1_ogix0"]
+[ext_resource type="Script" path="res://constructions/construction_data.gd" id="2_ivi5j"]
+[ext_resource type="PackedScene" uid="uid://dx7v8kmbie5cp" path="res://constructions/landscape/trees/trees.tscn" id="3_m35bg"]
+
+[resource]
+script = ExtResource("2_ivi5j")
+icon = ExtResource("1_ogix0")
+variations = Array[PackedScene]([ExtResource("3_m35bg")])
+requirements = Array[PackedScene]([])
