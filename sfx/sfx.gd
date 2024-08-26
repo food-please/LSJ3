@@ -2,9 +2,10 @@ extends AudioStreamPlayer
 
 const SFX: = {
 	"click": preload("res://sfx/sfx_click.ogg"),
-	"erase": preload("res://sfx/sfx_plunk.ogg"),
+	"erase": preload("res://sfx/sfx_delete.ogg"),
 	"invalid": preload("res://sfx/sfx_invalid.ogg"),
 	"place": preload("res://sfx/sfx_plunk.ogg"),
+	"place_dwelling": preload("res://sfx/sfx_select.ogg"),
 }
 
 func _ready() -> void:
@@ -28,8 +29,10 @@ func _ready() -> void:
 	)
 	
 	Events.construction_placed.connect(
-		func(_construction: Construction):
+		func(construction: Construction):
 			stream = SFX.get("place")
+			if construction is ConstructionDwelling:
+				stream = SFX.get("place_dwelling")
 			play()
 	)
 	

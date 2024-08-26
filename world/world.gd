@@ -100,7 +100,7 @@ func _on_construction_placed(construction: Construction) -> void:
 		_update_terrain(updated_cells)
 	
 	elif construction is ConstructionDwelling:
-		print("Is dwelling!")
+		pass
 
 
 func _update_autotiles(cells_to_update: Rect2i) -> void:

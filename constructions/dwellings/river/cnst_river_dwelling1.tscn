@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=4 uid="uid://c3nfbnqdirf00"]
+
+[ext_resource type="Script" path="res://constructions/dwellings/construction_dwelling.gd" id="1_u6xwc"]
+[ext_resource type="TileSet" uid="uid://d34lmt0p41ffk" path="res://world/tilesets/passability_tileset.tres" id="2_cmlmr"]
+[ext_resource type="Script" path="res://constructions/construction_requirement.gd" id="3_cce63"]
+[ext_resource type="Script" path="res://constructions/construction_data.gd" id="4_i5nep"]
+[ext_resource type="Resource" uid="uid://df6up1e73akpj" path="res://constructions/dwellings/house_data.tres" id="5_i3ab4"]
+
+[node name="RiverDwelling1" type="Node2D"]
+show_behind_parent = true
+script = ExtResource("1_u6xwc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="OccupiedCells" type="TileMapLayer" parent="."]
+modulate = Color(0.662745, 0.509804, 0, 0.827451)
+position = Vector2(-4, -4)
+tile_map_data = PackedByteArray("AAAAAAAAAQAAAAAAAAA=")
+tile_set = ExtResource("2_cmlmr")
+script = ExtResource("3_cce63")
+construction_types = Array[ExtResource("4_i5nep")]([ExtResource("5_i3ab4")])
+
+[node name="RiverRequirement" type="TileMapLayer" parent="."]
+modulate = Color(1, 1, 1, 0.364706)
+position = Vector2(-4, -4)
+tile_map_data = PackedByteArray("AAD//wEAAQAAAAAAAAAAAAEAAQAAAAAAAAABAAEAAQAAAAAAAAABAAAAAQAAAAAAAAABAP//AQAAAAAAAAAAAP//AQAAAAAAAAD/////AQAAAAAAAAD//wAAAQAAAAAAAAA=")
+tile_set = ExtResource("2_cmlmr")
+script = ExtResource("3_cce63")
+operation = 2
+terrain = Array[String](["River"])
+terrain_quantity = 2

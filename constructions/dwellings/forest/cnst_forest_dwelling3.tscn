@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=4 uid="uid://ckqkv42n4xx66"]
+
+[ext_resource type="Script" path="res://constructions/dwellings/construction_dwelling.gd" id="1_oc4rt"]
+[ext_resource type="TileSet" uid="uid://d34lmt0p41ffk" path="res://world/tilesets/passability_tileset.tres" id="2_utg7x"]
+[ext_resource type="Script" path="res://constructions/construction_requirement.gd" id="3_htwo3"]
+[ext_resource type="Script" path="res://constructions/construction_data.gd" id="4_gl2re"]
+[ext_resource type="Resource" uid="uid://df6up1e73akpj" path="res://constructions/dwellings/house_data.tres" id="5_wjlky"]
+
+[node name="ForestDwelling3" type="Node2D"]
+show_behind_parent = true
+script = ExtResource("1_oc4rt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="OccupiedCells" type="TileMapLayer" parent="."]
+modulate = Color(0.662745, 0.509804, 0, 0.827451)
+position = Vector2(-4, -4)
+tile_map_data = PackedByteArray("AAAAAAAAAQAAAAAAAAA=")
+tile_set = ExtResource("2_utg7x")
+script = ExtResource("3_htwo3")
+construction_types = Array[ExtResource("4_gl2re")]([ExtResource("5_wjlky")])
+
+[node name="TreesRequirement" type="TileMapLayer" parent="."]
+modulate = Color(1, 1, 1, 0.364706)
+position = Vector2(-4, -4)
+tile_map_data = PackedByteArray("AAD//wEAAQAAAAAAAAAAAAEAAQAAAAAAAAABAAEAAQAAAAAAAAABAAAAAQAAAAAAAAABAP//AQAAAAAAAAAAAP//AQAAAAAAAAD/////AQAAAAAAAAD//wAAAQAAAAAAAAA=")
+tile_set = ExtResource("2_utg7x")
+script = ExtResource("3_htwo3")
+operation = 2
+terrain = Array[String](["Trees"])
+terrain_quantity = 1
+
+[node name="RiverRequirement" type="TileMapLayer" parent="."]
+modulate = Color(1, 1, 1, 0.364706)
+position = Vector2(-4, -4)
+tile_map_data = PackedByteArray("AAD//wEAAQAAAAAAAAAAAAEAAQAAAAAAAAABAAEAAQAAAAAAAAABAAAAAQAAAAAAAAABAP//AQAAAAAAAAAAAP//AQAAAAAAAAD/////AQAAAAAAAAD//wAAAQAAAAAAAAA=")
+tile_set = ExtResource("2_utg7x")
+script = ExtResource("3_htwo3")
+operation = 2
+terrain = Array[String](["River"])
+terrain_quantity = 1

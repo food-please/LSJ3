@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=3 uid="uid://bksgi230ljyr0"]
+
+[ext_resource type="PackedScene" uid="uid://0w7bjhs8khei" path="res://src/ui/constructions/bubble/construction_bubble_requirement.tscn" id="1_bknmk"]
+[ext_resource type="Texture2D" uid="uid://cjdok3ipocvga" path="res://constructions/requirements/inhabitant_icon.atlastex" id="2_cn10t"]
+[ext_resource type="Texture2D" uid="uid://dwb2vpqraokyt" path="res://constructions/requirements/equals.atlastex" id="3_yksr4"]
+[ext_resource type="Texture2D" uid="uid://dy3o48unrhpn1" path="res://constructions/dwellings/variations/dwelling_brown1.atlastex" id="4_phywu"]
+[ext_resource type="Texture2D" uid="uid://7brnx7k8pocn" path="res://constructions/farm/fields/yellow/yellow_field.atlastex" id="5_srpph"]
+[ext_resource type="Texture2D" uid="uid://de4m527xytnhb" path="res://constructions/farm/fruit_trees/fruit_tree_icon.atlastex" id="6_ucqm0"]
+[ext_resource type="Texture2D" uid="uid://b7r5l86qgsnlx" path="res://src/ui/constructions/bubble/quantity.atlastex" id="7_xprrx"]
+[ext_resource type="Script" path="res://src/ui/constructions/bubble/uimodifier.gd" id="8_ssn66"]
+[ext_resource type="PackedScene" uid="uid://ugarwydgnx5v" path="res://src/ui/number/ui_number.tscn" id="9_35xlo"]
+
+[node name="FarmRequirements" instance=ExtResource("1_bknmk")]
+
+[node name="DwellingType" type="MarginContainer" parent="HBoxContainer" index="0"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/DwellingType" index="0"]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/DwellingType/HBoxContainer" index="0"]
+layout_mode = 2
+texture = ExtResource("2_cn10t")
+stretch_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer/DwellingType/HBoxContainer" index="1"]
+layout_mode = 2
+texture = ExtResource("3_yksr4")
+stretch_mode = 3
+
+[node name="DwellingIcon" type="TextureRect" parent="HBoxContainer/DwellingType/HBoxContainer" index="2"]
+layout_mode = 2
+texture = ExtResource("4_phywu")
+stretch_mode = 3
+
+[node name="Spacer" type="Control" parent="HBoxContainer" index="1"]
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+
+[node name="Icon" parent="HBoxContainer" index="2"]
+texture = ExtResource("5_srpph")
+
+[node name="Number" parent="HBoxContainer" index="4"]
+quantity = 2
+
+[node name="Spacer2" type="Control" parent="HBoxContainer" index="5"]
+custom_minimum_size = Vector2(2, 0)
+layout_mode = 2
+
+[node name="Icon2" type="TextureRect" parent="HBoxContainer" index="6"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+texture = ExtResource("6_ucqm0")
+stretch_mode = 3
+
+[node name="Modifier2" type="TextureRect" parent="HBoxContainer" index="7"]
+layout_mode = 2
+texture = ExtResource("7_xprrx")
+stretch_mode = 3
+script = ExtResource("8_ssn66")
+
+[node name="Number2" parent="HBoxContainer" index="8" instance=ExtResource("9_35xlo")]
+layout_mode = 2
+quantity = 3

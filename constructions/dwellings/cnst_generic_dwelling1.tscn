@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://dmfsy34m72s70"]
+
+[ext_resource type="Script" path="res://constructions/dwellings/construction_dwelling.gd" id="1_c5m8q"]
+[ext_resource type="TileSet" uid="uid://d34lmt0p41ffk" path="res://world/tilesets/passability_tileset.tres" id="2_y5w0q"]
+[ext_resource type="Script" path="res://constructions/construction_requirement.gd" id="3_vig8e"]
+[ext_resource type="Script" path="res://constructions/construction_data.gd" id="4_8c6lt"]
+[ext_resource type="Resource" uid="uid://df6up1e73akpj" path="res://constructions/dwellings/house_data.tres" id="5_4qgqh"]
+
+[node name="GenericDwelling1" type="Node2D"]
+show_behind_parent = true
+script = ExtResource("1_c5m8q")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="OccupiedCells" type="TileMapLayer" parent="."]
+modulate = Color(0.662745, 0.509804, 0, 0.827451)
+position = Vector2(-4, -4)
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0)
+tile_set = ExtResource("2_y5w0q")
+script = ExtResource("3_vig8e")
+construction_types = Array[ExtResource("4_8c6lt")]([ExtResource("5_4qgqh")])

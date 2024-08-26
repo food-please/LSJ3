@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=4 uid="uid://1tr1lwli5x28"]
+
+[ext_resource type="Script" path="res://constructions/dwellings/construction_dwelling.gd" id="1_hedum"]
+[ext_resource type="TileSet" uid="uid://d34lmt0p41ffk" path="res://world/tilesets/passability_tileset.tres" id="2_dysva"]
+[ext_resource type="Script" path="res://constructions/construction_requirement.gd" id="3_x66rq"]
+[ext_resource type="Script" path="res://constructions/construction_data.gd" id="4_jcn37"]
+[ext_resource type="Resource" uid="uid://df6up1e73akpj" path="res://constructions/dwellings/house_data.tres" id="5_aj0ee"]
+[ext_resource type="Resource" uid="uid://b43x2w1jek2n1" path="res://constructions/farm/fruit_trees/cnst_data_fruit_tree.tres" id="6_3g83y"]
+
+[node name="ForestDwelling5" type="Node2D"]
+show_behind_parent = true
+script = ExtResource("1_hedum")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="OccupiedCells" type="TileMapLayer" parent="."]
+modulate = Color(0.662745, 0.509804, 0, 0.827451)
+position = Vector2(-4, -4)
+tile_map_data = PackedByteArray("AAAAAAAAAQAAAAAAAAA=")
+tile_set = ExtResource("2_dysva")
+script = ExtResource("3_x66rq")
+construction_types = Array[ExtResource("4_jcn37")]([ExtResource("5_aj0ee")])
+
+[node name="TreesRequirement" type="TileMapLayer" parent="."]
+modulate = Color(1, 1, 1, 0.364706)
+position = Vector2(-4, -4)
+tile_map_data = PackedByteArray("AAD//wEAAQAAAAAAAAAAAAEAAQAAAAAAAAABAAEAAQAAAAAAAAABAAAAAQAAAAAAAAABAP//AQAAAAAAAAAAAP//AQAAAAAAAAD/////AQAAAAAAAAD//wAAAQAAAAAAAAA=")
+tile_set = ExtResource("2_dysva")
+script = ExtResource("3_x66rq")
+operation = 2
+terrain = Array[String](["Trees"])
+terrain_quantity = 1
+
+[node name="FruitRequirement" type="TileMapLayer" parent="."]
+modulate = Color(1, 1, 1, 0.364706)
+position = Vector2(-4, -4)
+tile_map_data = PackedByteArray("AAD//wEAAQAAAAAAAAAAAAEAAQAAAAAAAAABAAEAAQAAAAAAAAABAAAAAQAAAAAAAAABAP//AQAAAAAAAAAAAP//AQAAAAAAAAD/////AQAAAAAAAAD//wAAAQAAAAAAAAA=")
+tile_set = ExtResource("2_dysva")
+script = ExtResource("3_x66rq")
+operation = 2
+construction_types = Array[ExtResource("4_jcn37")]([ExtResource("6_3g83y")])
+construction_quantity = 3

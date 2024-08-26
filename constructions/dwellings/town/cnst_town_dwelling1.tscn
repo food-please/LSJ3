@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=4 uid="uid://b17fnet2ye55n"]
+
+[ext_resource type="Script" path="res://constructions/dwellings/construction_dwelling.gd" id="1_usff4"]
+[ext_resource type="TileSet" uid="uid://d34lmt0p41ffk" path="res://world/tilesets/passability_tileset.tres" id="2_h1vyx"]
+[ext_resource type="Script" path="res://constructions/construction_requirement.gd" id="3_7x5cq"]
+[ext_resource type="Script" path="res://constructions/construction_data.gd" id="4_2lmap"]
+[ext_resource type="Resource" uid="uid://df6up1e73akpj" path="res://constructions/dwellings/house_data.tres" id="5_sf5rk"]
+
+[node name="TownDwelling1" type="Node2D"]
+show_behind_parent = true
+script = ExtResource("1_usff4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="OccupiedCells" type="TileMapLayer" parent="."]
+modulate = Color(0.662745, 0.509804, 0, 0.827451)
+position = Vector2(-4, -4)
+tile_map_data = PackedByteArray("AAAAAAAAAQAAAAAAAAA=")
+tile_set = ExtResource("2_h1vyx")
+script = ExtResource("3_7x5cq")
+construction_types = Array[ExtResource("4_2lmap")]([ExtResource("5_sf5rk")])
+
+[node name="RoadRequirement" type="TileMapLayer" parent="."]
+modulate = Color(1, 1, 1, 0.364706)
+position = Vector2(-4, -4)
+tile_map_data = PackedByteArray("AAD//wEAAQAAAAAAAAAAAAEAAQAAAAAAAAABAAEAAQAAAAAAAAABAAAAAQAAAAAAAAABAP//AQAAAAAAAAAAAP//AQAAAAAAAAD/////AQAAAAAAAAD//wAAAQAAAAAAAAA=")
+tile_set = ExtResource("2_h1vyx")
+script = ExtResource("3_7x5cq")
+operation = 2
+terrain = Array[String](["RoadDirt"])
+terrain_quantity = 2

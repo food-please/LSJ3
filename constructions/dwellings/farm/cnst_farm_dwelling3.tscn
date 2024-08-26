@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=4 uid="uid://yhkj3auc63d3"]
+
+[ext_resource type="Script" path="res://constructions/dwellings/construction_dwelling.gd" id="1_e4rv0"]
+[ext_resource type="TileSet" uid="uid://d34lmt0p41ffk" path="res://world/tilesets/passability_tileset.tres" id="2_2rhsq"]
+[ext_resource type="Script" path="res://constructions/construction_requirement.gd" id="3_2sjys"]
+[ext_resource type="Script" path="res://constructions/construction_data.gd" id="4_bhcme"]
+[ext_resource type="Resource" uid="uid://df6up1e73akpj" path="res://constructions/dwellings/house_data.tres" id="5_4xj0x"]
+[ext_resource type="Resource" uid="uid://bvgj0a5xr7rgk" path="res://constructions/farm/mill/cnst_data_mill.tres" id="5_7k1vb"]
+
+[node name="FarmDwelling3" type="Node2D"]
+show_behind_parent = true
+script = ExtResource("1_e4rv0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="OccupiedCells" type="TileMapLayer" parent="."]
+modulate = Color(0.654902, 0.513726, 0, 0.784314)
+position = Vector2(-4, -4)
+tile_map_data = PackedByteArray("AAAAAAAAAQAAAAAAAAA=")
+tile_set = ExtResource("2_2rhsq")
+script = ExtResource("3_2sjys")
+construction_types = Array[ExtResource("4_bhcme")]([ExtResource("5_4xj0x")])
+
+[node name="FarmRequirement" type="TileMapLayer" parent="."]
+modulate = Color(1, 1, 1, 0.364706)
+position = Vector2(-4, -4)
+tile_map_data = PackedByteArray("AAD//wEAAQAAAAAAAAAAAAEAAQAAAAAAAAABAAEAAQAAAAAAAAABAAAAAQAAAAAAAAABAP//AQAAAAAAAAAAAP//AQAAAAAAAAD/////AQAAAAAAAAD//wAAAQAAAAAAAAA=")
+tile_set = ExtResource("2_2rhsq")
+script = ExtResource("3_2sjys")
+operation = 2
+terrain = Array[String](["FieldPlowed", "FieldBrown", "FieldGreen", "FieldRed", "FieldPurple", "FieldYellow"])
+terrain_quantity = 3
+
+[node name="MillRequirement" type="TileMapLayer" parent="."]
+modulate = Color(1, 1, 1, 0.364706)
+position = Vector2(-4, -4)
+tile_map_data = PackedByteArray("AAD//wEAAQAAAAAAAAAAAAEAAQAAAAAAAAABAAEAAQAAAAAAAAABAAAAAQAAAAAAAAABAP//AQAAAAAAAAAAAP//AQAAAAAAAAD/////AQAAAAAAAAD//wAAAQAAAAAAAAA=")
+tile_set = ExtResource("2_2rhsq")
+script = ExtResource("3_2sjys")
+operation = 2
+construction_types = Array[ExtResource("4_bhcme")]([ExtResource("5_7k1vb")])

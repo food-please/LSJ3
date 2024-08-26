@@ -1,5 +1,7 @@
 extends Node
 
+@export var starting_citizens: = 3
+
 @onready var camera: = $TouchCamera as TouchCamera
 @onready var terrain: = $World/Terrain as TileMapLayer
 
@@ -18,7 +20,7 @@ func _ready() -> void:
 		map_dimensions.size * terrain.tile_set.tile_size - Vector2i(viewport_dimensions)
 	)
 	
-	for i in range(0, 4):
+	for i in range(0, starting_citizens):
 		_citizens.add_random_citizen()
 	
 	Music.start()

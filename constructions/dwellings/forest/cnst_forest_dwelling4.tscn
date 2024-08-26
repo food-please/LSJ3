@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=4 uid="uid://btftn2c1od2fa"]
+
+[ext_resource type="Script" path="res://constructions/dwellings/construction_dwelling.gd" id="1_nltv5"]
+[ext_resource type="TileSet" uid="uid://d34lmt0p41ffk" path="res://world/tilesets/passability_tileset.tres" id="2_5f8lq"]
+[ext_resource type="Script" path="res://constructions/construction_requirement.gd" id="3_xo3xd"]
+[ext_resource type="Script" path="res://constructions/construction_data.gd" id="4_e5g0s"]
+[ext_resource type="Resource" uid="uid://b0o5gixkv65us" path="res://constructions/fortress/tower/tower_data.tres" id="5_6ddw0"]
+
+[node name="ForestDwelling4" type="Node2D"]
+show_behind_parent = true
+script = ExtResource("1_nltv5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="OccupiedCells" type="TileMapLayer" parent="."]
+modulate = Color(0.662745, 0.509804, 0, 0.827451)
+position = Vector2(-4, -4)
+tile_map_data = PackedByteArray("AAAAAAAAAQAAAAAAAAA=")
+tile_set = ExtResource("2_5f8lq")
+script = ExtResource("3_xo3xd")
+construction_types = Array[ExtResource("4_e5g0s")]([ExtResource("5_6ddw0")])
+
+[node name="TreesRequirement" type="TileMapLayer" parent="."]
+modulate = Color(1, 1, 1, 0.364706)
+position = Vector2(-4, -4)
+tile_map_data = PackedByteArray("AAD//wEAAQAAAAAAAAAAAAEAAQAAAAAAAAABAAEAAQAAAAAAAAABAAAAAQAAAAAAAAABAP//AQAAAAAAAAAAAP//AQAAAAAAAAD/////AQAAAAAAAAD//wAAAQAAAAAAAAD+/wEAAQAAAAAAAAD+/wAAAQAAAAAAAAD+////AQAAAAAAAAD///7/AQAAAAAAAAAAAP7/AQAAAAAAAAABAP7/AQAAAAAAAAACAP//AQAAAAAAAAACAAAAAQAAAAAAAAACAAEAAQAAAAAAAAADAAAAAQAAAAAAAAAAAP3/AQAAAAAAAAD9/wAAAQAAAAAAAAD//wIAAQAAAAAAAAAAAAIAAQAAAAAAAAABAAIAAQAAAAAAAAAAAAMAAQAAAAAAAAA=")
+tile_set = ExtResource("2_5f8lq")
+script = ExtResource("3_xo3xd")
+operation = 2
+terrain = Array[String](["Trees"])
+terrain_quantity = 8
+
+[node name="RoadRequirement" type="TileMapLayer" parent="."]
+modulate = Color(1, 1, 1, 0.364706)
+position = Vector2(-4, -4)
+tile_map_data = PackedByteArray("AAD//wEAAQAAAAAAAAAAAAEAAQAAAAAAAAABAAEAAQAAAAAAAAABAAAAAQAAAAAAAAABAP//AQAAAAAAAAAAAP//AQAAAAAAAAD/////AQAAAAAAAAD//wAAAQAAAAAAAAD//wIAAQAAAAAAAAAAAAIAAQAAAAAAAAABAAIAAQAAAAAAAAAAAAMAAQAAAAAAAAACAAEAAQAAAAAAAAACAAAAAQAAAAAAAAACAP//AQAAAAAAAAADAAAAAQAAAAAAAAABAP7/AQAAAAAAAAAAAP7/AQAAAAAAAAD///7/AQAAAAAAAAAAAP3/AQAAAAAAAAD+////AQAAAAAAAAD+/wAAAQAAAAAAAAD+/wEAAQAAAAAAAAD9/wAAAQAAAAAAAAA=")
+tile_set = ExtResource("2_5f8lq")
+script = ExtResource("3_xo3xd")
+operation = 2
+terrain = Array[String](["RoadDirt"])
+terrain_quantity = 1

@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=4 uid="uid://bxjyf7elpxudx"]
+
+[ext_resource type="Script" path="res://constructions/dwellings/construction_dwelling.gd" id="1_wkqnm"]
+[ext_resource type="TileSet" uid="uid://d34lmt0p41ffk" path="res://world/tilesets/passability_tileset.tres" id="2_v586m"]
+[ext_resource type="Script" path="res://constructions/construction_requirement.gd" id="3_7m4xh"]
+[ext_resource type="Script" path="res://constructions/construction_data.gd" id="4_3y2tg"]
+[ext_resource type="Resource" uid="uid://bvgj0a5xr7rgk" path="res://constructions/farm/mill/cnst_data_mill.tres" id="6_h55vn"]
+
+[node name="MillDwelling1" type="Node2D"]
+show_behind_parent = true
+script = ExtResource("1_wkqnm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="OccupiedCells" type="TileMapLayer" parent="."]
+modulate = Color(0.643137, 0.521569, 0, 0.827451)
+position = Vector2(-4, -4)
+tile_map_data = PackedByteArray("AAAAAAAAAQAAAAAAAAABAAAAAQAAAAAAAAA=")
+tile_set = ExtResource("2_v586m")
+script = ExtResource("3_7m4xh")
+operation = 4
+construction_types = Array[ExtResource("4_3y2tg")]([ExtResource("6_h55vn")])
+construction_quantity = 2
+
+[node name="FarmRequirement" type="TileMapLayer" parent="."]
+modulate = Color(1, 1, 1, 0.364706)
+position = Vector2(-4, -4)
+tile_map_data = PackedByteArray("AAD//wEAAQAAAAAAAAAAAAEAAQAAAAAAAAABAAEAAQAAAAAAAAABAP//AQAAAAAAAAAAAP//AQAAAAAAAAD/////AQAAAAAAAAD//wAAAQAAAAAAAAACAP//AQAAAAAAAAACAAAAAQAAAAAAAAACAAEAAQAAAAAAAAA=")
+tile_set = ExtResource("2_v586m")
+script = ExtResource("3_7m4xh")
+operation = 2
+terrain = Array[String](["FieldPlowed", "FieldBrown", "FieldGreen", "FieldPurple", "FieldRed", "FieldYellow"])
+terrain_quantity = 8

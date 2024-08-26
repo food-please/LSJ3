@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://cqn2cxx0su568"]
+
+[ext_resource type="PackedScene" uid="uid://0w7bjhs8khei" path="res://src/ui/constructions/bubble/construction_bubble_requirement.tscn" id="1_cuny0"]
+[ext_resource type="Texture2D" uid="uid://cjdok3ipocvga" path="res://constructions/requirements/inhabitant_icon.atlastex" id="2_by858"]
+[ext_resource type="Texture2D" uid="uid://dwb2vpqraokyt" path="res://constructions/requirements/equals.atlastex" id="3_urnoy"]
+[ext_resource type="Texture2D" uid="uid://dy3o48unrhpn1" path="res://constructions/dwellings/variations/dwelling_brown1.atlastex" id="4_7uwjn"]
+[ext_resource type="Texture2D" uid="uid://why3lhuc6dhd" path="res://constructions/landscape/road_dirt/dirt_road.atlastex" id="5_s6tj5"]
+
+[node name="FarmRequirements" instance=ExtResource("1_cuny0")]
+
+[node name="HBoxContainer" parent="." index="0"]
+theme_override_constants/separation = -2
+
+[node name="DwellingType" type="MarginContainer" parent="HBoxContainer" index="0"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/DwellingType" index="0"]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/DwellingType/HBoxContainer" index="0"]
+layout_mode = 2
+texture = ExtResource("2_by858")
+stretch_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer/DwellingType/HBoxContainer" index="1"]
+layout_mode = 2
+texture = ExtResource("3_urnoy")
+stretch_mode = 3
+
+[node name="DwellingIcon" type="TextureRect" parent="HBoxContainer/DwellingType/HBoxContainer" index="2"]
+layout_mode = 2
+texture = ExtResource("4_7uwjn")
+stretch_mode = 3
+
+[node name="Spacer" type="Control" parent="HBoxContainer" index="1"]
+custom_minimum_size = Vector2(6, 0)
+layout_mode = 2
+
+[node name="Icon" parent="HBoxContainer" index="2"]
+texture = ExtResource("5_s6tj5")
+
+[node name="Number" parent="HBoxContainer" index="4"]
+quantity = 3

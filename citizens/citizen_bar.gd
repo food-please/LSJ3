@@ -2,7 +2,7 @@ class_name CitizenBar extends Control
 
 const CITIZEN: = preload("res://src/ui/workers/citizen_button.tscn")
 
-@export var max_concurrent_citizens: = 3
+@export var max_concurrent_citizens: int = 7
 
 @export var citizen_timer: = 20.0
 @export var unique_citizen_timer: = 120.0
@@ -19,14 +19,13 @@ func _ready() -> void:
 	$Timer.start(citizen_timer)
 	$Timer.timeout.connect(
 		func():
-			#print(Dwellings.DWELLINGS.size(), " Timeout ", Dwellings.DWELLINGS.size() > _citizens.get_child_count(), 
-				#" ", _citizens.get_child_count() <= 7)
 			add_random_citizen()
 	)
 	
 	_unique_timer.start(unique_citizen_timer)
 	_unique_timer.timeout.connect(
 		func():
+			var new_time: = unique_citizen_timer
 			if _citizens.get_child_count() < max_concurrent_citizens:
 				var new_data: = Dwellings.get_unique_dwelling()
 				if new_data:
@@ -35,12 +34,15 @@ func _ready() -> void:
 				
 				else:
 					Events.unique_citizens_finished.emit()
+			
+			else:
+				new_time = 1.0
+			_unique_timer.start(new_time)
 	)
 
 
 func add_random_citizen() -> void:
-	if Dwellings.DWELLINGS.size() > _citizens.get_child_count() \
-			and _citizens.get_child_count() < max_concurrent_citizens:
+	if _citizens.get_child_count() < max_concurrent_citizens:
 		var new_data: ConstructionData = null
 		while(true):
 			new_data = Dwellings.get_random_dwelling()

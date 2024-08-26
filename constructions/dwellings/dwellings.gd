@@ -2,27 +2,34 @@ class_name Dwellings extends RefCounted
 
 const DWELLINGS: = {
 	# Generic dwellings
-	#preload("res://constructions/dwellings/dwelling_data.tres"):0,
-	preload("res://constructions/dwellings/dwelling_data2.tres"):0,
-	preload("res://constructions/dwellings/dwelling_data3.tres"):0,
+	preload("res://constructions/dwellings/cnst_generic_dwelling1_data.tres"):0,
+	preload("res://constructions/dwellings/cnst_generic_dwelling2_data.tres"):0,
+	preload("res://constructions/dwellings/cnst_generic_dwelling3_data.tres"):0,
+	preload("res://constructions/dwellings/cnst_generic_dwelling4_data.tres"):0,
+	preload("res://constructions/dwellings/cnst_generic_dwelling5_data.tres"):0,
 	
 	# Farm dwellings
-	preload("res://constructions/dwellings/farm/farm_dwelling1.tres"):0,
-	preload("res://constructions/dwellings/farm/farm_dwelling2.tres"):0,
-	preload("res://constructions/dwellings/farm/mill_dwelling.tres"):0,
+	preload("res://constructions/dwellings/farm/cnst_farm_dwelling1_data.tres"):0,
+	preload("res://constructions/dwellings/farm/cnst_farm_dwelling2_data.tres"):0,
+	preload("res://constructions/dwellings/farm/cnst_farm_dwelling3_data.tres"):0,
+	preload("res://constructions/dwellings/farm/cnst_mill_dwelling1_data.tres"):0,
+	preload("res://constructions/dwellings/farm/cnst_mill_dwelling2_data.tres"):0,
 	
-	# River dwellings
-	preload("res://constructions/dwellings/river/river_dwelling1.tres"):0,
-	preload("res://constructions/dwellings/river/river_dwelling2.tres"):0,
-	preload("res://constructions/dwellings/river/river_dwelling3.tres"):0,
+	## River dwellings
+	preload("res://constructions/dwellings/river/cnst_river_dwelling1_data.tres"):0,
+	preload("res://constructions/dwellings/river/cnst_river_dwelling2_data.tres"):0,
 	
-	# Forest dwellings
-	preload("res://constructions/dwellings/forest/forest_dwelling1.tres"):0,
-	preload("res://constructions/dwellings/forest/forest_dwelling2.tres"):0,
-	preload("res://constructions/dwellings/forest/forest_dwelling3.tres"):0,
-	
-	# Town dwellings
-	preload("res://constructions/dwellings/town/town_dwelling1.tres"):0,
+	## Forest dwellings
+	preload("res://constructions/dwellings/forest/cnst_forest_dwelling1_data.tres"):0,
+	preload("res://constructions/dwellings/forest/cnst_forest_dwelling2_data.tres"):0,
+	preload("res://constructions/dwellings/forest/cnst_forest_dwelling3_data.tres"):0,
+	preload("res://constructions/dwellings/forest/cnst_forest_dwelling4_data.tres"):0,
+	preload("res://constructions/dwellings/forest/cnst_forest_dwelling5_data.tres"):0,
+
+	## Town dwellings
+	preload("res://constructions/dwellings/town/cnst_town_dwelling1_data.tres"):0,
+	preload("res://constructions/dwellings/town/cnst_town_dwelling2_data.tres"):0,
+	preload("res://constructions/dwellings/town/cnst_town_dwelling3_data.tres"):0,
 }
 
 const UNIQUE_DWELLINGS: = {
@@ -35,7 +42,8 @@ const UNIQUE_DWELLINGS: = {
 	
 	"garganoth": preload("res://constructions/dwellings/unique/garganoth/garg_dwelling_data.tres"),
 	
-	"skeagles": preload("res://constructions/dwellings/unique/skeagles/skeagles_dwelling_data.tres"),
+	"skeagles": \
+		preload("res://constructions/dwellings/unique/skeagles/skeagles_dwelling_data.tres"),
 	
 	"wolflor": preload("res://constructions/dwellings/unique/wolflor/wolflor_dwelling_data.tres"),
 }

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://c8s7a6kaygaq3"]
+[gd_scene load_steps=7 format=4 uid="uid://c8s7a6kaygaq3"]
 
 [ext_resource type="PackedScene" uid="uid://ddv6g348u0qmv" path="res://constructions/dwellings/dwelling_house.tscn" id="1_3icxq"]
 [ext_resource type="Script" path="res://constructions/dwellings/construction_dwelling.gd" id="2_kqx6r"]
@@ -6,8 +6,6 @@
 [ext_resource type="Script" path="res://constructions/construction_data.gd" id="4_0i37k"]
 [ext_resource type="Resource" uid="uid://b0o5gixkv65us" path="res://constructions/fortress/tower/tower_data.tres" id="4_kufvt"]
 [ext_resource type="Resource" uid="uid://df6up1e73akpj" path="res://constructions/dwellings/house_data.tres" id="5_ptrdd"]
-[ext_resource type="Resource" uid="uid://cotod6lhsbfqb" path="res://constructions/dwellings/dwelling_data3.tres" id="6_gqu2b"]
-[ext_resource type="Resource" uid="uid://d2xqrhi06kgmr" path="res://constructions/dwellings/dwelling_data2.tres" id="7_wtvwk"]
 
 [node name="WolflorDwelling" instance=ExtResource("1_3icxq")]
 script = ExtResource("2_kqx6r")
@@ -24,4 +22,4 @@ construction_types = Array[ExtResource("4_0i37k")]([ExtResource("4_kufvt")])
 [node name="NoHousesRequirement" parent="." index="2" instance=ExtResource("3_etbh8")]
 tile_map_data = PackedByteArray("AAD//wEAAQAAAAAAAAAAAAEAAQAAAAAAAAABAAEAAQAAAAAAAAABAAAAAQAAAAAAAAABAP//AQAAAAAAAAAAAP//AQAAAAAAAAD/////AQAAAAAAAAD//wAAAQAAAAAAAAD+////AQAAAAAAAAD+/wAAAQAAAAAAAAD+/wEAAQAAAAAAAAD///7/AQAAAAAAAAAAAP7/AQAAAAAAAAABAP7/AQAAAAAAAAACAP//AQAAAAAAAAACAAAAAQAAAAAAAAACAAEAAQAAAAAAAAADAAAAAQAAAAAAAAAAAP3/AQAAAAAAAAABAAIAAQAAAAAAAAAAAAIAAQAAAAAAAAD//wIAAQAAAAAAAAAAAAMAAQAAAAAAAAD9/wAAAQAAAAAAAAA=")
 operation = 1
-construction_types = Array[ExtResource("4_0i37k")]([ExtResource("5_ptrdd"), ExtResource("6_gqu2b"), ExtResource("7_wtvwk")])
+construction_types = Array[ExtResource("4_0i37k")]([ExtResource("5_ptrdd")])

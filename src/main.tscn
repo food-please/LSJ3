@@ -66,7 +66,7 @@ tile_set = ExtResource("4_oapi2")
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="CitizenBar" parent="UI" instance=ExtResource("8_nkyc8")]
-unique_citizen_timer = 2.0
+citizen_timer = 23.0
 
 [node name="ConstructionBar" type="CenterContainer" parent="UI"]
 anchors_preset = 4

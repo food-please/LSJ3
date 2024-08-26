@@ -1,16 +1,17 @@
-[gd_resource type="Resource" script_class="ConstructionsCategory" load_steps=20 format=3 uid="uid://bbv2rejjgear0"]
+[gd_resource type="Resource" script_class="ConstructionsCategory" load_steps=21 format=3 uid="uid://bbv2rejjgear0"]
 
 [ext_resource type="Script" path="res://constructions/construction_data.gd" id="1_rnp2p"]
 [ext_resource type="Resource" uid="uid://cxk7mv4q6cwym" path="res://constructions/landscape/flower_pot/cnst_data_flower_pot.tres" id="2_bvs1m"]
 [ext_resource type="Script" path="res://src/ui/constructions/constructions_category.gd" id="2_sw2lo"]
 [ext_resource type="Resource" uid="uid://dds1sat2cp47n" path="res://constructions/landscape/road_dirt/cnst_data_dirt_road.tres" id="3_2vmfj"]
 [ext_resource type="Resource" uid="uid://dd02msnxr78ac" path="res://constructions/landscape/river/cnst_data_river.tres" id="3_7daak"]
-[ext_resource type="Resource" uid="uid://cqhsgkpbehpe3" path="res://constructions/marine/well/cnst_data_well.tres" id="3_a2xtw"]
+[ext_resource type="Resource" uid="uid://cqhsgkpbehpe3" path="res://constructions/marine/fountain/cnst_data_fountain.tres" id="3_a2xtw"]
 [ext_resource type="Resource" uid="uid://do8y0c0cuee5x" path="res://constructions/landscape/bridge/cnst_data_bridge.tres" id="3_jfbpu"]
 [ext_resource type="Resource" uid="uid://dk3jtfo8l8raq" path="res://constructions/farm/fields/plowed/field_data.tres" id="4_qty27"]
 [ext_resource type="Resource" uid="uid://bvgj0a5xr7rgk" path="res://constructions/farm/mill/cnst_data_mill.tres" id="5_d16ag"]
 [ext_resource type="Resource" uid="uid://b0o5gixkv65us" path="res://constructions/fortress/tower/tower_data.tres" id="5_jndfn"]
 [ext_resource type="Resource" uid="uid://diqsa5s4ym1ak" path="res://constructions/fortress/castle/cnst_data_castle.tres" id="6_3a3lt"]
+[ext_resource type="Resource" uid="uid://b43x2w1jek2n1" path="res://constructions/farm/fruit_trees/cnst_data_fruit_tree.tres" id="6_denuh"]
 [ext_resource type="Resource" uid="uid://cs0r1oupkd2u" path="res://constructions/farm/fields/brown/field_brown_data.tres" id="6_j2she"]
 [ext_resource type="Resource" uid="uid://dwk0vutip1jcx" path="res://constructions/farm/fields/green/field_green_data.tres" id="7_jewch"]
 [ext_resource type="Resource" uid="uid://b1ubmbqrvmda1" path="res://constructions/farm/fields/purple/field_purple_data.tres" id="8_tl8oy"]
@@ -22,4 +23,4 @@
 
 [resource]
 script = ExtResource("2_sw2lo")
-constructions = Array[ExtResource("1_rnp2p")]([ExtResource("11_dmrul"), ExtResource("3_7daak"), ExtResource("3_2vmfj"), ExtResource("4_qty27"), ExtResource("6_j2she"), ExtResource("7_jewch"), ExtResource("8_tl8oy"), ExtResource("9_xajpj"), ExtResource("10_ayxc0"), ExtResource("5_d16ag"), ExtResource("3_jfbpu"), ExtResource("2_bvs1m"), ExtResource("14_inq4o"), ExtResource("3_a2xtw"), ExtResource("15_erlj7"), ExtResource("5_jndfn"), ExtResource("6_3a3lt")])
+constructions = Array[ExtResource("1_rnp2p")]([ExtResource("15_erlj7"), ExtResource("11_dmrul"), ExtResource("3_7daak"), ExtResource("3_2vmfj"), ExtResource("6_denuh"), ExtResource("4_qty27"), ExtResource("6_j2she"), ExtResource("7_jewch"), ExtResource("8_tl8oy"), ExtResource("9_xajpj"), ExtResource("10_ayxc0"), ExtResource("5_d16ag"), ExtResource("3_jfbpu"), ExtResource("2_bvs1m"), ExtResource("14_inq4o"), ExtResource("3_a2xtw"), ExtResource("5_jndfn"), ExtResource("6_3a3lt")])

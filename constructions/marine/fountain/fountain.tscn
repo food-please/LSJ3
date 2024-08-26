@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnpp614485t78"]
+
+[ext_resource type="PackedScene" uid="uid://c7rbljhcb51ka" path="res://constructions/construction.tscn" id="1_uk6rv"]
+[ext_resource type="Texture2D" uid="uid://bis5lrwey6x7s" path="res://constructions/marine/fountain/fountain.atlastex" id="2_u2400"]
+
+[node name="Well" instance=ExtResource("1_uk6rv")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_u2400")
+
+[node name="OccupiedCells" parent="." index="1"]
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0)
+operation = 1
+terrain = Array[String](["Trees", "RoadDirt", "River", "Cliff"])
