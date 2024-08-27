@@ -1,6 +1,6 @@
-class_name OccupancyGrid extends TileMapLayer
+class_name PassableTiles extends TileMapLayer
 
-const CELL_COORDS: = Vector2i(0, 0)
+const CELL_COORDS: = Vector2i(28, 3)
 
 # Keys: cell coordinates, Value: construction data, construction pairs
 var _construction_data: = {}
@@ -44,7 +44,7 @@ func set_cell_occupancy(cells: Array[Vector2i], is_occupied: bool, construction:
 		data: ConstructionData) -> void:
 	for cell in cells:
 		if is_occupied:
-			set_cell(cell, 1, CELL_COORDS)
+			set_cell(cell, 0, CELL_COORDS)
 			_construction_data[cell] = [data, construction]
 		
 		else:

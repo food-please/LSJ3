@@ -4,6 +4,8 @@ const CONSTRUCTION: = preload("res://constructions/construction.tscn")
 
 const COLOR: = [ Color.WHITE, Color(1.0, 0.0, 0.0, 0.7), Color(0.0, 1.0, 0.0, 0.7)]
 
+@export var occupants: OccupiedTiles
+
 @export var world: World
 
 @export var trash_can: TrashCan
@@ -32,7 +34,7 @@ var _construction_blueprint: Construction = null
 
 var _drag_distance: = 0.0
 
-@onready var passable_cells: = $PassabilityGrid as OccupancyGrid
+@onready var passable_cells: = $PassabilityGrid as PassableTiles
 
 
 func _ready() -> void:
@@ -43,6 +45,7 @@ func _ready() -> void:
 	
 	await get_tree().root.ready
 	
+	assert(occupants, "The building manager must have a path to the OccupiedTiles object!")
 	assert(world, "The building manager must have a path to the World object!")
 	_grid = world.terrain
 	assert(_grid, "The building manager must have a TileMapLayer that defines the playable grid!")
@@ -135,6 +138,8 @@ func erase_cell(cell: Vector2i) -> bool:
 			null
 		)
 		construction.queue_free()
+		
+		Events.construction_erased.emit(construction)
 		return true
 	return false
 
@@ -164,6 +169,11 @@ func _setup_new_blueprint_from_data() -> void:
 func _move_construction_to_cell(construction: Construction, cell: Vector2i, 
 		target: Vector2i) -> void:
 	construction.preview_at_position(target)
+	
+	if construction is ConstructionDwelling:
+		if occupants.do_cells_have_citizens(construction.get_occupied_cells(cell)):
+			construction.flag_as_invalid()
+			return
 	
 	if not construction.evaluate_requirements(cell, passable_cells.get_occupant_data, 
 			world.get_terrain_at_cells):

@@ -22,6 +22,7 @@ config/icon="res://assets/app_icon.png"
 
 [autoload]
 
+Economy="*res://src/economy.gd"
 Events="*res://src/input_events.gd"
 Music="*res://music/music_player.tscn"
 

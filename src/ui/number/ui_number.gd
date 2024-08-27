@@ -14,6 +14,24 @@ const DIGITS: = [
 	preload("res://src/ui/number/number_9.atlastex"),
 ]
 
+const WHITE_DIGITS: = [
+	preload("res://src/ui/number/number_0_white.atlastex"),
+	preload("res://src/ui/number/number_1_white.atlastex"),
+	preload("res://src/ui/number/number_2_white.atlastex"),
+	preload("res://src/ui/number/number_3_white.atlastex"),
+	preload("res://src/ui/number/number_4_white.atlastex"),
+	preload("res://src/ui/number/number_5_white.atlastex"),
+	preload("res://src/ui/number/number_6_white.atlastex"),
+	preload("res://src/ui/number/number_7_white.atlastex"),
+	preload("res://src/ui/number/number_8_white.atlastex"),
+	preload("res://src/ui/number/number_9_white.atlastex"),
+]
+
+@export_enum("black", "white") var type: = "black":
+	set(value):
+		type = value
+		set_quantity(quantity)
+
 @export_range(0, 9999, 1, "greater_than") var quantity: int:
 	set = set_quantity
 
@@ -29,25 +47,29 @@ func set_quantity(value: int) -> void:
 	if not is_inside_tree():
 		await ready
 	
-	_ones.texture = DIGITS[value % 10]
+	var texture_source: = DIGITS
+	if type == "white":
+		texture_source = WHITE_DIGITS
+	
+	_ones.texture = texture_source[value % 10]
 	
 	if value > 9:
 		@warning_ignore("integer_division")
-		_tens.texture = DIGITS[(value/10)%10]
+		_tens.texture = texture_source[(value/10)%10]
 		_tens.show()
 	else:
 		_tens.hide()
 	
 	if value > 99:
 		@warning_ignore("integer_division")
-		_hundreds.texture = DIGITS[(value/100)%10]
+		_hundreds.texture = texture_source[(value/100)%10]
 		_hundreds.show()
 	else:
 		_hundreds.hide()
 	
 	if value > 999:
 		@warning_ignore("integer_division")
-		_thousands.texture = DIGITS[(value/1000)%10]
+		_thousands.texture = texture_source[(value/1000)%10]
 		_thousands.show()
 	else:
 		_thousands.hide()

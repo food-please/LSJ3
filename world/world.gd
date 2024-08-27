@@ -98,9 +98,17 @@ func _on_construction_placed(construction: Construction) -> void:
 		terrain_construction.queue_free()
 		
 		_update_terrain(updated_cells)
+		
+		Economy.points -= construction.value * changes.size()
+		Economy.add_score(construction.value * changes.size())
 	
 	elif construction is ConstructionDwelling:
-		pass
+		Economy.points += construction.value
+		Economy.add_score(construction.value)
+	
+	else:
+		Economy.points -= construction.value
+		Economy.add_score(construction.value)
 
 
 func _update_autotiles(cells_to_update: Rect2i) -> void:

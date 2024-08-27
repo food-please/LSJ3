@@ -28,7 +28,7 @@ stretch_mode = 3
 [node name="Decs" type="TextureRect" parent="Items"]
 visible = false
 layout_mode = 2
-texture = ExtResource("3_jwwe3")
+texture = ExtResource("2_ynsjo")
 stretch_mode = 3
 
 [node name="Ones" type="TextureRect" parent="Items"]
