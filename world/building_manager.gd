@@ -4,6 +4,8 @@ const CONSTRUCTION: = preload("res://constructions/construction.tscn")
 
 const COLOR: = [ Color.WHITE, Color(1.0, 0.0, 0.0, 0.7), Color(0.0, 1.0, 0.0, 0.7)]
 
+@export var clouds: CloudCover
+
 @export var occupants: OccupiedTiles
 
 @export var world: World
@@ -170,8 +172,14 @@ func _move_construction_to_cell(construction: Construction, cell: Vector2i,
 		target: Vector2i) -> void:
 	construction.preview_at_position(target)
 	
+	var occupied_cells: = construction.get_occupied_cells(cell)
+	
+	if not clouds.are_cells_clear(occupied_cells):
+		construction.flag_as_invalid()
+		return 
+	
 	if construction is ConstructionDwelling:
-		if occupants.do_cells_have_citizens(construction.get_occupied_cells(cell)):
+		if occupants.do_cells_have_citizens(occupied_cells):
 			construction.flag_as_invalid()
 			return
 	

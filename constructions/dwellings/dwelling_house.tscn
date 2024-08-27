@@ -6,11 +6,11 @@
 
 [node name="DwellingHouse" instance=ExtResource("1_yskmy")]
 script = ExtResource("2_042id")
+vision = 0
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("3_66e6g")
 
 [node name="OccupiedCells" parent="." index="1"]
 tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0)
-operation = 1
 terrain = Array[String](["RoadDirt", "Cliff", "Trees", "River"])

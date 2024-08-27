@@ -53,6 +53,13 @@ func evaluate_requirements(_target_cell: Vector2i, get_occupants: Callable,
 	return is_valid
 
 
+func get_occupied_cells(_origin_cell: Vector2i) -> Array[Vector2i]:
+	var cells: Array[Vector2i] = []
+	for check_cell in get_cells().keys():
+		cells.append(check_cell)
+	return cells
+
+
 # Key = world cell coord, value = terrain id
 func get_cells() -> Dictionary:
 	var terrains: = {}

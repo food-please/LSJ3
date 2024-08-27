@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cucrdpxy0xfyo" path="res://constructions/landscape/bridge/bridge.atlastex" id="2_v0fvv"]
 
 [node name="BridgeH" instance=ExtResource("1_wwcih")]
+vision = 0
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_v0fvv")

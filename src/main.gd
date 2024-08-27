@@ -2,10 +2,13 @@ extends Node
 
 @export var starting_citizens: = 3
 
+var camera_extents: Rect2i
+
 @onready var camera: = $TouchCamera as TouchCamera
 @onready var terrain: = $World/Terrain as TileMapLayer
 
 @onready var _citizens: = $UI/CitizenBar as CitizenBar
+@onready var _clouds: = $World/Clouds as CloudCover
 
 func _ready() -> void:
 	randomize()
@@ -15,18 +18,54 @@ func _ready() -> void:
 	# Setup the camera, its starting position, and its boundaries.
 	var viewport_dimensions: = get_viewport().get_visible_rect().size
 	var map_dimensions: = terrain.get_used_rect()
-	camera.boundary = Rect2(
+	
+	camera_extents = Rect2i(
 		map_dimensions.position * terrain.tile_set.tile_size + Vector2i(viewport_dimensions/2.0),
 		map_dimensions.size * terrain.tile_set.tile_size - Vector2i(viewport_dimensions)
 	)
+	
+	_update_camera_bounds()
+	_clouds.cover_changed.connect(_update_camera_bounds)
+	
+	#camera.boundary = Rect2(
+		#map_dimensions.position * terrain.tile_set.tile_size + Vector2i(viewport_dimensions/2.0),
+		#map_dimensions.size * terrain.tile_set.tile_size - Vector2i(viewport_dimensions)
+	#)
 	
 	for i in range(0, starting_citizens):
 		_citizens.add_random_citizen()
 	
 	Music.start()
+	
+	var cells: Array[Vector2i] = [Vector2i(2, 2), Vector2i(5, 2), Vector2i(2, 3), 
+		Vector2i(3, 3)]
+	$World/Clouds.reveal_cells(cells)
 
 
 func _on_construction_placed(_cnst: Construction) -> void:
 	await get_tree().process_frame
 	if Dwellings.uniques_remaining.is_empty() and not _citizens.has_unique_citizens():
 		print("Win")
+
+
+func _update_camera_bounds() -> void:
+	var cloud_bounds: = _clouds.get_revealed_camera_extents()
+	
+	var bounds_begin: = Vector2i(
+		max(camera_extents.position.x, cloud_bounds.position.x),
+		max(camera_extents.position.y, cloud_bounds.position.y)
+	)
+	
+	var bounds_end: = Vector2i(
+		min(camera_extents.end.x, cloud_bounds.end.x),
+		min(camera_extents.end.y, cloud_bounds.end.y)
+	)
+	
+	var new_boundary: = Rect2i(
+		max(camera_extents.position.x, cloud_bounds.position.x),
+		max(camera_extents.position.y, cloud_bounds.position.y),
+		max(0, bounds_end.x - bounds_begin.x),
+		max(0, bounds_end.y - bounds_begin.y)
+	)
+	
+	camera.boundary = new_boundary

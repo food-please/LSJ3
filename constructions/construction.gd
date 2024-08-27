@@ -4,6 +4,8 @@ const COLOUR_PLACED: = Color.WHITE
 const COLOUR_INVALID: = Color(1.0, 0.0, 0.0, 0.7)
 const COLOUR_VALID: = Color(0.0, 1.0, 0.0, 0.7)
 
+@export var vision: = 1
+
 @export var value: = 100
 
 var cell: Vector2i
@@ -59,7 +61,9 @@ func get_occupied_cells(origin_cell: Vector2i) -> Array[Vector2i]:
 
 func flag_as_invalid() -> void:
 	modulate = COLOUR_INVALID
+	is_valid = false
 
 
 func flag_as_valid() -> void:
 	modulate = COLOUR_VALID
+	is_valid = true
