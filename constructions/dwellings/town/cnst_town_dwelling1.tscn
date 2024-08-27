@@ -10,6 +10,7 @@
 show_behind_parent = true
 script = ExtResource("1_usff4")
 vision = 0
+value = 250
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 

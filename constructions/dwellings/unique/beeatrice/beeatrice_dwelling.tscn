@@ -8,6 +8,8 @@
 
 [node name="BeeatriceDwelling" instance=ExtResource("1_xvjma")]
 script = ExtResource("2_qg44e")
+vision = 6
+value = 1000
 
 [node name="Sprite2D" parent="." index="0"]
 texture = null

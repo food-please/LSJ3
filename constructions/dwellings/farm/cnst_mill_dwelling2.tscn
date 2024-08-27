@@ -10,6 +10,7 @@
 [node name="MillDwelling2" type="Node2D"]
 show_behind_parent = true
 script = ExtResource("1_a0573")
+value = 600
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 

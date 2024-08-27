@@ -1,32 +1,19 @@
-extends Construction
-
-const TEXTURE_VARIATIONS: = [
-	preload("res://constructions/dwellings/variations/dwelling_brown1.atlastex"),
-	preload("res://constructions/dwellings/variations/dwelling_brown2.atlastex"),
-	preload("res://constructions/dwellings/variations/dwelling_brown3.atlastex"),
-	preload("res://constructions/dwellings/variations/dwelling_brown4.atlastex"),
-	
-	preload("res://constructions/dwellings/variations/dwelling_red1.atlastex"),
-	preload("res://constructions/dwellings/variations/dwelling_red2.atlastex"),
-	preload("res://constructions/dwellings/variations/dwelling_red3.atlastex"),
-	preload("res://constructions/dwellings/variations/dwelling_red4.atlastex"),
-	
-	preload("res://constructions/dwellings/variations/dwelling_darkred1.atlastex"),
-	preload("res://constructions/dwellings/variations/dwelling_darkred2.atlastex"),
-	preload("res://constructions/dwellings/variations/dwelling_darkred3.atlastex"),
-	preload("res://constructions/dwellings/variations/dwelling_darkred4.atlastex"),
-	
-	preload("res://constructions/dwellings/variations/dwelling_lightred1.atlastex"),
-	preload("res://constructions/dwellings/variations/dwelling_lightred2.atlastex"),
-	preload("res://constructions/dwellings/variations/dwelling_lightred3.atlastex"),
-	preload("res://constructions/dwellings/variations/dwelling_lightred4.atlastex"),
-]
-
-@onready var _sprite: = $Sprite2D as Sprite2D
+class_name ConstructionHouse extends ConstructionVariation
 
 
-func _ready() -> void:
-	var index: = randi() % TEXTURE_VARIATIONS.size()
-	_sprite.texture = TEXTURE_VARIATIONS[index]
-	
-	super._ready()
+func face_direction(direction: String) -> void:
+	match direction.to_lower():
+		"up":
+			pass
+			@warning_ignore("integer_division")
+			index = (index/4)*4 + 2
+		"left":
+			@warning_ignore("integer_division")
+			index = (index/4)*4 + 1
+		"right":
+			@warning_ignore("integer_division")
+			index = (index/4)*4 + 3
+		_:
+			@warning_ignore("integer_division")
+			index = (index/4)*4
+	_sprite.texture = variations[index]

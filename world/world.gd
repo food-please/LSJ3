@@ -147,5 +147,7 @@ func _update_terrain(updated_cells: Array[Vector2i]) -> void:
 		
 		# No terrain features, so look for terrain instead.
 		var cell_data: = terrain.get_cell_tile_data(cell)
+		if cell_data.terrain == -1:
+			print(cell)
 		var ground = _terrain_tileset.get_terrain_name(cell_data.terrain_set, cell_data.terrain)
 		_terrain[cell] = ground

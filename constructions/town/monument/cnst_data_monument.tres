@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="ConstructionData" load_steps=4 format=3 uid="uid://ybg0q7w6ku7h"]
+[gd_resource type="Resource" script_class="ConstructionData" load_steps=5 format=3 uid="uid://ybg0q7w6ku7h"]
 
 [ext_resource type="Texture2D" uid="uid://buogh45mjogc0" path="res://constructions/town/monument/monument_icon.atlastex" id="1_0avdt"]
+[ext_resource type="PackedScene" uid="uid://crmdp76flpyys" path="res://constructions/town/monument/cnst_rqmt_monument.tscn" id="2_bfo4b"]
 [ext_resource type="Script" path="res://constructions/construction_data.gd" id="2_ffbbt"]
 [ext_resource type="PackedScene" uid="uid://ydhwyjqt55jw" path="res://constructions/town/monument/cnst_monument.tscn" id="3_47g4e"]
 
@@ -8,4 +9,4 @@
 script = ExtResource("2_ffbbt")
 icon = ExtResource("1_0avdt")
 variations = Array[PackedScene]([ExtResource("3_47g4e")])
-requirements = Array[PackedScene]([])
+requirements = Array[PackedScene]([ExtResource("2_bfo4b")])

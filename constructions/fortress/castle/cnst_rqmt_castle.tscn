@@ -1,12 +1,41 @@
-[gd_scene load_steps=3 format=3 uid="uid://siov0jwdw0n2"]
+[gd_scene load_steps=6 format=3 uid="uid://h8ab22d5rdum"]
 
-[ext_resource type="PackedScene" uid="uid://0w7bjhs8khei" path="res://src/ui/constructions/bubble/construction_bubble_requirement.tscn" id="1_hhj32"]
-[ext_resource type="Texture2D" uid="uid://c8gagg6dgw7nn" path="res://world/tilesets/terrains/terrain_icon_grass.atlastex" id="2_8rugh"]
+[ext_resource type="PackedScene" uid="uid://0w7bjhs8khei" path="res://src/ui/constructions/bubble/construction_bubble_requirement.tscn" id="1_xkcfh"]
+[ext_resource type="Texture2D" uid="uid://groxpok7j3ck" path="res://src/ui/points/points_icon_small.atlastex" id="2_58pcq"]
+[ext_resource type="Texture2D" uid="uid://cqhrbqthhv6n2" path="res://src/ui/points/subtraction.atlastex" id="3_fr5os"]
+[ext_resource type="Texture2D" uid="uid://cmvkbe68tmdu8" path="res://constructions/requirements/eye.atlastex" id="4_mnrg8"]
+[ext_resource type="PackedScene" uid="uid://ugarwydgnx5v" path="res://src/ui/number/ui_number.tscn" id="5_dh5fi"]
 
-[node name="CastleTerrainRequirement" instance=ExtResource("1_hhj32")]
+[node name="CastleRequirement" instance=ExtResource("1_xkcfh")]
+theme_override_constants/margin_right = 2
+
+[node name="HBoxContainer" parent="." index="0"]
+theme_override_constants/separation = 0
 
 [node name="Icon" parent="HBoxContainer" index="0"]
-texture = ExtResource("2_8rugh")
+custom_minimum_size = Vector2(9, 8)
+texture = ExtResource("2_58pcq")
+
+[node name="Modifier" parent="HBoxContainer" index="1"]
+modulate = Color(1, 0, 0, 1)
+texture = ExtResource("3_fr5os")
 
 [node name="Number" parent="HBoxContainer" index="2"]
-quantity = 9
+modulate = Color(1, 0, 0, 1)
+custom_minimum_size = Vector2(0, 9)
+type = "white"
+quantity = 1000
+
+[node name="Spacer" type="Control" parent="HBoxContainer" index="3"]
+custom_minimum_size = Vector2(2, 4)
+layout_mode = 2
+
+[node name="Vision" type="TextureRect" parent="HBoxContainer" index="4"]
+layout_mode = 2
+texture = ExtResource("4_mnrg8")
+
+[node name="VisionNumber" parent="HBoxContainer" index="5" instance=ExtResource("5_dh5fi")]
+modulate = Color(1, 0, 0, 1)
+custom_minimum_size = Vector2(0, 9)
+layout_mode = 2
+quantity = 4

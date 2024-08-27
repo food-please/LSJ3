@@ -4,11 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://dtn7mf58tyatg" path="res://constructions/fortress/castle/castle.atlastex" id="2_hrs1w"]
 
 [node name="Castle" instance=ExtResource("1_d8m36")]
+vision = 4
+value = 1000
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_hrs1w")
 
 [node name="OccupiedCells" parent="." index="1"]
 tile_map_data = PackedByteArray("AAAAAAAAAQAAAAAAAAD//wAAAQAAAAAAAAAAAP//AQAAAAAAAAD/////AQAAAAAAAAABAP//AQAAAAAAAAABAAAAAQAAAAAAAAABAAEAAQAAAAAAAAAAAAEAAQAAAAAAAAD//wEAAQAAAAAAAAA=")
-operation = 1
-terrain = Array[String](["River", "Cliff", "Trees", "RoadDirt"])

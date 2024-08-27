@@ -1,14 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://b806nvdpuusgq"]
+[gd_scene load_steps=6 format=3 uid="uid://b806nvdpuusgq"]
 
 [ext_resource type="PackedScene" uid="uid://c7rbljhcb51ka" path="res://constructions/construction.tscn" id="1_wwcih"]
-[ext_resource type="Texture2D" uid="uid://cucrdpxy0xfyo" path="res://constructions/landscape/bridge/bridge.atlastex" id="2_v0fvv"]
+[ext_resource type="Script" path="res://constructions/landscape/bridge/construction_bridge.gd" id="2_k66ij"]
+[ext_resource type="Texture2D" uid="uid://cucrdpxy0xfyo" path="res://constructions/landscape/bridge/bridgeh.atlastex" id="2_v0fvv"]
+[ext_resource type="Texture2D" uid="uid://c1e0peg4hqfkl" path="res://constructions/landscape/bridge/bridgev.atlastex" id="4_epjp5"]
+[ext_resource type="PackedScene" uid="uid://ct7e5kegsjm84" path="res://constructions/construction_requirement.tscn" id="5_xch5s"]
 
-[node name="BridgeH" instance=ExtResource("1_wwcih")]
+[node name="Bridge" instance=ExtResource("1_wwcih")]
+script = ExtResource("2_k66ij")
+variations = Array[Texture]([ExtResource("2_v0fvv"), ExtResource("4_epjp5")])
 vision = 0
+value = 40
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_v0fvv")
 
 [node name="OccupiedCells" parent="." index="1"]
 tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0)
+operation = 0
 terrain = Array[String](["River"])
+
+[node name="ConstructionRequirement" parent="." index="2" instance=ExtResource("5_xch5s")]
+modulate = Color(1, 1, 1, 0.509804)
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0)
+operation = 1

@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://batino1m7x5a4"]
+
+[ext_resource type="PackedScene" uid="uid://0w7bjhs8khei" path="res://src/ui/constructions/bubble/construction_bubble_requirement.tscn" id="1_2vjn5"]
+[ext_resource type="Texture2D" uid="uid://groxpok7j3ck" path="res://src/ui/points/points_icon_small.atlastex" id="2_no2ap"]
+[ext_resource type="Texture2D" uid="uid://cqhrbqthhv6n2" path="res://src/ui/points/subtraction.atlastex" id="3_vud4v"]
+
+[node name="FountainRequirement" instance=ExtResource("1_2vjn5")]
+theme_override_constants/margin_right = 2
+
+[node name="HBoxContainer" parent="." index="0"]
+theme_override_constants/separation = 0
+
+[node name="Icon" parent="HBoxContainer" index="0"]
+custom_minimum_size = Vector2(9, 8)
+texture = ExtResource("2_no2ap")
+
+[node name="Modifier" parent="HBoxContainer" index="1"]
+modulate = Color(1, 0, 0, 1)
+texture = ExtResource("3_vud4v")
+
+[node name="Number" parent="HBoxContainer" index="2"]
+modulate = Color(1, 0, 0, 1)
+custom_minimum_size = Vector2(0, 9)
+type = "white"
+quantity = 70

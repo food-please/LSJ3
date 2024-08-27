@@ -6,6 +6,7 @@ const SFX: = {
 	"invalid": preload("res://sfx/sfx_invalid.ogg"),
 	"place": preload("res://sfx/sfx_plunk.ogg"),
 	"place_dwelling": preload("res://sfx/sfx_select.ogg"),
+	"trash": preload("res://sfx/sfx_trash.ogg"),
 }
 
 func _ready() -> void:
@@ -26,6 +27,12 @@ func _ready() -> void:
 			if data:
 				stream = SFX.get("click")
 				play()
+	)
+	
+	Events.construction_binned.connect(
+		func():
+			stream = SFX.get("trash")
+			play()
 	)
 	
 	Events.construction_placed.connect(

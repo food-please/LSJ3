@@ -1,5 +1,7 @@
 extends Node
 
+@export var start_cells: TileMapLayer
+
 @export var starting_citizens: = 3
 
 var camera_extents: Rect2i
@@ -24,22 +26,17 @@ func _ready() -> void:
 		map_dimensions.size * terrain.tile_set.tile_size - Vector2i(viewport_dimensions)
 	)
 	
-	_update_camera_bounds()
 	_clouds.cover_changed.connect(_update_camera_bounds)
+	_clouds.reveal_cells(start_cells.get_used_cells())
+	start_cells.queue_free()
 	
-	#camera.boundary = Rect2(
-		#map_dimensions.position * terrain.tile_set.tile_size + Vector2i(viewport_dimensions/2.0),
-		#map_dimensions.size * terrain.tile_set.tile_size - Vector2i(viewport_dimensions)
-	#)
+	_update_camera_bounds()
+	camera.position = camera.boundary.position + camera.boundary.size/2
 	
 	for i in range(0, starting_citizens):
 		_citizens.add_random_citizen()
 	
 	Music.start()
-	
-	var cells: Array[Vector2i] = [Vector2i(2, 2), Vector2i(5, 2), Vector2i(2, 3), 
-		Vector2i(3, 3)]
-	$World/Clouds.reveal_cells(cells)
 
 
 func _on_construction_placed(_cnst: Construction) -> void:

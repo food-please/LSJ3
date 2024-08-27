@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ConstructionData" load_steps=5 format=3 uid="uid://cl8ov8n4p8nux"]
+
+[ext_resource type="Texture2D" uid="uid://i3ihlhmt4p1k" path="res://constructions/landscape/fence/fence.atlastex" id="1_h3o0r"]
+[ext_resource type="PackedScene" uid="uid://y2myxl5tbojp" path="res://constructions/landscape/fence/cnst_rqmt_fence.tscn" id="2_mxh1f"]
+[ext_resource type="Script" path="res://constructions/construction_data.gd" id="3_fsqfu"]
+[ext_resource type="PackedScene" uid="uid://2e8ya40nnnxu" path="res://constructions/landscape/fence/cnst_femce.tscn" id="4_1c4mi"]
+
+[resource]
+script = ExtResource("3_fsqfu")
+icon = ExtResource("1_h3o0r")
+variations = Array[PackedScene]([ExtResource("4_1c4mi")])
+requirements = Array[PackedScene]([ExtResource("2_mxh1f")])

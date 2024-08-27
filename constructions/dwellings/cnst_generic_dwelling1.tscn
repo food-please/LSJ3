@@ -9,6 +9,7 @@
 [node name="GenericDwelling1" type="Node2D"]
 show_behind_parent = true
 script = ExtResource("1_c5m8q")
+value = 150
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 

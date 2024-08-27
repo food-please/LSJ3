@@ -4,7 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://c0ht0kni1inpf" path="res://constructions/fortress/tower/tower.atlastex" id="2_2x5fh"]
 
 [node name="Tower" instance=ExtResource("1_7plji")]
-vision = 3
+vision = 4
+value = 150
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_2x5fh")
@@ -12,4 +13,3 @@ offset = Vector2(0, -2)
 
 [node name="OccupiedCells" parent="." index="1"]
 tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0)
-terrain = Array[String](["RoadDirt", "Cliff", "River", "Trees"])

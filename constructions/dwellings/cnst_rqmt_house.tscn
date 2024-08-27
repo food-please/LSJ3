@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://dqnlxx2rudl3l"]
+
+[ext_resource type="PackedScene" uid="uid://0w7bjhs8khei" path="res://src/ui/constructions/bubble/construction_bubble_requirement.tscn" id="1_17uaa"]
+[ext_resource type="Texture2D" uid="uid://groxpok7j3ck" path="res://src/ui/points/points_icon_small.atlastex" id="2_uv0k3"]
+[ext_resource type="Texture2D" uid="uid://cqhrbqthhv6n2" path="res://src/ui/points/subtraction.atlastex" id="3_r2xjj"]
+[ext_resource type="Texture2D" uid="uid://cmvkbe68tmdu8" path="res://constructions/requirements/eye.atlastex" id="4_ft5jd"]
+[ext_resource type="PackedScene" uid="uid://ugarwydgnx5v" path="res://src/ui/number/ui_number.tscn" id="5_yinc7"]
+
+[node name="HouseRequirement" instance=ExtResource("1_17uaa")]
+theme_override_constants/margin_right = 2
+
+[node name="HBoxContainer" parent="." index="0"]
+theme_override_constants/separation = 0
+
+[node name="Icon" parent="HBoxContainer" index="0"]
+custom_minimum_size = Vector2(9, 8)
+texture = ExtResource("2_uv0k3")
+
+[node name="Modifier" parent="HBoxContainer" index="1"]
+modulate = Color(1, 0, 0, 1)
+texture = ExtResource("3_r2xjj")
+
+[node name="Number" parent="HBoxContainer" index="2"]
+modulate = Color(1, 0, 0, 1)
+custom_minimum_size = Vector2(0, 9)
+type = "white"
+quantity = 20
+
+[node name="Spacer" type="Control" parent="HBoxContainer" index="3"]
+custom_minimum_size = Vector2(2, 4)
+layout_mode = 2
+
+[node name="Vision" type="TextureRect" parent="HBoxContainer" index="4"]
+layout_mode = 2
+texture = ExtResource("4_ft5jd")
+
+[node name="Number2" parent="HBoxContainer" index="5" instance=ExtResource("5_yinc7")]
+modulate = Color(1, 0, 0, 1)
+custom_minimum_size = Vector2(0, 9)
+layout_mode = 2
+quantity = 1

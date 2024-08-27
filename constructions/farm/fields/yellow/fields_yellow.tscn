@@ -8,9 +8,10 @@
 script = ExtResource("2_q4ukd")
 terrain_type = "area"
 terrain_id = 6
+vision = 0
+value = 10
 
 [node name="OccupiedCells" parent="." index="1"]
 tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 21, 0, 12, 0, 0, 0)
 tile_set = ExtResource("3_k64a6")
-operation = 1
 terrain = Array[String](["Trees", "Cliff", "River", "RoadDirt"])

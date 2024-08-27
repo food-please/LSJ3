@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6byiq0heqw5"]
+
+[ext_resource type="PackedScene" uid="uid://0w7bjhs8khei" path="res://src/ui/constructions/bubble/construction_bubble_requirement.tscn" id="1_tkb6t"]
+[ext_resource type="Texture2D" uid="uid://groxpok7j3ck" path="res://src/ui/points/points_icon_small.atlastex" id="2_xh0dw"]
+[ext_resource type="Texture2D" uid="uid://cqhrbqthhv6n2" path="res://src/ui/points/subtraction.atlastex" id="3_irca5"]
+
+[node name="Wellequirement" instance=ExtResource("1_tkb6t")]
+theme_override_constants/margin_right = 2
+
+[node name="HBoxContainer" parent="." index="0"]
+theme_override_constants/separation = 0
+
+[node name="Icon" parent="HBoxContainer" index="0"]
+custom_minimum_size = Vector2(9, 8)
+texture = ExtResource("2_xh0dw")
+
+[node name="Modifier" parent="HBoxContainer" index="1"]
+modulate = Color(1, 0, 0, 1)
+texture = ExtResource("3_irca5")
+
+[node name="Number" parent="HBoxContainer" index="2"]
+modulate = Color(1, 0, 0, 1)
+custom_minimum_size = Vector2(0, 9)
+type = "white"
+quantity = 50

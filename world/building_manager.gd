@@ -28,8 +28,6 @@ var is_erase_mode: bool = false:
 		if is_erase_mode:
 			_free_blueprint()
 			_active_data = null
-		
-		set_process_unhandled_input(is_erase_mode)
 
 var _active_data: ConstructionData = null
 var _construction_blueprint: Construction = null
@@ -42,8 +40,6 @@ var _drag_distance: = 0.0
 func _ready() -> void:
 	trash_can.mouse_entered.connect(_on_trash_can_mouse_entered)
 	trash_can.mouse_exited.connect(_on_trash_can_mouse_exited)
-	
-	set_process_unhandled_input(false)
 	
 	await get_tree().root.ready
 	
@@ -66,7 +62,6 @@ func _ready() -> void:
 			_active_data = data
 			if _active_data:
 				assert(_active_data.variations.size(), "Construction blueprint has no variations!")
-			set_process_unhandled_input(data != null)
 	)
 	
 	Events.erase_selected.connect(func(toggled: bool): is_erase_mode = toggled)
@@ -111,7 +106,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			_drag_distance += event.relative.length()
 			camera.scroll(-event.relative)
 	
-	else:
+	elif _active_data != null:
 		if event is InputEventScreenDrag and _construction_blueprint != null:
 			var cell: = _grid.local_to_map(get_global_mouse_position())
 			var target: = _grid.map_to_local(cell)
@@ -121,13 +116,22 @@ func _unhandled_input(event: InputEvent) -> void:
 			_setup_new_blueprint_from_data()
 			get_viewport().set_input_as_handled()
 			
-		elif event.is_action_released("touch"):
+		elif event.is_action_released("touch") and _construction_blueprint:
 			if _construction_blueprint.visible:
 				_place_construction()
 			
 			else:
 				_free_blueprint()
+				Events.construction_binned.emit()
 			get_viewport().set_input_as_handled()
+	
+	else:
+		if event.is_action_released("touch"):
+			
+			var cell: = _grid.local_to_map(get_global_mouse_position())
+			var construction: = passable_cells.get_construction_at_cell(cell)
+			if construction is ConstructionVariation:
+				construction.increment_index()
 
 
 func erase_cell(cell: Vector2i) -> bool:
@@ -183,6 +187,11 @@ func _move_construction_to_cell(construction: Construction, cell: Vector2i,
 			construction.flag_as_invalid()
 			return
 	
+	else:
+		if _construction_blueprint.value > Economy.points:
+			_construction_blueprint.flag_as_invalid()
+			return
+	
 	if not construction.evaluate_requirements(cell, passable_cells.get_occupant_data, 
 			world.get_terrain_at_cells):
 		construction.flag_as_invalid()
@@ -206,6 +215,23 @@ func _place_construction() -> bool:
 			and _construction_blueprint is not ConstructionDwelling:
 		passable_cells.set_cell_occupancy(changed_cells, true, _construction_blueprint, 
 			_active_data)
+	
+	if _construction_blueprint is ConstructionHouse:
+		if world.get_terrain_at_cell(_construction_blueprint.cell + Vector2i.DOWN) == "RoadDirt":
+			_construction_blueprint.face_direction("down")
+		elif world.get_terrain_at_cell(_construction_blueprint.cell + Vector2i.UP) == "RoadDirt":
+			_construction_blueprint.face_direction("up") 
+		elif world.get_terrain_at_cell(_construction_blueprint.cell + Vector2i.LEFT) == "RoadDirt":
+			_construction_blueprint.face_direction("left") 
+		elif world.get_terrain_at_cell(_construction_blueprint.cell + Vector2i.RIGHT) == "RoadDirt":
+			_construction_blueprint.face_direction("right")
+	
+	elif _construction_blueprint is ConstructionBridge:
+		if world.get_terrain_at_cell(_construction_blueprint.cell + Vector2i.DOWN) == "River" or\
+				world.get_terrain_at_cell(_construction_blueprint.cell + Vector2i.UP) == "River":
+			_construction_blueprint.face_direction("h")
+		else:
+			_construction_blueprint.face_direction("v") 
 	
 	Events.construction_placed.emit(_construction_blueprint)
 	_construction_blueprint = null

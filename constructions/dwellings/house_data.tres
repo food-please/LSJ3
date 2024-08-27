@@ -1,11 +1,12 @@
-[gd_resource type="Resource" script_class="ConstructionData" load_steps=4 format=3 uid="uid://df6up1e73akpj"]
+[gd_resource type="Resource" script_class="ConstructionData" load_steps=5 format=3 uid="uid://df6up1e73akpj"]
 
 [ext_resource type="Script" path="res://constructions/construction_data.gd" id="1_mb38k"]
 [ext_resource type="Texture2D" uid="uid://chlu37ylncxt1" path="res://constructions/dwellings/variations/dwelling_darkred1.atlastex" id="1_onxqt"]
+[ext_resource type="PackedScene" uid="uid://dqnlxx2rudl3l" path="res://constructions/dwellings/cnst_rqmt_house.tscn" id="2_6wqdu"]
 [ext_resource type="PackedScene" uid="uid://ddv6g348u0qmv" path="res://constructions/dwellings/dwelling_house.tscn" id="4_2ae4c"]
 
 [resource]
 script = ExtResource("1_mb38k")
 icon = ExtResource("1_onxqt")
 variations = Array[PackedScene]([ExtResource("4_2ae4c")])
-requirements = Array[PackedScene]([])
+requirements = Array[PackedScene]([ExtResource("2_6wqdu")])

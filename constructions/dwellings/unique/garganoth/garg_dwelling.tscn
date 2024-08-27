@@ -9,6 +9,7 @@
 
 [node name="GargDwelling" instance=ExtResource("1_yqc86")]
 script = ExtResource("2_cokq7")
+value = 1500
 
 [node name="Sprite2D" parent="." index="0"]
 texture = null

@@ -4,11 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://buogh45mjogc0" path="res://constructions/town/monument/monument_icon.atlastex" id="2_l2w1u"]
 
 [node name="Monument" instance=ExtResource("1_qxmp4")]
+vision = 0
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_l2w1u")
 
 [node name="OccupiedCells" parent="." index="1"]
 tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0)
-operation = 1
-terrain = Array[String](["Cliff", "Trees", "River", "RoadDirt"])

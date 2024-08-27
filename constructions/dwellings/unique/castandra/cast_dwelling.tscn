@@ -8,6 +8,7 @@
 
 [node name="CastandraDwelling" instance=ExtResource("1_bpxek")]
 script = ExtResource("2_uecdc")
+value = 1000
 
 [node name="Sprite2D" parent="." index="0"]
 texture = null

@@ -1,16 +1,31 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddv6g348u0qmv"]
+[gd_scene load_steps=19 format=3 uid="uid://ddv6g348u0qmv"]
 
 [ext_resource type="PackedScene" uid="uid://c7rbljhcb51ka" path="res://constructions/construction.tscn" id="1_yskmy"]
 [ext_resource type="Script" path="res://constructions/dwellings/dwelling_house.gd" id="2_042id"]
 [ext_resource type="Texture2D" uid="uid://chlu37ylncxt1" path="res://constructions/dwellings/variations/dwelling_darkred1.atlastex" id="3_66e6g"]
+[ext_resource type="Texture2D" uid="uid://dy3o48unrhpn1" path="res://constructions/dwellings/variations/dwelling_brown1.atlastex" id="3_vnr46"]
+[ext_resource type="Texture2D" uid="uid://dqs0fjbber6pe" path="res://constructions/dwellings/variations/dwelling_brown2.atlastex" id="4_86beu"]
+[ext_resource type="Texture2D" uid="uid://d2gtcvpkcwqtr" path="res://constructions/dwellings/variations/dwelling_brown3.atlastex" id="5_jnuvs"]
+[ext_resource type="Texture2D" uid="uid://6erhn5grrxms" path="res://constructions/dwellings/variations/dwelling_brown4.atlastex" id="6_8ak5r"]
+[ext_resource type="Texture2D" uid="uid://br0bv3wmyec3k" path="res://constructions/dwellings/variations/dwelling_darkred2.atlastex" id="8_htdcl"]
+[ext_resource type="Texture2D" uid="uid://pf8cchum3ob4" path="res://constructions/dwellings/variations/dwelling_darkred3.atlastex" id="9_ym0b2"]
+[ext_resource type="Texture2D" uid="uid://pwgimkkcxurv" path="res://constructions/dwellings/variations/dwelling_darkred4.atlastex" id="10_3h3kj"]
+[ext_resource type="Texture2D" uid="uid://clcsh8hmyqtk2" path="res://constructions/dwellings/variations/dwelling_lightred1.atlastex" id="11_xjkx4"]
+[ext_resource type="Texture2D" uid="uid://coalriub671au" path="res://constructions/dwellings/variations/dwelling_lightred2.atlastex" id="12_qh44v"]
+[ext_resource type="Texture2D" uid="uid://by4tp38frhkta" path="res://constructions/dwellings/variations/dwelling_lightred3.atlastex" id="13_iyydf"]
+[ext_resource type="Texture2D" uid="uid://ie64et8r2gfr" path="res://constructions/dwellings/variations/dwelling_lightred4.atlastex" id="14_7i1l5"]
+[ext_resource type="Texture2D" uid="uid://c57mesrx1i6yj" path="res://constructions/dwellings/variations/dwelling_red1.atlastex" id="15_g6s5d"]
+[ext_resource type="Texture2D" uid="uid://u4esfjb7uvcb" path="res://constructions/dwellings/variations/dwelling_red2.atlastex" id="16_uorfb"]
+[ext_resource type="Texture2D" uid="uid://hjmgtkqx5oh7" path="res://constructions/dwellings/variations/dwelling_red3.atlastex" id="17_amwtr"]
+[ext_resource type="Texture2D" uid="uid://bjhvg3smfx51c" path="res://constructions/dwellings/variations/dwelling_red4.atlastex" id="18_tfr84"]
 
 [node name="DwellingHouse" instance=ExtResource("1_yskmy")]
 script = ExtResource("2_042id")
-vision = 0
+variations = Array[Texture]([ExtResource("3_vnr46"), ExtResource("4_86beu"), ExtResource("5_jnuvs"), ExtResource("6_8ak5r"), ExtResource("3_66e6g"), ExtResource("8_htdcl"), ExtResource("9_ym0b2"), ExtResource("10_3h3kj"), ExtResource("11_xjkx4"), ExtResource("12_qh44v"), ExtResource("13_iyydf"), ExtResource("14_7i1l5"), ExtResource("15_g6s5d"), ExtResource("16_uorfb"), ExtResource("17_amwtr"), ExtResource("18_tfr84")])
+value = 20
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("3_66e6g")
 
 [node name="OccupiedCells" parent="." index="1"]
 tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0)
-terrain = Array[String](["RoadDirt", "Cliff", "Trees", "River"])

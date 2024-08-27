@@ -9,11 +9,11 @@
 [node name="Garden" instance=ExtResource("1_cwq6v")]
 script = ExtResource("2_7dcfy")
 variations = Array[Texture]([ExtResource("3_582xs"), ExtResource("4_xuyym"), ExtResource("5_bw313")])
+vision = 0
+value = 10
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("3_582xs")
 
 [node name="OccupiedCells" parent="." index="1"]
 tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0)
-operation = 1
-terrain = Array[String](["Cliff", "Trees", "River", "RoadDirt"])

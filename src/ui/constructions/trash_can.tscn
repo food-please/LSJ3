@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdf37g5aeln1b"]
+[gd_scene load_steps=5 format=3 uid="uid://bdf37g5aeln1b"]
 
 [ext_resource type="Texture2D" uid="uid://davkxrjf87xf8" path="res://src/ui/constructions/trash_can.atlastex" id="1_2150t"]
 [ext_resource type="Script" path="res://src/ui/constructions/trash_can.gd" id="2_boy44"]
+[ext_resource type="Texture2D" uid="uid://cvqmd3m5hmt1p" path="res://src/ui/constructions/trash/trash_highlighted.atlastex" id="3_24uws"]
+[ext_resource type="Texture2D" uid="uid://lix12b3x53a1" path="res://src/ui/constructions/trash/trash_normal.atlastex" id="4_2ckoj"]
 
 [node name="TrashCan" type="TextureRect"]
 custom_minimum_size = Vector2(16, 16)
@@ -13,5 +15,7 @@ offset_bottom = -128.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_2150t")
-stretch_mode = 2
+stretch_mode = 3
 script = ExtResource("2_boy44")
+highlighted = ExtResource("3_24uws")
+normal = ExtResource("4_2ckoj")

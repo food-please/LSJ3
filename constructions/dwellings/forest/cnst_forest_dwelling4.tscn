@@ -9,6 +9,7 @@
 [node name="ForestDwelling4" type="Node2D"]
 show_behind_parent = true
 script = ExtResource("1_nltv5")
+value = 500
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 

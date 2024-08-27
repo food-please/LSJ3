@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dywm5a5bna25m"]
+
+[ext_resource type="PackedScene" uid="uid://c7rbljhcb51ka" path="res://constructions/construction.tscn" id="1_4dahy"]
+[ext_resource type="Texture2D" uid="uid://t8mqbp6qcjwv" path="res://constructions/town/well/well_icon.atlastex" id="2_0ua82"]
+
+[node name="Well" instance=ExtResource("1_4dahy")]
+vision = 0
+value = 50
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_0ua82")
+
+[node name="OccupiedCells" parent="." index="1"]
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0)

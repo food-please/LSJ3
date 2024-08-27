@@ -44,6 +44,8 @@ _data = {
 }
 
 [node name="Mill" instance=ExtResource("1_jeg3o")]
+vision = 0
+value = 200
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_6wwk0")
@@ -51,7 +53,6 @@ offset = Vector2(-4, -4)
 
 [node name="OccupiedCells" parent="." index="1"]
 tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0)
-operation = 1
 terrain = Array[String](["Cliff", "Trees", "River", "RoadDirt"])
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]

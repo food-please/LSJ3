@@ -9,6 +9,7 @@
 [node name="RiverDwelling1" type="Node2D"]
 show_behind_parent = true
 script = ExtResource("1_u6xwc")
+value = 300
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 

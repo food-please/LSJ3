@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="ConstructionData" load_steps=4 format=3 uid="uid://b1ubmbqrvmda1"]
+[gd_resource type="Resource" script_class="ConstructionData" load_steps=5 format=3 uid="uid://b1ubmbqrvmda1"]
 
 [ext_resource type="Texture2D" uid="uid://cykjo862n2e8i" path="res://constructions/farm/fields/purple/purple_field.atlastex" id="1_4wyu1"]
+[ext_resource type="PackedScene" uid="uid://d0qannpltlkfv" path="res://constructions/farm/fields/cnst_rqmt_farm.tscn" id="2_6kcaq"]
 [ext_resource type="Script" path="res://constructions/construction_data.gd" id="2_es6tv"]
 [ext_resource type="PackedScene" uid="uid://be4q64dsq6pe5" path="res://constructions/farm/fields/purple/fields_purple.tscn" id="3_un5sx"]
 
@@ -8,4 +9,4 @@
 script = ExtResource("2_es6tv")
 icon = ExtResource("1_4wyu1")
 variations = Array[PackedScene]([ExtResource("3_un5sx")])
-requirements = Array[PackedScene]([])
+requirements = Array[PackedScene]([ExtResource("2_6kcaq")])

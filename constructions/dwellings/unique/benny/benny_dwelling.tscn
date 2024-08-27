@@ -9,6 +9,7 @@
 
 [node name="BennyDwelling" instance=ExtResource("1_pgwjs")]
 script = ExtResource("2_k6n0t")
+value = 1000
 
 [node name="Sprite2D" parent="." index="0"]
 texture = null
