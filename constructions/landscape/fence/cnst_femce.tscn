@@ -7,10 +7,12 @@
 [node name="Fence" instance=ExtResource("1_wg7r8")]
 script = ExtResource("2_wc2n8")
 terrain_type = "path"
+other_id = 12
 terrain_id = 12
 vision = 0
 value = 5
 
 [node name="OccupiedCells" parent="." index="1"]
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 4, 0, 0, 0)
 tile_set = ExtResource("3_7ghco")
 terrain = Array[String](["Waterfall", "River", "Cliff", "Trees", "RoadDirt", "FieldPlowed", "FieldBrown", "FieldGreen", "FieldPurple", "FieldRed", "FieldYellow", "Hedges"])

@@ -7,10 +7,10 @@
 [node name="River" instance=ExtResource("1_1fggh")]
 script = ExtResource("2_ncm2f")
 terrain_type = "path"
+other_id = 1
 terrain_id = 1
 
 [node name="OccupiedCells" parent="." index="1"]
 tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 0, 0)
 tile_set = ExtResource("3_onxql")
-operation = 1
 terrain = Array[String](["Cliff"])

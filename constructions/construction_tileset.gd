@@ -3,8 +3,12 @@ class_name TerrainConstruction extends Construction
 
 @export_enum("path", "area") var terrain_type: = "path"
 
+@export var other_id: int
+
 @export var terrain_id: = 0:
 	set(value):
+		terrain_id = value
+		
 		if not is_inside_tree():
 			await ready
 		

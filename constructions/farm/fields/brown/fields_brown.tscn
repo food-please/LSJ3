@@ -4,9 +4,10 @@
 [ext_resource type="Script" path="res://constructions/construction_tileset.gd" id="2_24klx"]
 [ext_resource type="TileSet" uid="uid://3kydmfu1eseo" path="res://world/tilesets/terrain_tileset.tres" id="3_mqeeo"]
 
-[node name="PlowedFields" instance=ExtResource("1_gf6do")]
+[node name="BrownFields" instance=ExtResource("1_gf6do")]
 script = ExtResource("2_24klx")
 terrain_type = "area"
+other_id = 5
 terrain_id = 5
 vision = 0
 value = 10

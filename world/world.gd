@@ -8,6 +8,7 @@ const DEFAULT_TERRAIN: = 3
 var _terrain: = {}
 
 # Note that the terrain layer acts as the world's grid/playable area.
+@onready var cloud_cover: = $Clouds as CloudCover
 @onready var terrain: = $Terrain as TileMapLayer
 @onready var _terrain_tileset: = terrain.tile_set
 #@onready var features: = $Features as TileMapLayer
@@ -24,7 +25,7 @@ func _ready() -> void:
 
 
 func erase_cell(cell: Vector2i) -> void:
-	if not buildings.erase_cell(cell):
+	if cloud_cover.are_cells_clear([cell]) and not buildings.erase_cell(cell):
 		#var surrounding_cells: = features.get_surrounding_cells(cell)
 		#features.erase_cell(cell)
 		#for updated_cell in surrounding_cells:
@@ -126,6 +127,7 @@ func _update_autotiles(cells_to_update: Rect2i) -> void:
 	for x in range(0, cells_to_update.size.x):
 		for y in range(0, cells_to_update.size.y):
 			var cell: = Vector2i(x, y)
+			print(cell)
 			var terrain_id: = terrain.get_cell_tile_data(cell).terrain
 			if terrain_id in terrains:
 				terrains.get(terrain_id, []).append(cell)
@@ -147,7 +149,5 @@ func _update_terrain(updated_cells: Array[Vector2i]) -> void:
 		
 		# No terrain features, so look for terrain instead.
 		var cell_data: = terrain.get_cell_tile_data(cell)
-		if cell_data.terrain == -1:
-			print(cell)
 		var ground = _terrain_tileset.get_terrain_name(cell_data.terrain_set, cell_data.terrain)
 		_terrain[cell] = ground

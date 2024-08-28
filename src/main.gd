@@ -11,10 +11,13 @@ var camera_extents: Rect2i
 
 @onready var _citizens: = $UI/CitizenBar as CitizenBar
 @onready var _clouds: = $World/Clouds as CloudCover
+@onready var _construction_animations: = $UI/ConstructionBar/AnimationPlayer as AnimationPlayer
+@onready var _points_animations: = $UI/Points/AnimationPlayer as AnimationPlayer
 
 func _ready() -> void:
 	randomize()
 	
+	Progression.game_started.connect(start)
 	Events.construction_placed.connect(_on_construction_placed)
 	
 	# Setup the camera, its starting position, and its boundaries.
@@ -26,17 +29,34 @@ func _ready() -> void:
 		map_dimensions.size * terrain.tile_set.tile_size - Vector2i(viewport_dimensions)
 	)
 	
+	print(start_cells.get_used_rect())
+	var start_pos: = start_cells.get_used_rect()
+	camera.position = (start_pos.position + start_pos.size/2) * start_cells.tile_set.tile_size
+	#camera.position = camera.boundary.position + camera.boundary.size/2
+	
 	_clouds.cover_changed.connect(_update_camera_bounds)
+	
+	#TODO: remove
+	$Screens/LogoScreen.queue_free()
+	$Screens/TitleScreen.queue_free()
+	Progression.game_started.emit()
+
+
+func start() -> void:
 	_clouds.reveal_cells(start_cells.get_used_cells())
 	start_cells.queue_free()
 	
-	_update_camera_bounds()
-	camera.position = camera.boundary.position + camera.boundary.size/2
+	await get_tree().create_timer(.5).timeout
+	
+	_construction_animations.play("appear")
+	_points_animations.play("appear")
 	
 	for i in range(0, starting_citizens):
 		_citizens.add_random_citizen()
 	
 	Music.start()
+	
+	_update_camera_bounds()
 
 
 func _on_construction_placed(_cnst: Construction) -> void:

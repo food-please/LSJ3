@@ -1,0 +1,245 @@
+[gd_scene load_steps=24 format=3 uid="uid://cv3wkeg63slww"]
+
+[ext_resource type="PackedScene" uid="uid://d1w20ecbhipb5" path="res://src/ui/palette_clamp/palette_clamp.tscn" id="1_1b12l"]
+[ext_resource type="Texture2D" uid="uid://c8wlqdih84e2c" path="res://splash/logo/logo_plus_transition-Sheet.png" id="1_6so0s"]
+[ext_resource type="Script" path="res://splash/logo/logo_screen.gd" id="1_ap3ya"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qpg2l"]
+atlas = ExtResource("1_6so0s")
+region = Rect2(0, 0, 256, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6kn6"]
+atlas = ExtResource("1_6so0s")
+region = Rect2(256, 0, 256, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpaaf"]
+atlas = ExtResource("1_6so0s")
+region = Rect2(512, 0, 256, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nkr8j"]
+atlas = ExtResource("1_6so0s")
+region = Rect2(768, 0, 256, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwybu"]
+atlas = ExtResource("1_6so0s")
+region = Rect2(1024, 0, 256, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4in2"]
+atlas = ExtResource("1_6so0s")
+region = Rect2(1280, 0, 256, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ebodd"]
+atlas = ExtResource("1_6so0s")
+region = Rect2(1536, 0, 256, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yk0fu"]
+atlas = ExtResource("1_6so0s")
+region = Rect2(1792, 0, 256, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ltyp3"]
+atlas = ExtResource("1_6so0s")
+region = Rect2(2048, 0, 256, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhac4"]
+atlas = ExtResource("1_6so0s")
+region = Rect2(2304, 0, 256, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vo6ix"]
+atlas = ExtResource("1_6so0s")
+region = Rect2(2560, 0, 256, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sl8w5"]
+atlas = ExtResource("1_6so0s")
+region = Rect2(2816, 0, 256, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87ww0"]
+atlas = ExtResource("1_6so0s")
+region = Rect2(3072, 0, 256, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bpvam"]
+atlas = ExtResource("1_6so0s")
+region = Rect2(3328, 0, 256, 144)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gle76"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qpg2l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6kn6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lpaaf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nkr8j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lwybu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4in2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ebodd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yk0fu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ltyp3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mhac4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vo6ix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sl8w5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87ww0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bpvam")
+}],
+"loop": false,
+"name": &"default",
+"speed": 30.0
+}]
+
+[sub_resource type="Animation" id="Animation_r6f8o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_2m2x6"]
+resource_name = "fade_in"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_o6r7f"]
+resource_name = "wait"
+length = 2.0
+step = 0.1
+
+[sub_resource type="Animation" id="Animation_d5tlk"]
+resource_name = "fade_out"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"finish"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bt4tt"]
+_data = {
+"RESET": SubResource("Animation_r6f8o"),
+"fade_in": SubResource("Animation_2m2x6"),
+"fade_out": SubResource("Animation_d5tlk"),
+"wait": SubResource("Animation_o6r7f")
+}
+
+[node name="LogoScreen" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_ap3ya")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+sprite_frames = SubResource("SpriteFrames_gle76")
+centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bt4tt")
+}
+autoplay = "fade_in"
+next/fade_in = &"wait"
+next/wait = &"fade_out"
+
+[node name="PaletteClamp" parent="." instance=ExtResource("1_1b12l")]

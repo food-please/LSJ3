@@ -10,6 +10,7 @@ const COLOR: = [ Color.WHITE, Color(1.0, 0.0, 0.0, 0.7), Color(0.0, 1.0, 0.0, 0.
 
 @export var world: World
 
+@export var erase_button: TextureButton
 @export var trash_can: TrashCan
 
 @export_category("Camera")
@@ -135,18 +136,19 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func erase_cell(cell: Vector2i) -> bool:
-	var construction: = passable_cells.get_construction_at_cell(cell)
-	if construction:
-		passable_cells.set_cell_occupancy(
-			construction.get_occupied_cells(construction.cell),
-			false,
-			null,
-			null
-		)
-		construction.queue_free()
-		
-		Events.construction_erased.emit(construction)
-		return true
+	if clouds.are_cells_clear([cell]):
+		var construction: = passable_cells.get_construction_at_cell(cell)
+		if construction:
+			passable_cells.set_cell_occupancy(
+				construction.get_occupied_cells(construction.cell),
+				false,
+				null,
+				null
+			)
+			construction.queue_free()
+			
+			Events.construction_erased.emit(construction)
+			return true
 	return false
 
 
@@ -168,6 +170,7 @@ func _setup_new_blueprint_from_data() -> void:
 	
 	_move_construction_to_cell(_construction_blueprint, cell, target)
 	
+	erase_button.hide()
 	trash_can.show()
 	set_process(true)
 
@@ -205,6 +208,7 @@ func _place_construction() -> bool:
 	var target: = _grid.map_to_local(cell)
 	var changed_cells: = _construction_blueprint.place(target, cell)
 	
+	erase_button.show()
 	trash_can.hide()
 	if not _construction_blueprint.is_valid:
 		_free_blueprint()
@@ -244,6 +248,7 @@ func _free_blueprint() -> void:
 		_construction_blueprint.queue_free()
 	_construction_blueprint = null
 	
+	erase_button.show()
 	trash_can.hide()
 
 

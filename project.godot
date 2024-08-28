@@ -25,6 +25,7 @@ config/icon="res://assets/app_icon.png"
 Economy="*res://src/economy.gd"
 Events="*res://src/input_events.gd"
 Music="*res://music/music_player.tscn"
+Progression="*res://src/progression.gd"
 
 [display]
 

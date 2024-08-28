@@ -7,6 +7,7 @@
 [node name="Hedge" instance=ExtResource("1_hnd2s")]
 script = ExtResource("2_kast3")
 terrain_type = "path"
+other_id = 13
 terrain_id = 13
 vision = 0
 value = 5

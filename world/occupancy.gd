@@ -35,6 +35,8 @@ func _on_construction_data_selected(data: ConstructionData, _anchor: RemoteTrans
 		var new_cnst: = data.variations[0].instantiate()
 		if new_cnst is ConstructionDwelling:
 			show()
+		else:
+			hide()
 		new_cnst.free()
 		return
 	

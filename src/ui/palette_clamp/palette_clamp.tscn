@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1w20ecbhipb5"]
+
+[ext_resource type="Shader" path="res://src/ui/palette_clamp/palette_clamp.gdshader" id="1_p1xv7"]
+[ext_resource type="Texture2D" uid="uid://cwpt6t88mbdqs" path="res://assets/eroge_48.png" id="2_inljs"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5iwj5"]
+shader = ExtResource("1_p1xv7")
+shader_parameter/palette = ExtResource("2_inljs")
+
+[node name="PaletteClamp" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_5iwj5")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true

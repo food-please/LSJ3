@@ -7,6 +7,7 @@
 [node name="PurpleFields" instance=ExtResource("1_8uuq5")]
 script = ExtResource("2_ylp3w")
 terrain_type = "area"
+other_id = 9
 terrain_id = 9
 vision = 0
 value = 10

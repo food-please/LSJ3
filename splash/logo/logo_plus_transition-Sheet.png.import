@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3wrebacdjs6g"
-path="res://.godot/imported/Screen_transition-Sheet.png-5b3dee7df500ba22e21b64afc3f9196b.ctex"
+uid="uid://c8wlqdih84e2c"
+path="res://.godot/imported/logo_plus_transition-Sheet.png-34d25150a5d46682638d89962fab6020.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://splash/Screen_transition-Sheet.png"
-dest_files=["res://.godot/imported/Screen_transition-Sheet.png-5b3dee7df500ba22e21b64afc3f9196b.ctex"]
+source_file="res://splash/logo/logo_plus_transition-Sheet.png"
+dest_files=["res://.godot/imported/logo_plus_transition-Sheet.png-34d25150a5d46682638d89962fab6020.ctex"]
 
 [params]
 

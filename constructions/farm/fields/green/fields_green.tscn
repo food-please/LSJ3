@@ -7,6 +7,7 @@
 [node name="GreenFields" instance=ExtResource("1_er4ba")]
 script = ExtResource("2_6kicj")
 terrain_type = "area"
+other_id = 7
 terrain_id = 7
 vision = 0
 value = 10

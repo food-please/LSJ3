@@ -7,6 +7,7 @@
 [node name="PlowedFields" instance=ExtResource("1_qb0n1")]
 script = ExtResource("2_5bprg")
 terrain_type = "area"
+other_id = 4
 terrain_id = 4
 vision = 0
 value = 10

@@ -1,5 +1,7 @@
 extends Node
 
+####################################################################################################
+## Game Events
 @warning_ignore("unused_signal")
 signal construction_data_selected(data: ConstructionData, anchor: RemoteTransform2D)
 

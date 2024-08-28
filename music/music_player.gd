@@ -3,7 +3,7 @@ extends Node
 @export var tracks: Array[AudioStream]
 
 var _fade_tween: Tween = null
-var _last_three_track_indices: Array[int] = []
+var _last_three_track_indices: Array[int] = [5]
 
 @onready var _music: = $Music as AudioStreamPlayer
 @onready var _play_timer: = $PlayTimer as Timer
