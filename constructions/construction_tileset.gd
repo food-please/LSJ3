@@ -5,6 +5,20 @@ class_name TerrainConstruction extends Construction
 
 @export var other_id: int
 
+@export var terrain_set: = 0:
+	set(value):
+		terrain_set = value
+		
+		if not is_inside_tree():
+			await ready
+		
+		if not _preview.tile_set:
+			return
+		
+		terrain_set = clampi(value, 0, _preview.tile_set.get_terrain_sets_count()-1)
+		terrain_id = clampi(terrain_id, 0, _preview.tile_set.get_terrains_count(terrain_set)-1)
+		#_preview.set_cells_terrain_connect([Vector2i.ZERO], terrain_set, terrain_id)
+
 @export var terrain_id: = 0:
 	set(value):
 		terrain_id = value
@@ -15,8 +29,9 @@ class_name TerrainConstruction extends Construction
 		if not _preview.tile_set:
 			return
 		
-		terrain_id = clampi(value, 0, _preview.tile_set.get_terrains_count(0))
-		_preview.set_cells_terrain_connect([Vector2i.ZERO], 0, terrain_id)
+		terrain_id = clampi(value, 0, _preview.tile_set.get_terrains_count(terrain_set)-1)
+		#print("New terrain: %s", _preview.tile_set.get_terrain_name(terrain_set, terrain_id))
+		_preview.set_cells_terrain_connect([Vector2i.ZERO], terrain_set, terrain_id)
 
 @onready var _preview: = $OccupiedCells as TileMapLayer
 
@@ -44,7 +59,7 @@ func preview_at_position(target: Vector2) -> void:
 	else:
 		path_cells = _get_area_cells(target)
 	
-	_preview.set_cells_terrain_connect(path_cells, 0, terrain_id)
+	_preview.set_cells_terrain_connect(path_cells, terrain_set, terrain_id)
 
 
 func evaluate_requirements(_target_cell: Vector2i, get_occupants: Callable, 

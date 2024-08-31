@@ -16,4 +16,4 @@ position = Vector2(-4, -4)
 tile_set = ExtResource("2_6ls7g")
 script = ExtResource("3_2a7uv")
 operation = 1
-terrain = Array[String](["Waterfall", "River", "Cliff", "Trees", "RoadDirt", "FieldPlowed", "FieldBrown", "FieldGreen", "FieldPurple", "FieldRed", "FieldYellow", "Fence", "Hedges"])
+terrain = Array[String](["Waterfall", "River", "Cliff", "Trees", "RoadDirt", "FieldPlowed", "FieldBrown", "FieldGreen", "FieldPurple", "FieldRed", "FieldYellow", "Fence", "Hedges", "Sea"])

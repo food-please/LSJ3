@@ -22,4 +22,6 @@ construction_types = Array[ExtResource("3_trx5e")]([ExtResource("4_v0ui6")])
 
 [node name="TreesRequirement" parent="." index="2" instance=ExtResource("5_sn8w0")]
 tile_map_data = PackedByteArray("AAD//wEAAQAAAAAAAAAAAAEAAQAAAAAAAAABAAEAAQAAAAAAAAABAAAAAQAAAAAAAAABAP//AQAAAAAAAAAAAP//AQAAAAAAAAD/////AQAAAAAAAAD//wAAAQAAAAAAAAA=")
+operation = 2
 terrain = Array[String](["Trees"])
+terrain_quantity = 3

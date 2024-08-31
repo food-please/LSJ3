@@ -190,6 +190,11 @@ func _move_construction_to_cell(construction: Construction, cell: Vector2i,
 			construction.flag_as_invalid()
 			return
 	
+	elif construction is TerrainConstruction:
+		if construction.value * construction.get_cells().size() > Economy.points:
+			_construction_blueprint.flag_as_invalid()
+			return
+	
 	else:
 		if _construction_blueprint.value > Economy.points:
 			_construction_blueprint.flag_as_invalid()

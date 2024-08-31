@@ -5,7 +5,6 @@ extends TextureButton
 func _ready() -> void:
 	toggled.connect(
 		func(is_toggled: bool):
-			print("Toggle ", is_toggled)
 			Events.erase_selected.emit(is_toggled)
 	)
 	

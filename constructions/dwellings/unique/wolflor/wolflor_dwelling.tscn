@@ -9,6 +9,7 @@
 
 [node name="WolflorDwelling" instance=ExtResource("1_3icxq")]
 script = ExtResource("2_kqx6r")
+value = 1000
 
 [node name="Sprite2D" parent="." index="0"]
 texture = null

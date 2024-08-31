@@ -2,7 +2,7 @@ extends Node
 
 signal points_changed
 
-var points: = 500:
+var points: = 1000:
 	set(value):
 		if value != points:
 			points = value

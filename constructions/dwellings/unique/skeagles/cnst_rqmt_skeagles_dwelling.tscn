@@ -41,4 +41,4 @@ layout_mode = 2
 texture = ExtResource("5_nk023")
 
 [node name="Number" parent="HBoxContainer" index="4"]
-quantity = 8
+quantity = 4

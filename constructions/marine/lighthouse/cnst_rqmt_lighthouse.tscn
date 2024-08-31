@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://b6kak0ssof3xo"]
+
+[ext_resource type="PackedScene" uid="uid://0w7bjhs8khei" path="res://src/ui/constructions/bubble/construction_bubble_requirement.tscn" id="1_85poh"]
+[ext_resource type="Texture2D" uid="uid://groxpok7j3ck" path="res://src/ui/points/points_icon_small.atlastex" id="2_sio24"]
+[ext_resource type="Texture2D" uid="uid://cqhrbqthhv6n2" path="res://src/ui/points/subtraction.atlastex" id="3_u7dr8"]
+[ext_resource type="Texture2D" uid="uid://cmvkbe68tmdu8" path="res://constructions/requirements/eye.atlastex" id="4_u2knp"]
+[ext_resource type="PackedScene" uid="uid://ugarwydgnx5v" path="res://src/ui/number/ui_number.tscn" id="5_5e65i"]
+
+[node name="LighthouseRequirement" instance=ExtResource("1_85poh")]
+theme_override_constants/margin_right = 2
+
+[node name="HBoxContainer" parent="." index="0"]
+theme_override_constants/separation = 0
+
+[node name="Icon" parent="HBoxContainer" index="0"]
+custom_minimum_size = Vector2(9, 8)
+texture = ExtResource("2_sio24")
+
+[node name="Modifier" parent="HBoxContainer" index="1"]
+modulate = Color(1, 0, 0, 1)
+texture = ExtResource("3_u7dr8")
+
+[node name="Number" parent="HBoxContainer" index="2"]
+modulate = Color(1, 0, 0, 1)
+custom_minimum_size = Vector2(0, 9)
+type = "white"
+quantity = 500
+
+[node name="Icon2" type="TextureRect" parent="HBoxContainer" index="3"]
+custom_minimum_size = Vector2(9, 8)
+layout_mode = 2
+texture = ExtResource("4_u2knp")
+stretch_mode = 3
+
+[node name="Number2" parent="HBoxContainer" index="4" instance=ExtResource("5_5e65i")]
+modulate = Color(1, 0, 0, 1)
+custom_minimum_size = Vector2(0, 9)
+layout_mode = 2
+quantity = 10

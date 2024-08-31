@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ConstructionsCategory" load_steps=4 format=3 uid="uid://bj7aeew5pomxl"]
+
+[ext_resource type="Script" path="res://constructions/construction_data.gd" id="1_sgsfs"]
+[ext_resource type="Resource" uid="uid://df6up1e73akpj" path="res://constructions/dwellings/house_data.tres" id="2_trx23"]
+[ext_resource type="Script" path="res://src/ui/constructions/constructions_category.gd" id="21_fpj51"]
+
+[resource]
+script = ExtResource("21_fpj51")
+constructions = Array[ExtResource("1_sgsfs")]([ExtResource("2_trx23")])

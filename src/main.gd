@@ -14,11 +14,16 @@ var camera_extents: Rect2i
 @onready var _construction_animations: = $UI/ConstructionBar/AnimationPlayer as AnimationPlayer
 @onready var _points_animations: = $UI/Points/AnimationPlayer as AnimationPlayer
 
+
 func _ready() -> void:
 	randomize()
 	
+	Progression.are_uniques_in_citizen_bar = _citizens.has_unique_citizens
 	Progression.game_started.connect(start)
-	Events.construction_placed.connect(_on_construction_placed)
+	Progression.first_house_placed.connect(_on_1st_construction_placed)
+	Progression.first_worker_placed.connect(_on_1st_worker_placed)
+	Progression.first_unique_placed.connect(_on_1st_unique_placed)
+	Progression.game_won.connect(_on_win)
 	
 	# Setup the camera, its starting position, and its boundaries.
 	var viewport_dimensions: = get_viewport().get_visible_rect().size
@@ -29,7 +34,6 @@ func _ready() -> void:
 		map_dimensions.size * terrain.tile_set.tile_size - Vector2i(viewport_dimensions)
 	)
 	
-	print(start_cells.get_used_rect())
 	var start_pos: = start_cells.get_used_rect()
 	camera.position = (start_pos.position + start_pos.size/2) * start_cells.tile_set.tile_size
 	#camera.position = camera.boundary.position + camera.boundary.size/2
@@ -37,9 +41,9 @@ func _ready() -> void:
 	_clouds.cover_changed.connect(_update_camera_bounds)
 	
 	#TODO: remove
-	$Screens/LogoScreen.queue_free()
-	$Screens/TitleScreen.queue_free()
-	Progression.game_started.emit()
+	#$Screens/LogoScreen.queue_free()
+	#$Screens/TitleScreen.queue_free()
+	#Progression.game_started.emit()
 
 
 func start() -> void:
@@ -51,18 +55,10 @@ func start() -> void:
 	_construction_animations.play("appear")
 	_points_animations.play("appear")
 	
-	for i in range(0, starting_citizens):
-		_citizens.add_random_citizen()
-	
-	Music.start()
+	#for i in range(0, starting_citizens):
+		#_citizens.add_random_citizen()
 	
 	_update_camera_bounds()
-
-
-func _on_construction_placed(_cnst: Construction) -> void:
-	await get_tree().process_frame
-	if Dwellings.uniques_remaining.is_empty() and not _citizens.has_unique_citizens():
-		print("Win")
 
 
 func _update_camera_bounds() -> void:
@@ -86,3 +82,40 @@ func _update_camera_bounds() -> void:
 	)
 	
 	camera.boundary = new_boundary
+
+
+func _on_1st_construction_placed() -> void:
+	_construction_animations.play("disappear")
+	Events.construction_data_selected.emit(null, null)
+	
+	var dwelling_data: = preload("res://constructions/dwellings/cnst_generic_dwelling1_data.tres")
+	_citizens.add_citizen(Constants.CITIZEN_COLOURS.Green, dwelling_data)
+
+
+func _on_1st_worker_placed() -> void:
+	_construction_animations.play("appear")
+	Music.start()
+	
+	$UI/ConstructionBar/VBoxContainer/ConstructionsBar.category = \
+		preload("res://constructions/cnst_cat_2.tres")
+
+
+func _on_1st_unique_placed() -> void:
+	_construction_animations.play("disappear")
+	await _construction_animations.animation_finished
+	
+	$UI/ConstructionBar/VBoxContainer/ConstructionsBar.category = \
+		preload("res://constructions/cnst_cat_3.tres")
+	_construction_animations.play("appear")
+
+
+func _on_win() -> void:
+	_construction_animations.play("disappear")
+	
+	var thanks_screen: = preload("res://splash/thanks.tscn").instantiate()
+	$Screens.add_child(thanks_screen)
+	await thanks_screen.finished
+	
+	$UI/ConstructionBar/VBoxContainer/ConstructionsBar.category = \
+		preload("res://constructions/cnst_cat_all.tres")
+	_construction_animations.play("appear")

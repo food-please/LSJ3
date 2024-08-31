@@ -1,6 +1,7 @@
 class_name World extends Node2D
 
 # Probably grass.
+const DEFAULT_SET: = 0
 const DEFAULT_TERRAIN: = 3
 
 # Key = cell, value = terrain type name
@@ -34,15 +35,23 @@ func erase_cell(cell: Vector2i) -> void:
 				#features.set_cells_terrain_connect([updated_cell], tile_data.terrain_set, 
 					#tile_data.terrain)
 		
-		terrain.set_cells_terrain_connect([cell], 0, DEFAULT_TERRAIN)
-		var updated_rect: = Rect2i(cell, Vector2i(1, 1))
-		updated_rect = updated_rect.grow(1)
-		
-		#for cell in cells_to_update:
-			#updated_rect.expand(cell)
-		_update_autotiles(updated_rect)
-		
-		_update_terrain([cell])
+		var unerasable: = [
+			"sea",
+			"cliff",
+			"trees",
+			"sand",
+			"river"
+		]
+		if get_terrain_at_cell(cell).to_lower() not in unerasable:
+			terrain.set_cells_terrain_connect([cell], DEFAULT_SET, DEFAULT_TERRAIN)
+			var updated_rect: = Rect2i(cell, Vector2i(1, 1))
+			updated_rect = updated_rect.grow(1)
+			
+			#for cell in cells_to_update:
+				#updated_rect.expand(cell)
+			_update_autotiles(updated_rect)
+			
+			_update_terrain([cell])
 
 
 # Returns a dictionary with key = cell coords and value = terrain name (String)
@@ -88,10 +97,18 @@ func _on_construction_placed(construction: Construction) -> void:
 		
 		for cell: Vector2i in changes:
 			updated_cells.append(cell)
-		terrain.set_cells_terrain_connect(updated_cells, 0, terrain_construction.terrain_id)
+		terrain.set_cells_terrain_connect(
+			updated_cells, 
+			terrain_construction.terrain_set, 
+			terrain_construction.terrain_id
+			)
 		
 		if terrain_construction.terrain_type == "area":
-			terrain.set_cells_terrain_connect(updated_cells, 0, terrain_construction.terrain_id)
+			terrain.set_cells_terrain_connect(
+			updated_cells, 
+			terrain_construction.terrain_set, 
+			terrain_construction.terrain_id
+			)
 			
 			var affected_cells: = terrain_construction.get_affected_cells()
 			_update_autotiles(affected_cells)
@@ -127,8 +144,8 @@ func _update_autotiles(cells_to_update: Rect2i) -> void:
 	for x in range(0, cells_to_update.size.x):
 		for y in range(0, cells_to_update.size.y):
 			var cell: = Vector2i(x, y)
-			print(cell)
-			var terrain_id: = terrain.get_cell_tile_data(cell).terrain
+			var tile_data: = terrain.get_cell_tile_data(cell)
+			var terrain_id: = [tile_data.terrain_set, tile_data.terrain]
 			if terrain_id in terrains:
 				terrains.get(terrain_id, []).append(cell)
 			else:
@@ -136,7 +153,7 @@ func _update_autotiles(cells_to_update: Rect2i) -> void:
 	
 	# Loop through all terrains, updating all cells matching this terrain type at once.
 	for terrain_id in terrains:
-		terrain.set_cells_terrain_connect(terrains[terrain_id], 0, terrain_id)
+		terrain.set_cells_terrain_connect(terrains[terrain_id], terrain_id[0], terrain_id[1])
 
 
 func _update_terrain(updated_cells: Array[Vector2i]) -> void:
@@ -149,5 +166,6 @@ func _update_terrain(updated_cells: Array[Vector2i]) -> void:
 		
 		# No terrain features, so look for terrain instead.
 		var cell_data: = terrain.get_cell_tile_data(cell)
-		var ground = _terrain_tileset.get_terrain_name(cell_data.terrain_set, cell_data.terrain)
-		_terrain[cell] = ground
+		if cell_data.terrain_set >= 0 and cell_data.terrain >= 0:
+			var ground = _terrain_tileset.get_terrain_name(cell_data.terrain_set, cell_data.terrain)
+			_terrain[cell] = ground

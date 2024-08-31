@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ConstructionData" load_steps=5 format=3 uid="uid://8cmd65f6op4d"]
+
+[ext_resource type="Texture2D" uid="uid://bxt8tuhki5p7k" path="res://constructions/landscape/sea/sea.atlastex" id="1_eeld0"]
+[ext_resource type="PackedScene" uid="uid://be54s0ldhjo6f" path="res://constructions/landscape/river/cnst_rqmt_river.tscn" id="2_7mct6"]
+[ext_resource type="Script" path="res://constructions/construction_data.gd" id="2_pi1ml"]
+[ext_resource type="PackedScene" uid="uid://v85lvbl68v7x" path="res://constructions/landscape/sea/sea.tscn" id="3_4eoy0"]
+
+[resource]
+script = ExtResource("2_pi1ml")
+icon = ExtResource("1_eeld0")
+variations = Array[PackedScene]([ExtResource("3_4eoy0")])
+requirements = Array[PackedScene]([ExtResource("2_7mct6")])

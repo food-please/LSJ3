@@ -1,0 +1,131 @@
+[gd_scene load_steps=7 format=3 uid="uid://cxrgkipftxfky"]
+
+[ext_resource type="Script" path="res://splash/thanks.gd" id="1_gcbny"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_johxy"]
+font_size = 8
+
+[sub_resource type="Animation" id="Animation_72xve"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_bjile"]
+resource_name = "appear"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_x3vu3"]
+resource_name = "disappear"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"finish"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rdav4"]
+_data = {
+"RESET": SubResource("Animation_72xve"),
+"appear": SubResource("Animation_bjile"),
+"disappear": SubResource("Animation_x3vu3")
+}
+
+[node name="Thanks" type="ColorRect"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_gcbny")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Thank you for playing!"
+
+[node name="Score" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Score: "
+label_settings = SubResource("LabelSettings_johxy")
+horizontal_alignment = 1
+
+[node name="Constructions" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Constructions: "
+label_settings = SubResource("LabelSettings_johxy")
+horizontal_alignment = 1
+
+[node name="Dwellings" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Dwellings: "
+label_settings = SubResource("LabelSettings_johxy")
+horizontal_alignment = 1
+
+[node name="Dwellings2" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "You have unlocked the ability 
+to change terrain!"
+label_settings = SubResource("LabelSettings_johxy")
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rdav4")
+}
+autoplay = "appear"

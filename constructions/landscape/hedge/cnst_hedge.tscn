@@ -8,7 +8,8 @@
 script = ExtResource("2_kast3")
 terrain_type = "path"
 other_id = 13
-terrain_id = 13
+terrain_set = 1
+terrain_id = 3
 vision = 0
 value = 5
 

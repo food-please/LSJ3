@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ConstructionsCategory" load_steps=15 format=3 uid="uid://c48s4ijyvqyrl"]
+
+[ext_resource type="Script" path="res://constructions/construction_data.gd" id="1_aybdi"]
+[ext_resource type="Resource" uid="uid://df6up1e73akpj" path="res://constructions/dwellings/house_data.tres" id="2_s5xl7"]
+[ext_resource type="Resource" uid="uid://dds1sat2cp47n" path="res://constructions/landscape/road_dirt/cnst_data_dirt_road.tres" id="3_2opnr"]
+[ext_resource type="Script" path="res://src/ui/constructions/constructions_category.gd" id="3_jfqt6"]
+[ext_resource type="Resource" uid="uid://cl8ov8n4p8nux" path="res://constructions/landscape/fence/cnst_data_fence.tres" id="5_e05mi"]
+[ext_resource type="Resource" uid="uid://b43x2w1jek2n1" path="res://constructions/farm/fruit_trees/cnst_data_fruit_tree.tres" id="7_yfnbi"]
+[ext_resource type="Resource" uid="uid://dk3jtfo8l8raq" path="res://constructions/farm/fields/plowed/field_data.tres" id="8_hs7hs"]
+[ext_resource type="Resource" uid="uid://cs0r1oupkd2u" path="res://constructions/farm/fields/brown/field_brown_data.tres" id="9_y75d4"]
+[ext_resource type="Resource" uid="uid://n2rnd6l22lko" path="res://constructions/farm/fields/yellow/field_yellow_data.tres" id="13_0w1s5"]
+[ext_resource type="Resource" uid="uid://bvgj0a5xr7rgk" path="res://constructions/farm/mill/cnst_data_mill.tres" id="14_763tb"]
+[ext_resource type="Resource" uid="uid://cxk7mv4q6cwym" path="res://constructions/landscape/flower_pot/cnst_data_flower_pot.tres" id="15_32q1y"]
+[ext_resource type="Resource" uid="uid://bi04254wk1lb" path="res://constructions/town/well/cnst_data_well.tres" id="16_4svh2"]
+[ext_resource type="Resource" uid="uid://cqhsgkpbehpe3" path="res://constructions/marine/fountain/cnst_data_fountain.tres" id="18_cwf6k"]
+[ext_resource type="Resource" uid="uid://b0o5gixkv65us" path="res://constructions/fortress/tower/tower_data.tres" id="19_mqily"]
+
+[resource]
+script = ExtResource("3_jfqt6")
+constructions = Array[ExtResource("1_aybdi")]([ExtResource("2_s5xl7"), ExtResource("19_mqily"), ExtResource("3_2opnr"), ExtResource("5_e05mi"), ExtResource("7_yfnbi"), ExtResource("8_hs7hs"), ExtResource("9_y75d4"), ExtResource("13_0w1s5"), ExtResource("14_763tb"), ExtResource("15_32q1y"), ExtResource("16_4svh2"), ExtResource("18_cwf6k")])

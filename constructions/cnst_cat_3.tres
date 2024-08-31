@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="ConstructionsCategory" load_steps=23 format=3 uid="uid://l6ss7b3cgbga"]
+
+[ext_resource type="Script" path="res://constructions/construction_data.gd" id="1_nkrdo"]
+[ext_resource type="Resource" uid="uid://df6up1e73akpj" path="res://constructions/dwellings/house_data.tres" id="2_bq4jm"]
+[ext_resource type="Resource" uid="uid://dds1sat2cp47n" path="res://constructions/landscape/road_dirt/cnst_data_dirt_road.tres" id="3_fyqt6"]
+[ext_resource type="Resource" uid="uid://b1d661jcc0v82" path="res://constructions/marine/lighthouse/cnst_data_lighthouse.tres" id="4_7hum7"]
+[ext_resource type="Resource" uid="uid://do8y0c0cuee5x" path="res://constructions/landscape/bridge/cnst_data_bridge.tres" id="4_pdwi0"]
+[ext_resource type="Resource" uid="uid://cl8ov8n4p8nux" path="res://constructions/landscape/fence/cnst_data_fence.tres" id="5_yjn6h"]
+[ext_resource type="Resource" uid="uid://vwtuuvcrffpp" path="res://constructions/landscape/hedge/cnst_data_hedge.tres" id="6_8weqy"]
+[ext_resource type="Resource" uid="uid://b43x2w1jek2n1" path="res://constructions/farm/fruit_trees/cnst_data_fruit_tree.tres" id="7_snfx5"]
+[ext_resource type="Resource" uid="uid://dk3jtfo8l8raq" path="res://constructions/farm/fields/plowed/field_data.tres" id="8_8v84x"]
+[ext_resource type="Resource" uid="uid://cs0r1oupkd2u" path="res://constructions/farm/fields/brown/field_brown_data.tres" id="9_t3avj"]
+[ext_resource type="Resource" uid="uid://dwk0vutip1jcx" path="res://constructions/farm/fields/green/field_green_data.tres" id="10_rvg2n"]
+[ext_resource type="Resource" uid="uid://b1ubmbqrvmda1" path="res://constructions/farm/fields/purple/field_purple_data.tres" id="11_3luuw"]
+[ext_resource type="Resource" uid="uid://d3oi07ikf6om7" path="res://constructions/farm/fields/red/field_red_data.tres" id="12_hjrr1"]
+[ext_resource type="Resource" uid="uid://n2rnd6l22lko" path="res://constructions/farm/fields/yellow/field_yellow_data.tres" id="13_8off1"]
+[ext_resource type="Resource" uid="uid://bvgj0a5xr7rgk" path="res://constructions/farm/mill/cnst_data_mill.tres" id="14_3lalx"]
+[ext_resource type="Resource" uid="uid://cxk7mv4q6cwym" path="res://constructions/landscape/flower_pot/cnst_data_flower_pot.tres" id="15_2nc2n"]
+[ext_resource type="Resource" uid="uid://bi04254wk1lb" path="res://constructions/town/well/cnst_data_well.tres" id="16_2kv24"]
+[ext_resource type="Resource" uid="uid://ybg0q7w6ku7h" path="res://constructions/town/monument/cnst_data_monument.tres" id="17_ikbef"]
+[ext_resource type="Resource" uid="uid://cqhsgkpbehpe3" path="res://constructions/marine/fountain/cnst_data_fountain.tres" id="18_p88ra"]
+[ext_resource type="Resource" uid="uid://b0o5gixkv65us" path="res://constructions/fortress/tower/tower_data.tres" id="19_tb4il"]
+[ext_resource type="Resource" uid="uid://diqsa5s4ym1ak" path="res://constructions/fortress/castle/cnst_data_castle.tres" id="20_5wl2v"]
+[ext_resource type="Script" path="res://src/ui/constructions/constructions_category.gd" id="21_xj6wn"]
+
+[resource]
+script = ExtResource("21_xj6wn")
+constructions = Array[ExtResource("1_nkrdo")]([ExtResource("2_bq4jm"), ExtResource("19_tb4il"), ExtResource("20_5wl2v"), ExtResource("4_7hum7"), ExtResource("3_fyqt6"), ExtResource("4_pdwi0"), ExtResource("5_yjn6h"), ExtResource("6_8weqy"), ExtResource("7_snfx5"), ExtResource("8_8v84x"), ExtResource("9_t3avj"), ExtResource("10_rvg2n"), ExtResource("11_3luuw"), ExtResource("12_hjrr1"), ExtResource("13_8off1"), ExtResource("14_3lalx"), ExtResource("15_2nc2n"), ExtResource("16_2kv24"), ExtResource("17_ikbef"), ExtResource("18_p88ra")])

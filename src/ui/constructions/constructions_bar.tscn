@@ -33,7 +33,7 @@ theme_override_constants/margin_right = 2
 theme_override_constants/margin_bottom = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
-custom_minimum_size = Vector2(12, 96)
+custom_minimum_size = Vector2(8, 96)
 layout_mode = 2
 follow_focus = true
 horizontal_scroll_mode = 0

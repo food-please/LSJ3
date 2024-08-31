@@ -1,4 +1,4 @@
-extends ColorRect
+class_name TitleScreen extends ColorRect
 
 var _listening_to_input: = false
 
@@ -45,5 +45,9 @@ func start() -> void:
 	await _sprite.animation_finished
 	
 	_anim.play("blink")
-	_music.play()
+	#_music.play()
 	_listening_to_input = true
+
+
+func play_music() -> void:
+	_music.play()

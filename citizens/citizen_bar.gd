@@ -2,6 +2,8 @@ class_name CitizenBar extends Control
 
 const CITIZEN: = preload("res://src/ui/workers/citizen_button.tscn")
 
+@export var starting_citizens: = 4
+
 @export var max_concurrent_citizens: int = 7
 
 @export var citizen_timer: = 20.0
@@ -16,13 +18,13 @@ var _y_move_tween: Tween
 
 
 func _ready() -> void:
-	$Timer.start(citizen_timer)
+	Progression.first_worker_placed.connect(_on_1st_worker_placed)
+	
 	$Timer.timeout.connect(
 		func():
 			add_random_citizen()
 	)
 	
-	_unique_timer.start(unique_citizen_timer)
 	_unique_timer.timeout.connect(
 		func():
 			var new_time: = unique_citizen_timer
@@ -39,6 +41,8 @@ func _ready() -> void:
 				new_time = 1.0
 			_unique_timer.start(new_time)
 	)
+	
+	Events.construction_placed.connect(_on_construction_placed)
 
 
 func add_random_citizen() -> void:
@@ -88,13 +92,6 @@ func has_unique_citizens() -> bool:
 			return true
 	return false
 
-#func _unhandled_input(event: InputEvent) -> void:
-	#if event.is_action_released("touch"):
-		#add_citizen(Constants.CITIZEN_COLOURS.Green)
-	#
-	#elif event.is_action_released("ui_accept"):
-		#remove_citizen(_citizens.get_child(1).name)
-
 
 func _move_citizens_to_new_positions(static_controls: Array[Control] = []) -> void:
 	if _citizens.get_child_count() == 0:
@@ -125,6 +122,7 @@ func _move_citizens_to_new_positions(static_controls: Array[Control] = []) -> vo
 	if _y_move_tween:
 		_y_move_tween.kill()
 	_y_move_tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_LINEAR)
+	_y_move_tween.tween_callback(func(): var _ted = 0)
 	
 	for citizen: Control in _citizens.get_children():
 		var new_pos: float = citizen.get_index()*item_size - bar_half_height
@@ -142,3 +140,24 @@ func _citizen_has_data(data: ConstructionData) -> bool:
 		if child.dwelling_data == data:
 			return true
 	return false
+
+
+func _on_1st_worker_placed() -> void:
+	$Timer.start(citizen_timer)
+	_unique_timer.start(unique_citizen_timer)
+	
+	for i in range(0, starting_citizens):
+		await get_tree().create_timer(1).timeout
+		add_random_citizen()
+
+
+func _on_construction_placed(construction: Construction) -> void:
+	if Progression.cnsts_placed == 1:
+		return
+	
+	if construction is ConstructionDwelling:
+		await get_tree().process_frame
+		if _citizens.get_child_count() == 0:
+			for i in range(0, 3):
+				await get_tree().create_timer(1).timeout
+				add_random_citizen()

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ConstructionsCategory" load_steps=22 format=3 uid="uid://bbv2rejjgear0"]
+[gd_resource type="Resource" script_class="ConstructionsCategory" load_steps=26 format=3 uid="uid://bbv2rejjgear0"]
 
 [ext_resource type="Script" path="res://constructions/construction_data.gd" id="1_rnp2p"]
 [ext_resource type="Resource" uid="uid://cxk7mv4q6cwym" path="res://constructions/landscape/flower_pot/cnst_data_flower_pot.tres" id="2_bvs1m"]
@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://cqhsgkpbehpe3" path="res://constructions/marine/fountain/cnst_data_fountain.tres" id="3_a2xtw"]
 [ext_resource type="Resource" uid="uid://do8y0c0cuee5x" path="res://constructions/landscape/bridge/cnst_data_bridge.tres" id="3_jfbpu"]
 [ext_resource type="Resource" uid="uid://dk3jtfo8l8raq" path="res://constructions/farm/fields/plowed/field_data.tres" id="4_qty27"]
+[ext_resource type="Resource" uid="uid://b1d661jcc0v82" path="res://constructions/marine/lighthouse/cnst_data_lighthouse.tres" id="4_xokk3"]
 [ext_resource type="Resource" uid="uid://bvgj0a5xr7rgk" path="res://constructions/farm/mill/cnst_data_mill.tres" id="5_d16ag"]
 [ext_resource type="Resource" uid="uid://b0o5gixkv65us" path="res://constructions/fortress/tower/tower_data.tres" id="5_jndfn"]
 [ext_resource type="Resource" uid="uid://diqsa5s4ym1ak" path="res://constructions/fortress/castle/cnst_data_castle.tres" id="6_3a3lt"]
@@ -14,6 +15,7 @@
 [ext_resource type="Resource" uid="uid://cs0r1oupkd2u" path="res://constructions/farm/fields/brown/field_brown_data.tres" id="6_j2she"]
 [ext_resource type="Resource" uid="uid://cl8ov8n4p8nux" path="res://constructions/landscape/fence/cnst_data_fence.tres" id="7_4d2mr"]
 [ext_resource type="Resource" uid="uid://dwk0vutip1jcx" path="res://constructions/farm/fields/green/field_green_data.tres" id="7_jewch"]
+[ext_resource type="Resource" uid="uid://8cmd65f6op4d" path="res://constructions/landscape/sea/sea_data.tres" id="7_jojlu"]
 [ext_resource type="Resource" uid="uid://vwtuuvcrffpp" path="res://constructions/landscape/hedge/cnst_data_hedge.tres" id="8_bts7n"]
 [ext_resource type="Resource" uid="uid://b1ubmbqrvmda1" path="res://constructions/farm/fields/purple/field_purple_data.tres" id="8_tl8oy"]
 [ext_resource type="Resource" uid="uid://d3oi07ikf6om7" path="res://constructions/farm/fields/red/field_red_data.tres" id="9_xajpj"]
@@ -21,7 +23,9 @@
 [ext_resource type="Resource" uid="uid://ybg0q7w6ku7h" path="res://constructions/town/monument/cnst_data_monument.tres" id="14_inq4o"]
 [ext_resource type="Resource" uid="uid://df6up1e73akpj" path="res://constructions/dwellings/house_data.tres" id="15_erlj7"]
 [ext_resource type="Resource" uid="uid://bi04254wk1lb" path="res://constructions/town/well/cnst_data_well.tres" id="16_0phjb"]
+[ext_resource type="Resource" uid="uid://dd02msnxr78ac" path="res://constructions/landscape/river/cnst_data_river.tres" id="22_gxtcc"]
+[ext_resource type="Resource" uid="uid://bhhvuqqg448ll" path="res://constructions/landscape/trees/trees_data.tres" id="23_pwd6f"]
 
 [resource]
 script = ExtResource("2_sw2lo")
-constructions = Array[ExtResource("1_rnp2p")]([ExtResource("15_erlj7"), ExtResource("3_2vmfj"), ExtResource("3_jfbpu"), ExtResource("7_4d2mr"), ExtResource("8_bts7n"), ExtResource("6_denuh"), ExtResource("4_qty27"), ExtResource("6_j2she"), ExtResource("7_jewch"), ExtResource("8_tl8oy"), ExtResource("9_xajpj"), ExtResource("10_ayxc0"), ExtResource("5_d16ag"), ExtResource("2_bvs1m"), ExtResource("16_0phjb"), ExtResource("14_inq4o"), ExtResource("3_a2xtw"), ExtResource("5_jndfn"), ExtResource("6_3a3lt")])
+constructions = Array[ExtResource("1_rnp2p")]([ExtResource("15_erlj7"), ExtResource("5_jndfn"), ExtResource("23_pwd6f"), ExtResource("4_xokk3"), ExtResource("22_gxtcc"), ExtResource("7_jojlu"), ExtResource("3_2vmfj"), ExtResource("3_jfbpu"), ExtResource("7_4d2mr"), ExtResource("8_bts7n"), ExtResource("6_denuh"), ExtResource("4_qty27"), ExtResource("6_j2she"), ExtResource("7_jewch"), ExtResource("8_tl8oy"), ExtResource("9_xajpj"), ExtResource("10_ayxc0"), ExtResource("5_d16ag"), ExtResource("2_bvs1m"), ExtResource("16_0phjb"), ExtResource("14_inq4o"), ExtResource("3_a2xtw"), ExtResource("6_3a3lt")])

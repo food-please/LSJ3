@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ConstructionData" load_steps=5 format=3 uid="uid://b1d661jcc0v82"]
+
+[ext_resource type="Texture2D" uid="uid://cgh73evgw0arf" path="res://constructions/marine/lighthouse/lighthouse_icon.atlastex" id="1_68ts1"]
+[ext_resource type="PackedScene" uid="uid://b6kak0ssof3xo" path="res://constructions/marine/lighthouse/cnst_rqmt_lighthouse.tscn" id="2_vcr0i"]
+[ext_resource type="Script" path="res://constructions/construction_data.gd" id="3_y176r"]
+[ext_resource type="PackedScene" uid="uid://tkx317fkf644" path="res://constructions/marine/lighthouse/lighthouse.tscn" id="4_wybgb"]
+
+[resource]
+script = ExtResource("3_y176r")
+icon = ExtResource("1_68ts1")
+variations = Array[PackedScene]([ExtResource("4_wybgb")])
+requirements = Array[PackedScene]([ExtResource("2_vcr0i")])

@@ -2,15 +2,15 @@
 
 [ext_resource type="Script" path="res://music/music_player.gd" id="1_nutcs"]
 [ext_resource type="AudioStream" uid="uid://c6cdj7uhrwsnb" path="res://music/Chill-dren.ogg" id="2_dugdj"]
-[ext_resource type="AudioStream" uid="uid://clpubyjlnun23" path="res://music/Factory.ogg" id="3_hqymf"]
 [ext_resource type="AudioStream" uid="uid://2ay07fds10mf" path="res://music/Float.ogg" id="4_tcccm"]
 [ext_resource type="AudioStream" uid="uid://di086eq572jda" path="res://music/Happy Deuce.ogg" id="5_0c7o6"]
 [ext_resource type="AudioStream" uid="uid://c3wwack2n13x6" path="res://music/One More.ogg" id="7_g22xh"]
 [ext_resource type="AudioStream" uid="uid://d26lsc77t6ffk" path="res://music/TCH.ogg" id="7_p636u"]
+[ext_resource type="AudioStream" uid="uid://d4kdc28h80rr" path="res://music/Aura.ogg" id="8_wua31"]
 
 [node name="MusicPlayer" type="Node"]
 script = ExtResource("1_nutcs")
-tracks = Array[AudioStream]([ExtResource("2_dugdj"), ExtResource("3_hqymf"), ExtResource("4_tcccm"), ExtResource("5_0c7o6"), ExtResource("7_p636u"), ExtResource("7_g22xh")])
+tracks = Array[AudioStream]([ExtResource("2_dugdj"), ExtResource("4_tcccm"), ExtResource("5_0c7o6"), ExtResource("7_p636u"), ExtResource("7_g22xh"), ExtResource("8_wua31")])
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 bus = &"Music"
